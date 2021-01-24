@@ -8,6 +8,7 @@
 #### フロントエンド
 - vue@2.6.12 （vuex,vue-router,その他ライブラリ）
 - sass
+- npm 6.14.10
 #### インフラ
 - docker 
 - AWS（EC2,RDS,S3,ECS）※使う予定
