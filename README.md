@@ -1,14 +1,14 @@
 # DotStudio-nginx
 ドット絵作成共有SNSアプリです。
 ### 使用技術
-####バックエンド
+#### バックエンド
 - PHP 7.4.1
 - Laravel 6.20.0
 - postgreSQL 11.10
-####フロントエンド
+#### フロントエンド
 - vue@2.6.12 （vuex,vue-router,その他ライブラリ）
 - sass
-####インフラ
+#### インフラ
 - docker 
 - AWS（EC2,RDS,S3,ECS）※使う予定
 ### アプリの概要
