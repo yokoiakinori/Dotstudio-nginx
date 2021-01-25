@@ -1,23 +1,22 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue";
+import Vuex from "vuex";
 
-import maincanvas from './maincanvas'
-import auth from './auth'
-import search from './search'
-import error from './error'
-import randing from './randing'
+import maincanvas from "./maincanvas";
+import auth from "./auth";
+import search from "./search";
+import error from "./error";
+import randing from "./randing";
 
-
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 const store = new Vuex.Store({
-	modules: {
-		maincanvas,
-		auth,
-		search,
-		error,
-		randing
-	}
-})
+    modules: {
+        maincanvas,
+        auth,
+        search,
+        error,
+        randing
+    }
+});
 
-export default store
+export default store;

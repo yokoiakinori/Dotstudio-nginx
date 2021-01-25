@@ -13,7 +13,8 @@ const getters = {
     username: state => (state.user ? state.user.name : ""),
     thumbnail: state => (state.user ? state.user.userthumbnail.url : ""),
     userid: state => (state.user ? state.user.id : ""),
-    followees: state => (state.user ? state.user.follows : "")
+    followees: state => (state.user ? state.user.follows : ""),
+    materials: state => (state.user ? state.user.materialproducts : "")
 };
 
 const mutations = {
