@@ -16,7 +16,7 @@
                     <modalWindow
                         v-if="modalWindow"
                         @closeModal="modalToggle"
-                        @formEnter="thumbnailUpdate"
+                        @formEnter="thumbnailCurrent"
                     >
                         <h3>サムネイル更新</h3>
                         <label for="file_upload">
@@ -125,17 +125,6 @@ export default {
             reader.readAsDataURL(event.target.files[0]);
             this.thumbnail = event.target.files[0];
         },
-        async profileUpdate() {
-            const response = await axios.post(
-                "/api/userupdate",
-                this.updateForm
-            );
-            if (response.status !== OK) {
-                this.$store.commit("error/setCode", response.status);
-                return false;
-            }
-            this.$store.commit("auth/updateUser", response);
-        },
         reset() {
             this.preview = "";
             this.thumbnail = null;
@@ -152,6 +141,25 @@ export default {
             this.user.followCount = response.data[1];
             this.user.followerCount = response.data[2];
         },
+        thumbnailCurrent() {
+            this.user.thumbnail = this.preview;
+            this.modalToggle();
+        },
+        async profileUpdate() {
+            const response = await axios.post(
+                "/api/userupdate",
+                this.updateForm
+            );
+            if (response.status !== OK) {
+                this.$store.commit("error/setCode", response.status);
+                return false;
+            }
+            if (this.thumbnail != null) {
+                this.thumbnailUpdate();
+            }
+            this.$store.commit("auth/updateUser", response);
+            this.$router.push(`/settings/${this.id}`);
+        },
         async thumbnailUpdate() {
             const formData = new FormData();
             formData.append("userthumbnail", this.thumbnail);
@@ -159,7 +167,6 @@ export default {
                 "/api/thumbnail/update",
                 formData
             );
-            this.modalToggle();
         }
     },
     watch: {
@@ -177,16 +184,14 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../sass/common.scss";
+@import "../../sass/modal.scss";
 .wrapper {
     width: 90%;
     display: flex;
     flex-flow: wrap column;
+    align-items: center;
     margin: 0 auto;
     padding-top: 30px;
-}
-.userSettings {
-    display: flex;
-    flex-flow: row;
 }
 .updateThumbnail {
     display: flex;

@@ -222,6 +222,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../../sass/common.scss";
+@import "../../../sass/modal.scss";
 div {
     width: 100%;
 }
@@ -276,14 +277,6 @@ div {
 }
 #createProduction {
     color: rgba($maincolor, 0.6);
-}
-.v-enter-active,
-.v-leave-active {
-    transition: opacity 0.2s;
-}
-.v-enter,
-.v-leave-to {
-    opacity: 0;
 }
 
 label {

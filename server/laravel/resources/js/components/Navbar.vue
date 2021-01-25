@@ -7,7 +7,7 @@
             <form @submit.prevent="setKeyword" class="searchbox">
                 <input
                     type="text"
-                    placeholder="タグ、作品名"
+                    placeholder="作品名等キーワード"
                     v-model="searchText"
                 />
                 <button type="submit">
