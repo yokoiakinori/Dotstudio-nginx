@@ -18,7 +18,11 @@
                             <i class="fas fa-heart heartIcon"></i>
                             {{ product.likes_count }}
                         </button>
-                        <MaterialAddButton :state="'list'" :product="product" />
+                        <MaterialAddButton
+                            :state="'list'"
+                            :product="product"
+                            v-show="product.user.id != myid"
+                        />
                     </div>
                 </RouterLink>
             </transition>
@@ -61,6 +65,9 @@ export default {
         },
         alldot() {
             return Number(this.product.alldot);
+        },
+        myid() {
+            return this.$store.getters["auth/userid"];
         }
     },
     methods: {

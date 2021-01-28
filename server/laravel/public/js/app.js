@@ -4214,6 +4214,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -4241,6 +4245,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     alldot: function alldot() {
       return Number(this.product.alldot);
+    },
+    myid: function myid() {
+      return this.$store.getters["auth/userid"];
     }
   },
   methods: {
@@ -12071,6 +12078,14 @@ var render = function() {
                       : _vm._e(),
                     _vm._v(" "),
                     _c("MaterialAddButton", {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: _vm.product.user.id != _vm.myid,
+                          expression: "product.user.id != myid"
+                        }
+                      ],
                       attrs: { state: "list", product: _vm.product }
                     })
                   ],
