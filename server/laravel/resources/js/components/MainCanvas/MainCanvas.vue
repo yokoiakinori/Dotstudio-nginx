@@ -8,7 +8,7 @@
                 :drawingJudgement="drawingJudgement"
                 :lineDotVolume="lineDotVolume"
                 :inputColor="Number(colorNumber[item - 1])"
-                :stampGuide="guideJudgement[item - 1]"
+                :stampGuide="Number(guideColor[item - 1])"
                 @mousedown.native="dragStart(item)"
                 @mouseup.native="dragEnd"
                 @saveProduct="saveProduct"
@@ -36,7 +36,7 @@ export default {
             materialColor: null,
             firstClick: null,
             secondClick: null,
-            guideJudgement: []
+            guideColor: []
         };
     },
     computed: mapState({
@@ -136,14 +136,14 @@ export default {
             this.dots.push(data);
         },
         async guideBuild(val) {
-            this.guideJudgement.splice(0, this.guideJudgement.length);
+            this.guideColor.splice(0, this.guideColor.length);
             for (let i = 1; i <= val; i++) {
-                this.guideJudgement.push(false);
+                this.guideColor.push(-1);
             }
         },
         async guideReset() {
             for (let i = 1; i <= this.allCanvasDot; i++) {
-                this.$set(this.guideJudgement, i - 1, false);
+                this.$set(this.guideColor, i - 1, -1);
             }
         },
         async stampGuide(start) {
@@ -152,6 +152,7 @@ export default {
             for (let i = 0; i < this.currentMaterial.linedot; i++) {
                 for (let j = start; j <= lineEnd; j++) {
                     if (
+                        //キャンバスからはみ出していない場合
                         start % this.lineDotVolume <
                             this.lineDotVolume -
                                 this.currentMaterial.linedot +
@@ -162,9 +163,11 @@ export default {
                                 1
                     ) {
                         this.$set(
-                            this.guideJudgement,
+                            this.guideColor,
                             j + i * this.lineDotVolume - 1,
-                            true
+                            this.materialColor[
+                                j - start + i * this.currentMaterial.linedot
+                            ]
                         );
                     }
                 }

@@ -2760,6 +2760,12 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _GuideDot_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GuideDot.vue */ "./resources/js/components/MainCanvas/GuideDot.vue");
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2772,15 +2778,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    GuideDot: _GuideDot_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
   props: {
     inputColor: Number,
     dotId: Number,
     drawingJudgement: Boolean,
     lineDotVolume: Number,
     stampGuide: {
-      type: Boolean,
-      "default": false
+      type: Number,
+      "default": -1
     }
   },
   data: function data() {
@@ -2790,11 +2800,7 @@ __webpack_require__.r(__webpack_exports__);
         width: 0,
         height: 0
       },
-      guideStyle: {
-        backgroundColor: "black"
-      },
-      colorOfState: 0,
-      colorOfGuide: 0
+      colorOfState: 0
     };
   },
   methods: {
@@ -2832,9 +2838,6 @@ __webpack_require__.r(__webpack_exports__);
         id: this.dotId,
         color: this.colorOfState
       });
-    },
-    colorOfGuide: function colorOfGuide(val) {
-      this.guideStyle.backgroundColor = this.colorPalet[val];
     }
   },
   computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])({
@@ -2851,6 +2854,37 @@ __webpack_require__.r(__webpack_exports__);
       return state.maincanvas.paletColors;
     }
   })
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MainCanvas/GuideDot.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/MainCanvas/GuideDot.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    stampGuide: Number,
+    colorPalet: Array
+  },
+  styles: function styles(props) {
+    return {
+      backgroundColor: props.colorPalet[props.stampGuide]
+    };
+  }
 });
 
 /***/ }),
@@ -2911,7 +2945,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       materialColor: null,
       firstClick: null,
       secondClick: null,
-      guideJudgement: []
+      guideColor: []
     };
   },
   computed: Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])({
@@ -3108,10 +3142,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
-                _this5.guideJudgement.splice(0, _this5.guideJudgement.length);
+                _this5.guideColor.splice(0, _this5.guideColor.length);
 
                 for (i = 1; i <= val; i++) {
-                  _this5.guideJudgement.push(false);
+                  _this5.guideColor.push(-1);
                 }
 
               case 2:
@@ -3132,7 +3166,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context6.prev = _context6.next) {
               case 0:
                 for (i = 1; i <= _this6.allCanvasDot; i++) {
-                  _this6.$set(_this6.guideJudgement, i - 1, false);
+                  _this6.$set(_this6.guideColor, i - 1, -1);
                 }
 
               case 1:
@@ -3158,8 +3192,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 for (i = 0; i < _this7.currentMaterial.linedot; i++) {
                   for (j = start; j <= lineEnd; j++) {
-                    if (start % _this7.lineDotVolume < _this7.lineDotVolume - _this7.currentMaterial.linedot + 1 && start / _this7.lineDotVolume < _this7.lineDotVolume - _this7.currentMaterial.linedot + 1) {
-                      _this7.$set(_this7.guideJudgement, j + i * _this7.lineDotVolume - 1, true);
+                    if ( //キャンバスからはみ出していない場合
+                    start % _this7.lineDotVolume < _this7.lineDotVolume - _this7.currentMaterial.linedot + 1 && start / _this7.lineDotVolume < _this7.lineDotVolume - _this7.currentMaterial.linedot + 1) {
+                      _this7.$set(_this7.guideColor, j + i * _this7.lineDotVolume - 1, _this7.materialColor[j - start + i * _this7.currentMaterial.linedot]);
                     }
                   }
                 }
@@ -7124,7 +7159,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "li[data-v-04ac7036] {\n  transition-property: background-color;\n  transition-duration: 0.3s;\n  list-style: none;\n  position: relative;\n}\nli div[data-v-04ac7036] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n.guide[data-v-04ac7036] {\n  z-index: 30;\n  opacity: 0.4;\n}", ""]);
+exports.push([module.i, "li[data-v-04ac7036] {\n  transition-property: background-color;\n  transition-duration: 0.3s;\n  list-style: none;\n  position: relative;\n}\nli div[data-v-04ac7036] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n.guide[data-v-04ac7036] {\n  z-index: 20;\n  opacity: 0.4;\n}", ""]);
 
 // exports
 
@@ -11105,20 +11140,54 @@ var render = function() {
       on: { click: _vm.draw, mousemove: _vm.dragDraw, mouseover: _vm.guideOn }
     },
     [
-      _c("div", {
+      _c("GuideDot", {
         directives: [
           {
             name: "show",
             rawName: "v-show",
-            value: _vm.stampGuide,
-            expression: "stampGuide"
+            value: _vm.stampGuide != -1,
+            expression: "stampGuide != -1"
           }
         ],
         staticClass: "guide",
-        style: _vm.guideStyle
+        attrs: { stampGuide: _vm.stampGuide, colorPalet: _vm.colorPalet }
       })
-    ]
+    ],
+    1
   )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MainCanvas/GuideDot.vue?vue&type=template&id=220725e0&functional=true&":
+/*!**************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/MainCanvas/GuideDot.vue?vue&type=template&id=220725e0&functional=true& ***!
+  \**************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function(_h, _vm) {
+  var _c = _vm._c
+  return _c("div", {
+    directives: [
+      {
+        name: "show",
+        rawName: "v-show",
+        value: _vm.stampGuide != -1,
+        expression: "stampGuide != -1"
+      }
+    ],
+    staticClass: "guide",
+    style: _vm.$options.styles(_vm.props)
+  })
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -11153,7 +11222,7 @@ var render = function() {
             drawingJudgement: _vm.drawingJudgement,
             lineDotVolume: _vm.lineDotVolume,
             inputColor: Number(_vm.colorNumber[item - 1]),
-            stampGuide: _vm.guideJudgement[item - 1]
+            stampGuide: Number(_vm.guideColor[item - 1])
           },
           on: {
             saveProduct: _vm.saveProduct,
@@ -33983,6 +34052,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Dot_vue_vue_type_template_id_04ac7036_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Dot_vue_vue_type_template_id_04ac7036_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/MainCanvas/GuideDot.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/MainCanvas/GuideDot.vue ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _GuideDot_vue_vue_type_template_id_220725e0_functional_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GuideDot.vue?vue&type=template&id=220725e0&functional=true& */ "./resources/js/components/MainCanvas/GuideDot.vue?vue&type=template&id=220725e0&functional=true&");
+/* harmony import */ var _GuideDot_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GuideDot.vue?vue&type=script&lang=js& */ "./resources/js/components/MainCanvas/GuideDot.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _GuideDot_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _GuideDot_vue_vue_type_template_id_220725e0_functional_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _GuideDot_vue_vue_type_template_id_220725e0_functional_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  true,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/MainCanvas/GuideDot.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/MainCanvas/GuideDot.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/MainCanvas/GuideDot.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_GuideDot_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./GuideDot.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MainCanvas/GuideDot.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_GuideDot_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/MainCanvas/GuideDot.vue?vue&type=template&id=220725e0&functional=true&":
+/*!********************************************************************************************************!*\
+  !*** ./resources/js/components/MainCanvas/GuideDot.vue?vue&type=template&id=220725e0&functional=true& ***!
+  \********************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GuideDot_vue_vue_type_template_id_220725e0_functional_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./GuideDot.vue?vue&type=template&id=220725e0&functional=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MainCanvas/GuideDot.vue?vue&type=template&id=220725e0&functional=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GuideDot_vue_vue_type_template_id_220725e0_functional_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GuideDot_vue_vue_type_template_id_220725e0_functional_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

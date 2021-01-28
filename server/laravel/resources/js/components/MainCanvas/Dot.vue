@@ -5,21 +5,30 @@
         @mousemove="dragDraw"
         @mouseover="guideOn"
     >
-        <div v-show="stampGuide" class="guide" :style="guideStyle"></div>
+        <GuideDot
+            v-show="stampGuide != -1"
+            class="guide"
+            :stampGuide="stampGuide"
+            :colorPalet="colorPalet"
+        ></GuideDot>
     </li>
 </template>
 
 <script>
 import { mapState } from "vuex";
+import GuideDot from "./GuideDot.vue";
 export default {
+    components: {
+        GuideDot
+    },
     props: {
         inputColor: Number,
         dotId: Number,
         drawingJudgement: Boolean,
         lineDotVolume: Number,
         stampGuide: {
-            type: Boolean,
-            default: false
+            type: Number,
+            default: -1
         }
     },
     data() {
@@ -29,11 +38,7 @@ export default {
                 width: 0,
                 height: 0
             },
-            guideStyle: {
-                backgroundColor: "black"
-            },
-            colorOfState: 0,
-            colorOfGuide: 0
+            colorOfState: 0
         };
     },
     methods: {
@@ -75,9 +80,6 @@ export default {
                 id: this.dotId,
                 color: this.colorOfState
             });
-        },
-        colorOfGuide(val) {
-            this.guideStyle.backgroundColor = this.colorPalet[val];
         }
     },
     computed: mapState({
@@ -105,7 +107,7 @@ li {
     }
 }
 .guide {
-    z-index: 30;
+    z-index: 20;
     opacity: 0.4;
 }
 </style>
