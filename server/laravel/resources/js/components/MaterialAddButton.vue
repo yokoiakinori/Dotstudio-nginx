@@ -6,7 +6,13 @@
     >
         素材としてダウンロード
     </button>
-    <button v-else @click="onMaterialClick">
+    <button
+        v-else
+        @click.prevent="onMaterialClick"
+        :class="{
+            material_haved: materials.includes(product.id)
+        }"
+    >
         <i class="fas fa-stamp"></i>
     </button>
 </template>
@@ -56,4 +62,10 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../sass/common.scss";
+.material_haved {
+    background-color: $maincolor !important;
+    i {
+        color: white;
+    }
+}
 </style>

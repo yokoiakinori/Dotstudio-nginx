@@ -8,9 +8,11 @@
                 :drawingJudgement="drawingJudgement"
                 :lineDotVolume="lineDotVolume"
                 :inputColor="Number(colorNumber[item - 1])"
+                :stampGuide="guideJudgement[item - 1]"
                 @mousedown.native="dragStart(item)"
                 @mouseup.native="dragEnd"
                 @saveProduct="saveProduct"
+                @guideOn="stampGuide(item)"
             ></Dot>
         </ul>
     </div>
@@ -33,7 +35,8 @@ export default {
             fillColor: null,
             materialColor: null,
             firstClick: null,
-            secondClick: null
+            secondClick: null,
+            guideJudgement: []
         };
     },
     computed: mapState({
@@ -54,6 +57,7 @@ export default {
                 this.lineDotVolume = this.$store.state.maincanvas.lineDotVolume;
             });
             await this.deploymentDot(val);
+            this.guideBuild(this.allCanvasDot);
         },
         currentMaterial(val) {
             if (val != undefined) {
@@ -63,6 +67,8 @@ export default {
         drawingTool(val) {
             if (val == "reset") {
                 this.drawReset();
+            } else if (val != "stamp") {
+                this.guideReset();
             }
         },
         fillColor() {
@@ -85,14 +91,8 @@ export default {
     },
     methods: {
         async beforeCurrentReset() {
+            this.allCanvasDot = 0;
             this.colorNumber.splice(0, this.colorNumber.length);
-            for (let i = 1; i <= this.allCanvasDot; i++) {
-                this.colorNumber.push(0);
-            }
-            this.$nextTick(function() {
-                this.colorNumber.splice(0, this.colorNumber.length);
-            });
-            await this.sleep();
         },
         async deploymentDot(val) {
             const response = await axios.post("/api/products/current", {
@@ -135,12 +135,40 @@ export default {
             //このdataは子コンポーネントDotから送られてくる
             this.dots.push(data);
         },
-        sleep() {
-            return new Promise(resolve => {
-                setTimeout(() => {
-                    resolve();
-                }, 250);
-            });
+        async guideBuild(val) {
+            this.guideJudgement.splice(0, this.guideJudgement.length);
+            for (let i = 1; i <= val; i++) {
+                this.guideJudgement.push(false);
+            }
+        },
+        async guideReset() {
+            for (let i = 1; i <= this.allCanvasDot; i++) {
+                this.$set(this.guideJudgement, i - 1, false);
+            }
+        },
+        async stampGuide(start) {
+            this.guideReset();
+            const lineEnd = start + this.currentMaterial.linedot;
+            for (let i = 0; i < this.currentMaterial.linedot; i++) {
+                for (let j = start; j <= lineEnd; j++) {
+                    if (
+                        start % this.lineDotVolume <
+                            this.lineDotVolume -
+                                this.currentMaterial.linedot +
+                                1 &&
+                        start / this.lineDotVolume <
+                            this.lineDotVolume -
+                                this.currentMaterial.linedot +
+                                1
+                    ) {
+                        this.$set(
+                            this.guideJudgement,
+                            j + i * this.lineDotVolume - 1,
+                            true
+                        );
+                    }
+                }
+            }
         },
 
         //ツール系メソッド-----↓↓↓
