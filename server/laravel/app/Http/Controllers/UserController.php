@@ -27,6 +27,7 @@ class UserController extends Controller
     {
         Auth::user()->userthumbnail;
         Auth::user()->follows;
+        Auth::user()->materialproducts;
         $user = Auth::user();
         return $user;
     }

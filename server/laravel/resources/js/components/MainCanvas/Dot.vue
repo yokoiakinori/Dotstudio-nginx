@@ -1,15 +1,35 @@
 <template>
-    <li :style="dotStyle" @click="draw" @mousemove="dragDraw"></li>
+    <li
+        :style="dotStyle"
+        @click="draw"
+        @mousemove="dragDraw"
+        @mouseover="guideOn"
+    >
+        <GuideDot
+            v-show="stampGuide != -1"
+            class="guide"
+            :stampGuide="stampGuide"
+            :colorPalet="colorPalet"
+        ></GuideDot>
+    </li>
 </template>
 
 <script>
 import { mapState } from "vuex";
+import GuideDot from "./GuideDot.vue";
 export default {
+    components: {
+        GuideDot
+    },
     props: {
         inputColor: Number,
         dotId: Number,
         drawingJudgement: Boolean,
-        lineDotVolume: Number
+        lineDotVolume: Number,
+        stampGuide: {
+            type: Number,
+            default: -1
+        }
     },
     data() {
         return {
@@ -18,7 +38,7 @@ export default {
                 width: 0,
                 height: 0
             },
-            nowColor: 0
+            colorOfState: 0
         };
     },
     methods: {
@@ -33,17 +53,22 @@ export default {
                     this.drawingTool
                 )
             ) {
-                this.nowColor = this.drawingColor;
+                this.colorOfState = this.drawingColor;
             } else if (this.drawingTool == "eraser") {
-                this.nowColor = 0;
+                this.colorOfState = 0;
+            }
+        },
+        guideOn() {
+            if (this.drawingTool == "stamp") {
+                this.$emit("guideOn");
             }
         }
     },
     watch: {
         inputColor(val) {
-            this.nowColor = val;
+            this.colorOfState = val;
         },
-        nowColor(val) {
+        colorOfState(val) {
             this.dotStyle.backgroundColor = this.colorPalet[val];
         },
         lineDotVolume(val) {
@@ -53,7 +78,7 @@ export default {
         saveStatus() {
             this.$emit("saveProduct", {
                 id: this.dotId,
-                color: this.nowColor
+                color: this.colorOfState
             });
         }
     },
@@ -72,5 +97,17 @@ li {
     transition-property: background-color;
     transition-duration: 0.3s;
     list-style: none;
+    position: relative;
+    div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+.guide {
+    z-index: 20;
+    opacity: 0.4;
 }
 </style>
