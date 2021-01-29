@@ -2,7 +2,7 @@
     <div class="wrapper">
         <h3>ユーザープロフィールの編集</h3>
         <div class="userSettings">
-            <div class="infomationItem updateThumbnail">
+            <div class=" updateThumbnail">
                 <button class="edit" @click="modalToggle">
                     <i class="fas fa-edit"></i>変更
                 </button>
@@ -34,25 +34,25 @@
                 </transition>
             </div>
 
-            <form
-                action
-                class="updateInformation"
-                @submit.prevent="profileUpdate"
-            >
+            <form class="form" action @submit.prevent="profileUpdate">
                 <label for="update-name">新しい名前</label>
                 <input
+                    class="form__item"
                     type="text"
                     :placeholder="user.name"
                     v-model="updateForm.name"
                 />
                 <label for="update-name">新しい挨拶文</label>
                 <textarea
+                    class="form__item"
                     :placeholder="user.introduction"
                     v-model="updateForm.introduction"
                     cols="30"
                     rows="4"
                 ></textarea>
-                <button type="submit" class="formButton">更新する</button>
+                <div class="form__button">
+                    <button type="submit" class="button">更新する</button>
+                </div>
             </form>
         </div>
     </div>
@@ -192,11 +192,28 @@ export default {
     align-items: center;
     margin: 0 auto;
     padding-top: 30px;
+    form {
+        flex-flow: column;
+        display: flex;
+    }
+    h3 {
+        margin-bottom: 40px;
+    }
+}
+.userSettings {
+    width: 500px;
+    align-items: center;
+}
+.form__item {
+    width: 100%;
 }
 .updateThumbnail {
-    display: flex;
+    width: 150px;
+    height: 150px;
+    margin: auto;
     position: relative;
     flex-flow: column;
+    margin-bottom: 30px;
     label {
         background-color: rgba($color: $maincolor, $alpha: 0.2);
         color: $maincolor;
@@ -211,7 +228,7 @@ export default {
     button {
         background-color: white;
         position: absolute;
-        top: 90px;
+        top: 100px;
         left: -7px;
         padding: 5px 15px;
         border-radius: 20px;
@@ -222,23 +239,15 @@ export default {
     }
 }
 .thumbnail {
-    width: 130px;
-    height: 130px;
+    width: 100%;
+    height: 100%;
     cursor: pointer;
 }
 .updateInformation {
-    display: flex;
-    flex-flow: wrap column;
     margin-left: 20px;
     height: 180px;
     label {
         margin-top: 10px;
-    }
-    input {
-        border-bottom: solid 1px $maincolor;
-    }
-    textarea {
-        border-bottom: solid 1px $maincolor;
     }
 }
 .imageViewer {

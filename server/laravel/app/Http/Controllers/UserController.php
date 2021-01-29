@@ -43,7 +43,7 @@ class UserController extends Controller
 
     public function products(String $id)
     {
-        $products = Product::where('user_id', $id)->orderBy('created_at', 'desc')->paginate();
+        $products = Product::with('user')->where('user_id', $id)->orderBy('created_at', 'desc')->paginate();
         return $products;
     }
     public function likeproducts(String $id)
