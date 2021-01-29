@@ -5,7 +5,7 @@
                 v-for="product in productList"
                 :key="product.id"
                 :product="product"
-                :appearLike="true"
+                :appearIcon="true"
                 @like="onLikeClick"
                 :productstyle="productStyle"
             />

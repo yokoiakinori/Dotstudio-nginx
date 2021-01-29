@@ -13,7 +13,7 @@
                                 product_action_liked: product.liked_by_user
                             }"
                             @click.prevent="like"
-                            v-if="appearLike"
+                            v-if="appearIcon"
                         >
                             <i class="fas fa-heart heartIcon"></i>
                             {{ product.likes_count }}
@@ -21,6 +21,7 @@
                         <MaterialAddButton
                             :state="'list'"
                             :product="product"
+                            v-if="appearIcon"
                             v-show="product.user.id != myid"
                         />
                     </div>
@@ -46,7 +47,7 @@ export default {
         MaterialAddButton
     },
     props: {
-        appearLike: false,
+        appearIcon: false,
         product: {},
         productstyle: {
             width: 0,

@@ -4218,6 +4218,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -4226,7 +4227,7 @@ __webpack_require__.r(__webpack_exports__);
     MaterialAddButton: _MaterialAddButton_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   props: {
-    appearLike: false,
+    appearIcon: false,
     product: {},
     productstyle: {
       width: 0,
@@ -10758,7 +10759,7 @@ var render = function() {
             key: product.id,
             attrs: {
               product: product,
-              appearLike: true,
+              appearIcon: true,
               productstyle: _vm.productStyle
             },
             on: { like: _vm.onLikeClick }
@@ -12052,7 +12053,7 @@ var render = function() {
                 _c(
                   "div",
                   [
-                    _vm.appearLike
+                    _vm.appearIcon
                       ? _c(
                           "button",
                           {
@@ -12077,17 +12078,19 @@ var render = function() {
                         )
                       : _vm._e(),
                     _vm._v(" "),
-                    _c("MaterialAddButton", {
-                      directives: [
-                        {
-                          name: "show",
-                          rawName: "v-show",
-                          value: _vm.product.user.id != _vm.myid,
-                          expression: "product.user.id != myid"
-                        }
-                      ],
-                      attrs: { state: "list", product: _vm.product }
-                    })
+                    _vm.appearIcon
+                      ? _c("MaterialAddButton", {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.product.user.id != _vm.myid,
+                              expression: "product.user.id != myid"
+                            }
+                          ],
+                          attrs: { state: "list", product: _vm.product }
+                        })
+                      : _vm._e()
                   ],
                   1
                 )

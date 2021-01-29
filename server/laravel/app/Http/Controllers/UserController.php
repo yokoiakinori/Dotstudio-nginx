@@ -34,7 +34,7 @@ class UserController extends Controller
 
     public function list()
     {
-        $users = User::with(['products' => function ($query) {
+        $users = User::with(['products.user' => function ($query) {
             $query->get();
         }, 'userthumbnail', 'followers'])->withCount('followers')->orderBy('followers_count', 'desc')->paginate();
 
