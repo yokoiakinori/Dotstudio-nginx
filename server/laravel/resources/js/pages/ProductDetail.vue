@@ -2,7 +2,10 @@
     <div v-if="product" class="productDetail">
         <Product :product="product" :productstyle="productStyle" />
         <div class="productInformation">
-            <h2>{{ product.productname }}</h2>
+            <div class="name">
+                <h2>{{ product.productname }}</h2>
+                <p class="date">作成日：{{ product.created_at }}</p>
+            </div>
             <ul>
                 <li v-for="tag in product.producttags" :key="tag.id">
                     <RouterLink to="/tagsearch?page=1">
@@ -185,9 +188,13 @@ button {
     height: 45px;
 }
 .productInformation {
-    width: 500px;
+    width: 420px;
     height: 400px;
     margin-top: 15px;
+    .name {
+        display: flex;
+        justify-content: space-between;
+    }
     ul {
         display: flex;
         li {
