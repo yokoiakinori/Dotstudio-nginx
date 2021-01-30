@@ -5,6 +5,7 @@
             <p class="name">{{ comment.user.name }}</p>
             <p>{{ comment.content }}</p>
         </div>
+        <p class="date">{{ comment.created_at }}</p>
     </div>
 </template>
 
@@ -33,6 +34,7 @@ div {
 .content {
     display: flex;
     flex-flow: column;
+    width: 240px;
 }
 .name {
     font-size: 13px;

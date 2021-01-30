@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Scout\Searchable;
+use Carbon\Carbon;
 
 class Product extends Model
 {
@@ -26,7 +27,7 @@ class Product extends Model
     ];
 
     protected $visible = [
-        'id', 'user', 'productname', 'alldot', 'linedot', 'colors', 'uniquekey', 'comments', 'likes_count', 'liked_by_user', 'producttags', 'usedmaterial', 'ispublished', 'countview'
+        'id', 'created_at', 'user', 'productname', 'alldot', 'linedot', 'colors', 'uniquekey', 'comments', 'likes_count', 'liked_by_user', 'producttags', 'usedmaterial', 'ispublished', 'countview'
     ];
 
     public function user()
@@ -68,6 +69,10 @@ class Product extends Model
         return $this->likes->contains(function ($user) {
             return $user->id === Auth::user()->id;
         });
+    }
+    public function getCreatedAtAttribute($value)
+    {
+        return Carbon::parse($value)->format("Y/m/d");
     }
 
     public function shouldBeSearchable()

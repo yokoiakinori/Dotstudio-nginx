@@ -120,7 +120,9 @@ class ProductController extends Controller
         $comment->user_id = Auth::user()->id;
         $product->comments()->save($comment);
 
-        $new_comment = Comment::where('id', $comment->id)->with('user')->first();
+        $new_comment = Comment::where('id', $comment->id)->with(['user' => function ($query) {
+            $query->with('userthumbnail');
+        }])->first();
         return response($new_comment, 201);
     }
 
