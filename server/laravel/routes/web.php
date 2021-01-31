@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,4 +12,5 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/{any?}', fn () => view('index'))->where('any', '.+');
+
+Route::get('/{any?}', 'HomeController@index')->where('any', '.+');
