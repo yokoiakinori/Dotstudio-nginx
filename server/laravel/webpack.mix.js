@@ -14,4 +14,12 @@ const mix = require("laravel-mix");
 mix.browserSync({
     proxy: "0.0.0.0:80",
     open: false
-}).js("resources/js/app.js", "public/js");
+})
+    .webpackConfig({
+        output: {
+            chunkFilename: mix.inProduction()
+                ? "prod/chunks/[name].js"
+                : "dev/chunks/[name].js"
+        }
+    })
+    .js("resources/js/app.js", "public/js");

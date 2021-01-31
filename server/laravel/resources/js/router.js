@@ -1,24 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-import TopPage from "./pages/TopPage.vue";
-import Search from "./pages/Search.vue";
-import TagSearch from "./pages/TagSearch.vue";
-import Login from "./pages/Login.vue";
-import Ranking from "./pages/Ranking.vue";
-import RankUserFollower from "./pages/RankUserFollower.vue";
-import RankProductLike from "./pages/RankProductLike.vue";
-import RankProductWatch from "./pages/RankProductWatch.vue";
-import UserDetail from "./pages/UserDetail.vue";
-import UserSettings from "./pages/UserSettings.vue";
-import FollowList from "./pages/FollowList.vue";
-import MyDrawing from "./pages/MyDrawing.vue";
-import ProductDetail from "./pages/ProductDetail.vue";
-import Notification from "./pages/Notification.vue";
-
-import SystemError from "./pages/errors/System.vue";
-import NotFound from "./pages/errors/NotFound.vue";
-
 import store from "./store";
 
 Vue.use(VueRouter);
@@ -27,11 +9,27 @@ Vue.use(VueRouter);
 const routes = [
     {
         path: "/",
-        component: TopPage
+        component: resolve => {
+            require.ensure(
+                ["./pages/TopPage.vue"],
+                () => {
+                    resolve(require("./pages/TopPage.vue"));
+                },
+                "top"
+            );
+        }
     },
     {
         path: "/search",
-        component: Search,
+        component: resolve => {
+            require.ensure(
+                ["./pages/Search.vue"],
+                () => {
+                    resolve(require("./pages/Search.vue"));
+                },
+                "search"
+            );
+        },
         props: route => {
             const page = route.query.page;
             return {
@@ -41,7 +39,15 @@ const routes = [
     },
     {
         path: "/tagsearch",
-        component: TagSearch,
+        component: resolve => {
+            require.ensure(
+                ["./pages/TagSearch.vue"],
+                () => {
+                    resolve(require("./pages/TagSearch.vue"));
+                },
+                "tagsearch"
+            );
+        },
         props: route => {
             const page = route.query.page;
             return {
@@ -51,7 +57,15 @@ const routes = [
     },
     {
         path: "/login",
-        component: Login,
+        component: resolve => {
+            require.ensure(
+                ["./pages/Login.vue"],
+                () => {
+                    resolve(require("./pages/Login.vue"));
+                },
+                "login"
+            );
+        },
         beforeEnter(to, from, next) {
             if (store.getters["auth/check"]) {
                 next("/");
@@ -62,7 +76,15 @@ const routes = [
     },
     {
         path: "/notification",
-        component: Notification,
+        component: resolve => {
+            require.ensure(
+                ["./pages/Notification.vue"],
+                () => {
+                    resolve(require("./pages/Notification.vue"));
+                },
+                "notification"
+            );
+        },
         beforeEnter(to, from, next) {
             if (store.getters["auth/check"]) {
                 next();
@@ -74,12 +96,28 @@ const routes = [
     },
     {
         path: "/ranking",
-        component: Ranking,
+        component: resolve => {
+            require.ensure(
+                ["./pages/Ranking.vue"],
+                () => {
+                    resolve(require("./pages/Ranking.vue"));
+                },
+                "ranking"
+            );
+        },
         children: [
             {
                 path: "users",
                 name: "rank-users",
-                component: RankUserFollower,
+                component: resolve => {
+                    require.ensure(
+                        ["./pages/RankUserFollower.vue"],
+                        () => {
+                            resolve(require("./pages/RankUserFollower.vue"));
+                        },
+                        "rank-users"
+                    );
+                },
                 props: route => {
                     const page = route.query.page;
                     return {
@@ -90,7 +128,15 @@ const routes = [
             {
                 path: "product/like",
                 name: "rank-product-like",
-                component: RankProductLike,
+                component: resolve => {
+                    require.ensure(
+                        ["./pages/RankProductLike.vue"],
+                        () => {
+                            resolve(require("./pages/RankProductLike.vue"));
+                        },
+                        "rank-product-like"
+                    );
+                },
                 props: route => {
                     const page = route.query.page;
                     return {
@@ -101,7 +147,15 @@ const routes = [
             {
                 path: "product/watch",
                 name: "rank-product-watch",
-                component: RankProductWatch,
+                component: resolve => {
+                    require.ensure(
+                        ["./pages/RankProductWatch.vue"],
+                        () => {
+                            resolve(require("./pages/RankProductWatch.vue"));
+                        },
+                        "rank-product-watch"
+                    );
+                },
                 props: route => {
                     const page = route.query.page;
                     return {
@@ -113,12 +167,28 @@ const routes = [
     },
     {
         path: "/users/:id",
-        component: UserDetail,
+        component: resolve => {
+            require.ensure(
+                ["./pages/UserDetail.vue"],
+                () => {
+                    resolve(require("./pages/UserDetail.vue"));
+                },
+                "userdetail"
+            );
+        },
         props: true
     },
     {
         path: "/settings/:id",
-        component: UserSettings,
+        component: resolve => {
+            require.ensure(
+                ["./pages/UserSettings.vue"],
+                () => {
+                    resolve(require("./pages/UserSettings.vue"));
+                },
+                "usersettings"
+            );
+        },
         beforeEnter(to, from, next) {
             if (store.getters["auth/check"]) {
                 next();
@@ -130,19 +200,43 @@ const routes = [
     },
     {
         path: "/follow/:id",
-        component: FollowList,
+        component: resolve => {
+            require.ensure(
+                ["./pages/FollowList.vue"],
+                () => {
+                    resolve(require("./pages/FollowList.vue"));
+                },
+                "follow-list"
+            );
+        },
         props: true,
         name: "follow"
     },
     {
         path: "/follower/:id",
-        component: FollowList,
+        component: resolve => {
+            require.ensure(
+                ["./pages/FollowList.vue"],
+                () => {
+                    resolve(require("./pages/FollowList.vue"));
+                },
+                "follow-list"
+            );
+        },
         props: true,
         name: "follower"
     },
     {
         path: "/drawing",
-        component: MyDrawing,
+        component: resolve => {
+            require.ensure(
+                ["./pages/MyDrawing.vue"],
+                () => {
+                    resolve(require("./pages/MyDrawing.vue"));
+                },
+                "mydrawing"
+            );
+        },
         beforeEnter(to, from, next) {
             if (!store.getters["auth/check"]) {
                 next("/");
@@ -160,16 +254,40 @@ const routes = [
     },
     {
         path: "/products/:id",
-        component: ProductDetail,
+        component: resolve => {
+            require.ensure(
+                ["./pages/ProductDetail.vue"],
+                () => {
+                    resolve(require("./pages/ProductDetail.vue"));
+                },
+                "product-detail"
+            );
+        },
         props: true
     },
     {
         path: "/500",
-        component: SystemError
+        component: resolve => {
+            require.ensure(
+                ["./pages/errors/System.vue"],
+                () => {
+                    resolve(require("./pages/errors/System.vue"));
+                },
+                "error/system"
+            );
+        }
     },
     {
         path: "*",
-        component: NotFound
+        component: resolve => {
+            require.ensure(
+                ["./pages/errors/NotFound.vue"],
+                () => {
+                    resolve(require("./pages/errors/NotFound.vue"));
+                },
+                "error/notfound"
+            );
+        }
     }
 ];
 
