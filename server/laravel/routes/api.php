@@ -56,8 +56,4 @@ Route::put('/material/{id}', 'ProductController@materialadd')->name('material.ad
 Route::get('/materials', 'ProductController@materiallist')->name('materials.list');
 Route::get('/search', 'ProductController@search')->name('product.search');
 Route::get('/tagsearch', 'ProductController@tagsearch')->name('product.tagsearch');
-Route::get('/refresh-token', function (Illuminate\Http\Request $request) {
-    $request->session()->regenerateToken();
-
-    return response()->json();
-});
+Route::get('/refresh-token', 'UserController@refreshToken');

@@ -132,4 +132,9 @@ class UserController extends Controller
         $notification->checked = true;
         $notification->save();
     }
+    public function refreshToken(Request $request)
+    {
+        $request->session()->regenerateToken();
+        return response()->json();
+    }
 }
