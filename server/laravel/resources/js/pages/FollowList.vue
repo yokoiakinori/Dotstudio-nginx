@@ -13,14 +13,8 @@
 </template>
 
 <script>
-const Pagination = () =>
-    import(
-        /* webpackChunkName: "follow-list" */ "../components/Pagination.vue"
-    );
-const UserListItem = () =>
-    import(
-        /* webpackChunkName: "follow-list" */ "../components/UserListItem.vue"
-    );
+import Pagination from "../components/Pagination.vue";
+import UserListItem from "../components/UserListItem.vue";
 import Axios from "axios";
 import { OK } from "../util";
 export default {

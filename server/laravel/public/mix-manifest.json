@@ -21,5 +21,6 @@
     "/follow-list~product-detail~rank-product-like~rank-product-watch~rank-users~search~tagsearch~top~userdetail.js": "/follow-list~product-detail~rank-product-like~rank-product-watch~rank-users~search~tagsearch~top~userdetail.js",
     "/product-detail.js": "/product-detail.js",
     "/error/system.js": "/error/system.js",
-    "/error/notfound.js": "/error/notfound.js"
+    "/error/notfound.js": "/error/notfound.js",
+    "/follow-list~rank-product-like~rank-product-watch~rank-users~search~tagsearch~top~userdetail.js": "/follow-list~rank-product-like~rank-product-watch~rank-users~search~tagsearch~top~userdetail.js"
 }

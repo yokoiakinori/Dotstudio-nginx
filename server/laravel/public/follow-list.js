@@ -11,9 +11,11 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../util */ "./resources/js/util.js");
+/* harmony import */ var _components_Pagination_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Pagination.vue */ "./resources/js/components/Pagination.vue");
+/* harmony import */ var _components_UserListItem_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/UserListItem.vue */ "./resources/js/components/UserListItem.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../util */ "./resources/js/util.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -34,20 +36,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-var Pagination = function Pagination() {
-  return Promise.all(/*! import() | follow-list */[__webpack_require__.e("follow-list~product-detail~rank-product-like~rank-product-watch~rank-users~search~tagsearch~top~userdetail"), __webpack_require__.e("follow-list~mydrawing~rank-product-like~rank-product-watch~rank-users~search~tagsearch~top~userdetail"), __webpack_require__.e("follow-list~rank-users"), __webpack_require__.e("follow-list")]).then(__webpack_require__.bind(null, /*! ../components/Pagination.vue */ "./resources/js/components/Pagination.vue"));
-};
 
-var UserListItem = function UserListItem() {
-  return Promise.all(/*! import() | follow-list */[__webpack_require__.e("follow-list~product-detail~rank-product-like~rank-product-watch~rank-users~search~tagsearch~top~userdetail"), __webpack_require__.e("follow-list~mydrawing~rank-product-like~rank-product-watch~rank-users~search~tagsearch~top~userdetail"), __webpack_require__.e("follow-list~rank-users"), __webpack_require__.e("follow-list")]).then(__webpack_require__.bind(null, /*! ../components/UserListItem.vue */ "./resources/js/components/UserListItem.vue"));
-};
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    Pagination: Pagination,
-    UserListItem: UserListItem
+    Pagination: _components_Pagination_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    UserListItem: _components_UserListItem_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   props: {
     id: {
@@ -90,7 +86,7 @@ var UserListItem = function UserListItem() {
               case 3:
                 response = _context.sent;
 
-                if (!(response.status !== _util__WEBPACK_IMPORTED_MODULE_2__["OK"])) {
+                if (!(response.status !== _util__WEBPACK_IMPORTED_MODULE_4__["OK"])) {
                   _context.next = 7;
                   break;
                 }
@@ -113,7 +109,7 @@ var UserListItem = function UserListItem() {
               case 14:
                 _response = _context.sent;
 
-                if (!(_response.status !== _util__WEBPACK_IMPORTED_MODULE_2__["OK"])) {
+                if (!(_response.status !== _util__WEBPACK_IMPORTED_MODULE_4__["OK"])) {
                   _context.next = 18;
                   break;
                 }
