@@ -26,7 +26,6 @@ jobs:
       - run: ls
 
       # Download and cache dependencies
-      -
       - restore_cache:
           keys:
             # "composer.lock" can be used if it is committed to the repo
