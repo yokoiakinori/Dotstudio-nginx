@@ -50,7 +50,6 @@ jobs:
 
       # prepare the database
       - run: touch ./server/laravel/storage/testing.sqlite
-      - run: cd ./server/laravel
       - run: php artisan migrate --env=testing --database=sqlite_testing --force
 
       # run tests with phpunit or codecept
