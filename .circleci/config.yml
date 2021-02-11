@@ -47,6 +47,9 @@ jobs:
           key: node-v1-{{ checksum "./server/laravel/package.json" }}
           paths:
             - ./server/laravel/node_modules
+      - run: 
+          name: base64 decode env file
+          command: echo $ENV_FILE | base64 -di > ./service/laravel/.env
 
       # prepare the database
       - run: touch ./server/laravel/storage/testing.sqlite
