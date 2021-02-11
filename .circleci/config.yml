@@ -49,7 +49,7 @@ jobs:
             - ./server/laravel/node_modules
       - run: 
           name: base64 decode env file
-          command: echo $ENV_FILE | base64 -di > ./service/laravel/.env
+          command: echo $ENV_FILE | base64 -di > ./server/laravel/.env
 
       # prepare the database
       - run: touch ./server/laravel/storage/testing.sqlite
