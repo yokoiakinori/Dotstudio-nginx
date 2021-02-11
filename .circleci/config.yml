@@ -54,4 +54,4 @@ jobs:
 
       # run tests with phpunit or codecept
       #- run: ./vendor/bin/phpunit
-      - run: ./server/laravel/vendor/bin/phpunit --configuration=./server/laravel/phpunit.xml
+      - run: ./server/laravel/vendor/bin/phpunit --configuration=./server/laravel/phpunit.xml --testdox
