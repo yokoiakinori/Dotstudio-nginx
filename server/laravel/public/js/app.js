@@ -25227,7 +25227,7 @@ function getCookieValue(searchKey) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/laravel/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/yokoiakinori/dotstudio-nginx/server/laravel/resources/js/app.js */"./resources/js/app.js");
 
 
 /***/ })

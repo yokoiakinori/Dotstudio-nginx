@@ -102,9 +102,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       user: {
         name: String,
         introduction: String,
-        thumbnail: String,
-        followCount: Number,
-        followerCount: Number
+        thumbnail: String
       },
       updateForm: {
         name: "",
@@ -136,10 +134,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var reader = new FileReader(); // ファイルを読み込み終わったタイミングで実行する処理
 
       reader.onload = function (e) {
-        // previewに読み込み結果（データURL）を代入する
-        // previewに値が入ると<output>につけたv-ifがtrueと判定される
-        // また<output>内部の<img>のsrc属性はpreviewの値を参照しているので
-        // 結果として画像が表示される
         _this.preview = e.target.result;
       }; // ファイルを読み込む
       // 読み込まれたファイルはデータURL形式で受け取れる（上記onload参照）
@@ -150,7 +144,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     reset: function reset() {
       this.preview = "";
-      this.thumbnail = null;
     },
     showUser: function showUser() {
       var _this2 = this;
@@ -177,11 +170,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _context.abrupt("return", false);
 
               case 6:
+                _this2.updateForm.name = response.data[0].name;
+                _this2.updateForm.introduction = response.data[0].introduction;
                 _this2.user.name = response.data[0].name;
                 _this2.user.introduction = response.data[0].introduction;
                 _this2.user.thumbnail = response.data[0].userthumbnail.url;
-                _this2.user.followCount = response.data[1];
-                _this2.user.followerCount = response.data[2];
 
               case 11:
               case "end":
@@ -220,15 +213,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _context2.abrupt("return", false);
 
               case 6:
-                if (_this3.thumbnail != null) {
-                  _this3.thumbnailUpdate();
-                }
+                _context2.next = 8;
+                return _this3.thumbnailUpdate();
 
+              case 8:
                 _this3.$store.commit("auth/updateUser", response);
 
-                _this3.$router.push("/settings/".concat(_this3.id));
+                _this3.$router.push("/");
 
-              case 9:
+              case 10:
               case "end":
                 return _context2.stop();
             }
@@ -245,15 +238,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
+                if (!(_this4.thumbnail != null)) {
+                  _context3.next = 7;
+                  break;
+                }
+
                 formData = new FormData();
                 formData.append("userthumbnail", _this4.thumbnail);
-                _context3.next = 4;
+                console.log(formData.userthumbnail);
+                _context3.next = 6;
                 return axios.post("/api/thumbnail/update", formData);
 
-              case 4:
+              case 6:
                 response = _context3.sent;
 
-              case 5:
+              case 7:
               case "end":
                 return _context3.stop();
             }
