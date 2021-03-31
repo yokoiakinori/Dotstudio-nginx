@@ -156,36 +156,36 @@ __webpack_require__.r(__webpack_exports__);
       currentToolId: 0,
       tools: [{
         id: 0,
-        "class": 'fas fa-paint-brush brush',
-        name: 'brush'
+        "class": "fas fa-paint-brush brush",
+        name: "brush"
       }, {
         id: 1,
-        "class": 'fas fa-eraser',
-        name: 'eraser'
+        "class": "fas fa-eraser",
+        name: "eraser"
       }, {
         id: 2,
-        "class": 'fas fa-fill',
-        name: 'fill'
+        "class": "fas fa-fill",
+        name: "fill"
       }, {
         id: 3,
-        "class": 'fas fa-slash',
-        name: 'line'
+        "class": "fas fa-slash",
+        name: "line"
       }, {
         id: 4,
-        "class": 'fas fa-square',
-        name: 'square'
+        "class": "fas fa-square",
+        name: "square"
       }, {
         id: 5,
-        "class": 'far fa-square',
-        name: 'squareline'
+        "class": "far fa-square",
+        name: "squareline"
       }, {
         id: 6,
-        "class": 'fas fa-stamp',
-        name: 'stamp'
+        "class": "fas fa-stamp",
+        name: "stamp"
       }, {
         id: 7,
-        "class": 'fas fa-ban',
-        name: 'reset'
+        "class": "fas fa-ban",
+        name: "reset"
       }]
     };
   },
@@ -193,7 +193,7 @@ __webpack_require__.r(__webpack_exports__);
     currentTool: function currentTool(toolname, id) {
       this.currentToolId = id;
       var drawingtool = toolname;
-      this.$store.commit('maincanvas/drawingTool', drawingtool);
+      this.$store.commit("maincanvas/drawingTool", drawingtool);
     }
   }
 });
@@ -1566,7 +1566,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "div[data-v-d270e9b2] {\n  width: 100%;\n  height: 32%;\n}\n.palet[data-v-d270e9b2] {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: space-between;\n  height: 100%;\n  padding: 20px;\n  margin: 0;\n}\nli[data-v-d270e9b2] {\n  transition-duration: 0.3s;\n  border-radius: 50%;\n  width: 25%;\n  height: calc(100% / 3);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\nli i[data-v-d270e9b2] {\n  transition-duration: 0.3s;\n  font-size: 25px;\n}\n.active[data-v-d270e9b2] {\n  transition-duration: 0.3s;\n  background-color: var(--back-paletcolor);\n  box-shadow: 2px 2px 3px rgba(40, 45, 111, 0.15);\n}\n.active i[data-v-d270e9b2] {\n  transition-duration: 0.3s;\n  color: white !important;\n}", ""]);
+exports.push([module.i, "div[data-v-d270e9b2] {\n  width: 100%;\n}\n.palet[data-v-d270e9b2] {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: space-between;\n  height: 100%;\n  padding: 20px;\n  margin: 0;\n}\nli[data-v-d270e9b2] {\n  transition-duration: 0.3s;\n  border-radius: 50%;\n  width: 5vw;\n  height: 5vw;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\nli i[data-v-d270e9b2] {\n  transition-duration: 0.3s;\n  font-size: 25px;\n}\n.active[data-v-d270e9b2] {\n  transition-duration: 0.3s;\n  background-color: var(--back-paletcolor);\n  box-shadow: 2px 2px 3px rgba(40, 45, 111, 0.15);\n}\n.active i[data-v-d270e9b2] {\n  transition-duration: 0.3s;\n  color: white !important;\n}", ""]);
 
 // exports
 
@@ -1604,7 +1604,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "*[data-v-a30aae32],\n*[data-v-a30aae32]::before,\n*[data-v-a30aae32]::after {\n  box-sizing: border-box;\n}\nh1[data-v-a30aae32], h2[data-v-a30aae32], h3[data-v-a30aae32], p[data-v-a30aae32], label[data-v-a30aae32], li[data-v-a30aae32], a[data-v-a30aae32], i[data-v-a30aae32], button[data-v-a30aae32] {\n  color: #282D6F;\n}\np[data-v-a30aae32] {\n  margin: 0;\n}\nli[data-v-a30aae32] {\n  list-style: none;\n}\na[data-v-a30aae32] {\n  text-decoration: none;\n}\noutput[data-v-a30aae32], input[data-v-a30aae32] {\n  border: none;\n  background: none;\n}\noutput[data-v-a30aae32]:focus, input[data-v-a30aae32]:focus {\n  outline: none;\n}\nimg[data-v-a30aae32] {\n  object-fit: cover;\n}\n[data-v-a30aae32]::-webkit-input-placeholder {\n  color: rgba(40, 45, 111, 0.6);\n  font-size: 12px;\n}\ntextarea[data-v-a30aae32] {\n  border: none;\n  background: none;\n}\ntextarea[data-v-a30aae32]:focus {\n  outline: none;\n}\nbutton[data-v-a30aae32] {\n  border: none;\n  background: none;\n  font-size: 14px;\n}\nbutton[data-v-a30aae32]:focus {\n  outline: none;\n}\ni[data-v-a30aae32] {\n  transition-duration: 0.3s;\n}\n.heartIcon[data-v-a30aae32] {\n  color: #d3344e;\n}\nh2[data-v-a30aae32] {\n  margin: 0;\n}\nh1[data-v-a30aae32] {\n  margin: 0;\n  font-size: 25px;\n  font-weight: bold;\n}\n.navbar[data-v-a30aae32] {\n  height: 4rem;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0 15px;\n}\n.navbar__left[data-v-a30aae32] {\n  justify-content: start;\n}\n.navbar__shadow[data-v-a30aae32] {\n  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.1);\n}\n.navbar__brand[data-v-a30aae32] {\n  font-family: Merriweather, serif;\n  font-weight: bold;\n  font-size: 1.2rem;\n  margin-left: 15px;\n  transition-duration: 0.3s;\n}\n.navbar__brand[data-v-a30aae32]:hover {\n  opacity: 0.6;\n  transition-duration: 0.3s;\n}\n.navbar__menu[data-v-a30aae32] {\n  display: flex;\n  align-items: center;\n}\n.navbar__menu a[data-v-a30aae32] {\n  font-size: 14px;\n}\n.navbar__item a[data-v-a30aae32] {\n  opacity: 0.8;\n  margin-right: 15px;\n}\n.thumbnail[data-v-a30aae32] {\n  border-radius: 50%;\n  object-fit: cover;\n  width: 100%;\n  height: 100%;\n}\n.formButton[data-v-a30aae32] {\n  border: solid 1.5px #282D6F;\n  border-radius: 40px;\n  font-weight: bold;\n  color: #282D6F;\n  transition-duration: 0.3s;\n  cursor: pointer;\n}\n.formButton[data-v-a30aae32]:hover {\n  transition-duration: 0.3s;\n  background-color: #282D6F;\n  color: white;\n}\n.formButton:hover i[data-v-a30aae32] {\n  color: white;\n  transition-duration: 0.3s;\n}\n.button[data-v-a30aae32] {\n  border: 1px solid rgba(40, 45, 111, 0.5);\n  border-radius: 0.25rem;\n  color: rgba(40, 45, 111, 0.6);\n  padding: 8px 15px;\n  background-color: rgba(40, 45, 111, 0.1);\n  transition-duration: 0.3s;\n}\n.button i[data-v-a30aae32] {\n  color: rgba(40, 45, 111, 0.6);\n  margin-right: 5px;\n}\n.button[data-v-a30aae32]:hover {\n  color: #282d6f;\n  border: 1px solid #282d6f;\n}\n.button:hover i[data-v-a30aae32] {\n  color: #282d6f;\n}\n.tab[data-v-a30aae32] {\n  display: flex;\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n.tab__item[data-v-a30aae32] {\n  border-bottom: 2px solid rgba(40, 45, 111, 0.6);\n  color: rgba(40, 45, 111, 0.6);\n  cursor: pointer;\n  margin: 0 1rem 0 0;\n  padding: 1rem;\n}\n.tab__item--active[data-v-a30aae32] {\n  border-bottom: 2px solid #282D6F;\n  color: #282D6F;\n  font-weight: bold;\n}\n.container[data-v-a30aae32] {\n  margin: 0 auto;\n  max-width: 1200px;\n  padding: 0 2%;\n}\n.container--small[data-v-a30aae32] {\n  margin: 0 auto;\n  max-width: 600px;\n}\n.panel[data-v-a30aae32] {\n  border: 1px solid rgba(40, 45, 111, 0.4);\n  margin-top: 1rem;\n  padding: 1.5rem;\n}\n.form__item[data-v-a30aae32] {\n  border: 1px solid rgba(40, 45, 111, 0.4);\n  border-radius: 0.25rem;\n  font-size: 1rem;\n  margin-bottom: 1rem;\n  padding: 0.5em 0.75em;\n  width: 100%;\n}\n.form label[data-v-a30aae32] {\n  display: block;\n  margin-bottom: 0.5rem;\n}\n.form__output[data-v-a30aae32] {\n  display: block;\n  margin-bottom: 1rem;\n}\n.form__button[data-v-a30aae32] {\n  text-align: right;\n}\n.errors[data-v-a30aae32] {\n  border: 1px solid red;\n  border-radius: 0.25rem;\n  color: red;\n  margin-bottom: 1rem;\n}\n.pageTitle[data-v-a30aae32] {\n  margin: 0 auto;\n  text-align: center;\n  padding: 20px 0;\n}\n.date[data-v-a30aae32] {\n  color: rgba(40, 45, 111, 0.6);\n  font-size: 12px;\n  text-align: right;\n}\ndiv[data-v-a30aae32] {\n  width: 100%;\n}\ndiv ul[data-v-a30aae32] {\n  padding: 0;\n  display: flex;\n  flex-flow: row wrap;\n  padding: 20px;\n}\ni[data-v-a30aae32] {\n  color: rgba(40, 45, 111, 0.3);\n  font-size: 30px;\n  margin: 10px;\n}\n.active i[data-v-a30aae32] {\n  color: #282D6F;\n}", ""]);
+exports.push([module.i, "*[data-v-a30aae32],\n*[data-v-a30aae32]::before,\n*[data-v-a30aae32]::after {\n  box-sizing: border-box;\n}\nh1[data-v-a30aae32], h2[data-v-a30aae32], h3[data-v-a30aae32], p[data-v-a30aae32], label[data-v-a30aae32], li[data-v-a30aae32], a[data-v-a30aae32], i[data-v-a30aae32], button[data-v-a30aae32] {\n  color: #282D6F;\n}\np[data-v-a30aae32] {\n  margin: 0;\n}\nli[data-v-a30aae32] {\n  list-style: none;\n}\na[data-v-a30aae32] {\n  text-decoration: none;\n}\noutput[data-v-a30aae32], input[data-v-a30aae32] {\n  border: none;\n  background: none;\n}\noutput[data-v-a30aae32]:focus, input[data-v-a30aae32]:focus {\n  outline: none;\n}\nimg[data-v-a30aae32] {\n  object-fit: cover;\n}\n[data-v-a30aae32]::-webkit-input-placeholder {\n  color: rgba(40, 45, 111, 0.6);\n  font-size: 12px;\n}\ntextarea[data-v-a30aae32] {\n  border: none;\n  background: none;\n}\ntextarea[data-v-a30aae32]:focus {\n  outline: none;\n}\nbutton[data-v-a30aae32] {\n  border: none;\n  background: none;\n  font-size: 14px;\n}\nbutton[data-v-a30aae32]:focus {\n  outline: none;\n}\ni[data-v-a30aae32] {\n  transition-duration: 0.3s;\n}\n.heartIcon[data-v-a30aae32] {\n  color: #d3344e;\n}\nh2[data-v-a30aae32] {\n  margin: 0;\n}\nh1[data-v-a30aae32] {\n  margin: 0;\n  font-size: 25px;\n  font-weight: bold;\n}\n.navbar[data-v-a30aae32] {\n  height: 4rem;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0 15px;\n}\n.navbar__left[data-v-a30aae32] {\n  justify-content: start;\n}\n.navbar__shadow[data-v-a30aae32] {\n  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.1);\n}\n.navbar__brand[data-v-a30aae32] {\n  font-family: Merriweather, serif;\n  font-weight: bold;\n  font-size: 1.2rem;\n  margin-left: 15px;\n  transition-duration: 0.3s;\n}\n.navbar__brand[data-v-a30aae32]:hover {\n  opacity: 0.6;\n  transition-duration: 0.3s;\n}\n.navbar__menu[data-v-a30aae32] {\n  display: flex;\n  align-items: center;\n}\n.navbar__menu a[data-v-a30aae32] {\n  font-size: 14px;\n}\n.navbar__item a[data-v-a30aae32] {\n  opacity: 0.8;\n  margin-right: 15px;\n}\n.thumbnail[data-v-a30aae32] {\n  border-radius: 50%;\n  object-fit: cover;\n  width: 100%;\n  height: 100%;\n}\n.formButton[data-v-a30aae32] {\n  border: solid 1.5px #282D6F;\n  border-radius: 40px;\n  font-weight: bold;\n  color: #282D6F;\n  transition-duration: 0.3s;\n  cursor: pointer;\n}\n.formButton[data-v-a30aae32]:hover {\n  transition-duration: 0.3s;\n  background-color: #282D6F;\n  color: white;\n}\n.formButton:hover i[data-v-a30aae32] {\n  color: white;\n  transition-duration: 0.3s;\n}\n.button[data-v-a30aae32] {\n  border: 1px solid rgba(40, 45, 111, 0.5);\n  border-radius: 0.25rem;\n  color: rgba(40, 45, 111, 0.6);\n  padding: 8px 15px;\n  background-color: rgba(40, 45, 111, 0.1);\n  transition-duration: 0.3s;\n}\n.button i[data-v-a30aae32] {\n  color: rgba(40, 45, 111, 0.6);\n  margin-right: 5px;\n}\n.button[data-v-a30aae32]:hover {\n  color: #282d6f;\n  border: 1px solid #282d6f;\n}\n.button:hover i[data-v-a30aae32] {\n  color: #282d6f;\n}\n.tab[data-v-a30aae32] {\n  display: flex;\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n.tab__item[data-v-a30aae32] {\n  border-bottom: 2px solid rgba(40, 45, 111, 0.6);\n  color: rgba(40, 45, 111, 0.6);\n  cursor: pointer;\n  margin: 0 1rem 0 0;\n  padding: 1rem;\n}\n.tab__item--active[data-v-a30aae32] {\n  border-bottom: 2px solid #282D6F;\n  color: #282D6F;\n  font-weight: bold;\n}\n.container[data-v-a30aae32] {\n  margin: 0 auto;\n  max-width: 1200px;\n  padding: 0 2%;\n}\n.container--small[data-v-a30aae32] {\n  margin: 0 auto;\n  max-width: 600px;\n}\n.panel[data-v-a30aae32] {\n  border: 1px solid rgba(40, 45, 111, 0.4);\n  margin-top: 1rem;\n  padding: 1.5rem;\n}\n.form__item[data-v-a30aae32] {\n  border: 1px solid rgba(40, 45, 111, 0.4);\n  border-radius: 0.25rem;\n  font-size: 1rem;\n  margin-bottom: 1rem;\n  padding: 0.5em 0.75em;\n  width: 100%;\n}\n.form label[data-v-a30aae32] {\n  display: block;\n  margin-bottom: 0.5rem;\n}\n.form__output[data-v-a30aae32] {\n  display: block;\n  margin-bottom: 1rem;\n}\n.form__button[data-v-a30aae32] {\n  text-align: right;\n}\n.errors[data-v-a30aae32] {\n  border: 1px solid red;\n  border-radius: 0.25rem;\n  color: red;\n  margin-bottom: 1rem;\n}\n.pageTitle[data-v-a30aae32] {\n  margin: 0 auto;\n  text-align: center;\n  padding: 20px 0;\n}\n.date[data-v-a30aae32] {\n  color: rgba(40, 45, 111, 0.6);\n  font-size: 12px;\n  text-align: right;\n}\ndiv[data-v-a30aae32] {\n  width: 100%;\n}\ndiv ul[data-v-a30aae32] {\n  padding: 0;\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: space-between;\n  padding: 20px;\n}\ndiv ul li[data-v-a30aae32] {\n  width: 5vw;\n  height: 5vw;\n}\ni[data-v-a30aae32] {\n  color: rgba(40, 45, 111, 0.3);\n  font-size: 30px;\n  margin: 10px;\n}\n.active i[data-v-a30aae32] {\n  color: #282D6F;\n}", ""]);
 
 // exports
 

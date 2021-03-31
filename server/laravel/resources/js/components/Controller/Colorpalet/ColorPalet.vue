@@ -60,7 +60,6 @@ export default {
 @import "../../../../sass/_variables";
 div {
     width: 100%;
-    height: 32%;
 }
 .palet {
     display: flex;
@@ -73,8 +72,8 @@ div {
 li {
     transition-duration: 0.3s;
     border-radius: 50%;
-    width: 25%;
-    height: calc(100% / 3);
+    width: 5vw;
+    height: 5vw;
     display: flex;
     justify-content: center;
     align-items: center;
