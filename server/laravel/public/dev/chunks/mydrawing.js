@@ -281,7 +281,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return this.materials[this.currentMaterialIndex - 1].productname;
     },
     productStyle: function productStyle() {
-      var product = "".concat(this.maxwidth / 3, "px");
+      var displayNumberRow = 3;
+      var product = "".concat(this.maxwidth / displayNumberRow, "px");
       return {
         width: product,
         height: product

@@ -46,6 +46,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     state: String,
     product: Object
   },
+  data: function data() {
+    return {
+      materialHaved: []
+    };
+  },
   computed: {
     materials: function materials() {
       var materials = this.$store.getters["auth/materials"];
@@ -85,8 +90,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 2:
                 response = _context.sent;
 
+                _this.materialHaved.push(_this.product.id);
+
                 if (!(response.status !== _util__WEBPACK_IMPORTED_MODULE_2__["OK"])) {
-                  _context.next = 6;
+                  _context.next = 7;
                   break;
                 }
 
@@ -94,7 +101,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 return _context.abrupt("return", false);
 
-              case 6:
+              case 7:
               case "end":
                 return _context.stop();
             }
@@ -102,6 +109,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee);
       }))();
     }
+  },
+  created: function created() {
+    this.$nextTick(function () {
+      this.materialHaved = this.materials;
+    });
   }
 });
 
@@ -465,7 +477,7 @@ var render = function() {
         "button",
         {
           class: {
-            material_haved: _vm.materials.includes(_vm.product.id)
+            material_haved: _vm.materialHaved.includes(_vm.product.id)
           },
           on: {
             click: function($event) {

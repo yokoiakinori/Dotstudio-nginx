@@ -58,7 +58,8 @@ export default {
             return this.materials[this.currentMaterialIndex - 1].productname;
         },
         productStyle() {
-            const product = `${this.maxwidth / 3}px`;
+            const displayNumberRow = 3;
+            const product = `${this.maxwidth / displayNumberRow}px`;
             return {
                 width: product,
                 height: product
