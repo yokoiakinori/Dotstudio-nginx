@@ -148,16 +148,16 @@ export default {
         },
         async stampGuide(start) {
             this.guideReset();
-            const lineEnd = start + this.currentMaterial.linedot;
+            const lineEnd = start + this.currentMaterial.linedot - 1;
             for (let i = 0; i < this.currentMaterial.linedot; i++) {
                 for (let j = start; j <= lineEnd; j++) {
                     if (
                         //キャンバスからはみ出していない場合
-                        start % this.lineDotVolume <
+                        start % this.lineDotVolume <=
                             this.lineDotVolume -
                                 this.currentMaterial.linedot +
                                 1 &&
-                        start / this.lineDotVolume <
+                        start / this.lineDotVolume <=
                             this.lineDotVolume -
                                 this.currentMaterial.linedot +
                                 1
@@ -198,7 +198,7 @@ export default {
             ) {
                 alert("この位置では描画領域よりはみ出してしまいます！");
             } else {
-                const lineEnd = start + this.currentMaterial.linedot;
+                const lineEnd = start + this.currentMaterial.linedot - 1;
                 for (let i = 0; i < this.currentMaterial.linedot; i++) {
                     for (let j = start; j <= lineEnd; j++) {
                         this.colorNumber[
