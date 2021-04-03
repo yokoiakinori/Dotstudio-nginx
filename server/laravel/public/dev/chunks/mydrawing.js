@@ -826,7 +826,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 for (i = 0; i < _this7.currentMaterial.linedot; i++) {
                   for (j = start; j <= lineEnd; j++) {
                     if ( //キャンバスからはみ出していない場合
-                    start % _this7.lineDotVolume <= _this7.lineDotVolume - _this7.currentMaterial.linedot + 1 && start / _this7.lineDotVolume <= _this7.lineDotVolume - _this7.currentMaterial.linedot + 1) {
+                    start % _this7.lineDotVolume <= _this7.lineDotVolume - _this7.currentMaterial.linedot + 1 && start / _this7.lineDotVolume <= _this7.lineDotVolume - _this7.currentMaterial.linedot + 1 && start % _this7.lineDotVolume != 0) {
                       _this7.$set(_this7.guideColor, j + i * _this7.lineDotVolume - 1, _this7.materialColor[j - start + i * _this7.currentMaterial.linedot]);
                     }
                   }
@@ -858,7 +858,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     drawStamp: function drawStamp(start) {
       if (this.currentMaterial.alldot > this.allCanvasDot) {
         alert("スタンプが描画領域よりも大きいです！");
-      } else if (start % this.lineDotVolume > this.lineDotVolume - this.currentMaterial.linedot + 1 || start / this.lineDotVolume > this.lineDotVolume - this.currentMaterial.linedot + 1) {
+      } else if (start % this.lineDotVolume > this.lineDotVolume - this.currentMaterial.linedot + 1 || start / this.lineDotVolume > this.lineDotVolume - this.currentMaterial.linedot + 1 || start % this.lineDotVolume == 0) {
         alert("この位置では描画領域よりはみ出してしまいます！");
       } else {
         var lineEnd = start + this.currentMaterial.linedot - 1;

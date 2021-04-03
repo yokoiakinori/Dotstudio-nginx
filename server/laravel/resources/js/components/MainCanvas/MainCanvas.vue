@@ -160,7 +160,8 @@ export default {
                         start / this.lineDotVolume <=
                             this.lineDotVolume -
                                 this.currentMaterial.linedot +
-                                1
+                                1 &&
+                        start % this.lineDotVolume != 0
                     ) {
                         this.$set(
                             this.guideColor,
@@ -194,7 +195,8 @@ export default {
                 start % this.lineDotVolume >
                     this.lineDotVolume - this.currentMaterial.linedot + 1 ||
                 start / this.lineDotVolume >
-                    this.lineDotVolume - this.currentMaterial.linedot + 1
+                    this.lineDotVolume - this.currentMaterial.linedot + 1 ||
+                start % this.lineDotVolume == 0
             ) {
                 alert("この位置では描画領域よりはみ出してしまいます！");
             } else {
