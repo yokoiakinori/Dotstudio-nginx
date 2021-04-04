@@ -42,8 +42,11 @@
                     class="thumbnail"
                 />
             </RouterLink>
-            <div v-else class="navbar__item">
-                <RouterLink class="button--link" to="/login">
+            <div v-else>
+                <button class="navbar__item button" @click="guestLogin()">
+                    簡単ログイン
+                </button>
+                <RouterLink class="button--link navbar__item" to="/login">
                     Login / Register
                 </RouterLink>
             </div>
@@ -77,6 +80,16 @@ export default {
             if (this.searchText != null) {
                 this.$store.commit("search/setKeyword", this.searchText);
                 this.$router.push("/search");
+            }
+        },
+        async guestLogin() {
+            const guestCredential = {
+                email: "guest@example",
+                password: "dotstudioGUEST"
+            };
+            await this.$store.dispatch("auth/login", guestCredential);
+            if (this.apiStatus) {
+                this.$router.push("/");
             }
         }
     }
