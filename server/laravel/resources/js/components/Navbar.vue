@@ -48,7 +48,7 @@
             <div v-else class="navbar__menu">
                 <div class="navbar__item">
                     <button class="button" @click="guestLogin()">
-                        簡単ログイン
+                        ゲストログイン
                     </button>
                 </div>
                 <RouterLink class="navbar__item" to="/login">
