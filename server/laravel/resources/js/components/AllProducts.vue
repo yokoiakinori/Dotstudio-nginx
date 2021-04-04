@@ -45,8 +45,7 @@ export default {
         return {
             maxwidth: 900,
             style: {
-                width: "900px",
-                height: "1500px"
+                width: "900px"
             },
             productList: Array
         };
@@ -139,7 +138,7 @@ export default {
     flex-flow: column;
 }
 .productsList {
-    margin-top: 30px;
+    margin-bottom: 15px;
     display: flex;
     flex-flow: row wrap;
     align-content: flex-start;
