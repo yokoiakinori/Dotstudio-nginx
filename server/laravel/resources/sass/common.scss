@@ -105,12 +105,13 @@ h1 {
     &__menu {
         display: flex;
         align-items: center;
+        flex-flow: nowrap;
         a {
             font-size: 14px;
         }
     }
     &__item{
-        a{
+        *{
             opacity: 0.8;
             margin-right: 15px;
         }
