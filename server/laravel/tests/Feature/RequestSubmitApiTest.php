@@ -25,7 +25,7 @@ class RequestSubmitApiTest extends TestCase
     {
         $data = [
             'title' => 'Request Test',
-            'content' => '猫のイラストが欲しいです。',
+            'contents' => '猫のイラストが欲しいです。',
         ];
 
         $response = $this->actingAs($this->user)->json('POST', route('materialrequest.create'), $data);
