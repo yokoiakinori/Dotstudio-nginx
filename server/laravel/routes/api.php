@@ -52,7 +52,7 @@ Route::delete('/products/{id}/like', 'ProductController@unlike');
 Route::get('/products/ranklist/like', 'ProductController@likedrank')->name('product.likedrank');
 Route::get('/products/ranklist/watch', 'ProductController@watchedrank')->name('product.watchedrank');
 
-Route::post('/requests', 'RequestController@create')->name('request.create');
+Route::post('/requests', 'RequestController@create')->name('materialrequest.create');
 
 Route::put('/material/{id}', 'ProductController@materialadd')->name('material.add');
 Route::get('/materials', 'ProductController@materiallist')->name('materials.list');
