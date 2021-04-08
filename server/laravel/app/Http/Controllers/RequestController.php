@@ -19,7 +19,7 @@ class RequestController extends Controller
         $material_request = new MaterialRequest();
         $material_request->user_id = Auth::id();
         $material_request->title = $request->title;
-        $material_request->content = $request->content;
+        $material_request->contents = $request->contents;
         $material_request->save();
         return $material_request;
     }
