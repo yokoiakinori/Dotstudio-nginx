@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Request extends Model
+class MaterialRequest extends Model
 {
     protected $guarded = array(
         'id',

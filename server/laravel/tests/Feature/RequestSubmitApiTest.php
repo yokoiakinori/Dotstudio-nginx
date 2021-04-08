@@ -3,7 +3,7 @@
 namespace Tests\Feature;
 
 use App\User;
-use App\Request;
+use App\MaterialRequest;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -28,9 +28,9 @@ class RequestSubmitApiTest extends TestCase
             'content' => '猫のイラストが欲しいです。',
         ];
 
-        $response = $this->actingAs($this->user)->json('POST', route('request.create'), $data);
+        $response = $this->actingAs($this->user)->json('POST', route('materialrequest.create'), $data);
 
-        $product = Request::first();
+        $product = MaterialRequest::first();
         $this->assertEquals($data['title'], $product->title);
 
         $response
