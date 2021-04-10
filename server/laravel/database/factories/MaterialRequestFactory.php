@@ -7,8 +7,8 @@ use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
 $factory->define(MaterialRequest::class, function (Faker $faker) {
-    $title = $faker->array();
-    $contents = $faker->sentence();
+    $title = $faker->array;
+    $contents = $faker->sentence;
     return [
         'title' => $title,
         'contents' => $contents,
