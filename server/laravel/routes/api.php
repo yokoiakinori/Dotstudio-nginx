@@ -57,6 +57,7 @@ Route::post('/requests', 'RequestController@create')->name('materialrequest.crea
 Route::post('/requests/update', 'RequestController@update')->name('materialrequest.update');
 Route::put('/requests/complete/{id}', 'RequestController@complete')->name('materialrequest.complete');
 Route::get('/requests', 'RequestController@all')->name('materialrequest.all');
+Route::get('/requests/latest', 'RequestController@latest')->name('materialrequest.latest');
 Route::get('/requests/{id}', 'RequestController@current')->name('materialrequest.current');
 
 Route::put('/material/{id}', 'ProductController@materialadd')->name('material.add');

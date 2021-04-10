@@ -16,12 +16,17 @@ class RequestListApiTest extends TestCase
      */
     public function AllRequestsListReturn()
     {
-        $request_count = 5;
+        $request_count = 10;
+        $latest_max = 5;
         factory(MaterialRequest::class, $request_count)->create();
 
-        $response = $this->json('GET', route('materialrequest.all'));
+        $response_all = $this->json('GET', route('materialrequest.all'));
 
-        $response->assertStatus(200)
+        $response_all->assertStatus(200)
             ->assertJsonCount($request_count, 'data');
+
+        $response_latest = $this->json('GET', route('materialrequest.latest'));
+
+        $response_latest->assertStatus(200)->assertJsonCount($latest_max, 'data');
     }
 }
