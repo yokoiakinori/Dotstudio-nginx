@@ -12,7 +12,7 @@ class RequestController extends Controller
     public function __construct()
     {
         // 認証が必要
-        $this->middleware('auth')->except(['index', 'show', 'search', 'tagsearch', 'likedrank', 'watchedrank']);
+        $this->middleware('auth')->except(['all']);
     }
 
     public function create(StoreRequest $request)
