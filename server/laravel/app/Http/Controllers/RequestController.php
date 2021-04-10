@@ -34,6 +34,13 @@ class RequestController extends Controller
         $material_request->save();
     }
 
+    public function complete(string $id)
+    {
+        $material_request = MaterialRequest::where('id', $id)->first();
+        $material_request->iscompleted = true;
+        $material_request->save();
+    }
+
     public function all()
     {
         $material_requests = MaterialRequest::with('user')->orderBy(MaterialRequest::CREATED_AT, 'desc')->paginate();

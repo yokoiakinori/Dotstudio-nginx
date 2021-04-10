@@ -54,6 +54,7 @@ Route::get('/products/ranklist/watch', 'ProductController@watchedrank')->name('p
 
 Route::post('/requests', 'RequestController@create')->name('materialrequest.create');
 Route::post('/requests/update', 'RequestController@update')->name('materialrequest.update');
+Route::put('/requests/complete/{id}', 'RequestController@complete')->name('materialrequest.complete');
 Route::get('/requests', 'RequestController@all')->name('materialrequest.all');
 
 Route::put('/material/{id}', 'ProductController@materialadd')->name('material.add');
