@@ -20,20 +20,7 @@ class RequestListApiTest extends TestCase
 
         $response = $this->json('GET', route('materialrequest.all'));
 
-        $material_requests = MaterialRequest::with('user')->orderBy('created_at', 'desc')->get();
-
-        $expected_data = $material_requests->map(function ($material_request) {
-            return [
-                'title' => $material_request->title,
-                'contents' => $material_request->contents,
-                'user' => [
-                    'name' => $material_request->user->name
-                ],
-            ];
-        })
-            ->all();
-
         $response->assertStatus(200)
-            ->assertJsonCount(5, $expected_data);
+            ->assertJsonCount(5);
     }
 }
