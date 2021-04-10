@@ -14,6 +14,7 @@ class RequestController extends Controller
         // 認証が必要
         $this->middleware('auth')->except(['index', 'show', 'search', 'tagsearch', 'likedrank', 'watchedrank']);
     }
+
     public function create(StoreRequest $request)
     {
         $material_request = new MaterialRequest();
@@ -22,5 +23,11 @@ class RequestController extends Controller
         $material_request->contents = $request->contents;
         $material_request->save();
         return $material_request;
+    }
+
+    public function all()
+    {
+        $products = MaterialRequest::with('user')->orderBy(MaterialRequest::CREATED_AT, 'desc')->paginate();
+        return $products;
     }
 }

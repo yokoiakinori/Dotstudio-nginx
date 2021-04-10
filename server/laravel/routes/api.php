@@ -53,6 +53,7 @@ Route::get('/products/ranklist/like', 'ProductController@likedrank')->name('prod
 Route::get('/products/ranklist/watch', 'ProductController@watchedrank')->name('product.watchedrank');
 
 Route::post('/requests', 'RequestController@create')->name('materialrequest.create');
+Route::get('/requests', 'RequestController@all')->name('materialrequest.all');
 
 Route::put('/material/{id}', 'ProductController@materialadd')->name('material.add');
 Route::get('/materials', 'ProductController@materiallist')->name('materials.list');
