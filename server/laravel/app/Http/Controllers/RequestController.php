@@ -12,7 +12,7 @@ class RequestController extends Controller
     public function __construct()
     {
         // 認証が必要
-        $this->middleware('auth')->except(['all']);
+        $this->middleware('auth')->except(['all', 'show']);
     }
 
     public function create(StoreRequest $request)
@@ -47,7 +47,7 @@ class RequestController extends Controller
         return $material_requests;
     }
 
-    public function show(String $id)
+    public function current(String $id)
     {
         $material_request = MaterialRequest::where('id', $id)->with(['user' => function ($query) {
             $query->with('userthumbnail');
