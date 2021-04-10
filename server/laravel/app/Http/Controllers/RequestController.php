@@ -25,9 +25,18 @@ class RequestController extends Controller
         return $material_request;
     }
 
+    public function update(Request $request)
+    {
+        $currentid = $request->currentMaterialRequest;
+        $material_request = MaterialRequest::with('user')->where('id', $currentid)->first();
+        $material_request->title = $request->title;
+        $material_request->contents = $request->contents;
+        $material_request->save();
+    }
+
     public function all()
     {
-        $products = MaterialRequest::with('user')->orderBy(MaterialRequest::CREATED_AT, 'desc')->paginate();
-        return $products;
+        $material_requests = MaterialRequest::with('user')->orderBy(MaterialRequest::CREATED_AT, 'desc')->paginate();
+        return $material_requests;
     }
 }
