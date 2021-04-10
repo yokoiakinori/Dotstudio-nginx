@@ -31,6 +31,7 @@ Route::get('/users/products/{id}', 'UserController@products')->name('user.produc
 Route::get('/users/likeproducts/{id}', 'UserController@likeproducts')->name('user.likeproducts');
 Route::get('/users/{id}', 'UserController@currentuser')->name('user.current');
 Route::post('/userupdate', 'UserController@updateuser')->name('user.update');
+Route::get('/user/{id}/requests', 'UserController@requests')->name('user.requests');
 
 Route::post('/thumbnail', 'UserthumbnailController@create')->name('thumbnail.create');
 Route::post('/thumbnail/update', 'UserthumbnailController@update')->name('thumbnail.update');
