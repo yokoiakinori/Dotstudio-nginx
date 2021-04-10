@@ -46,4 +46,12 @@ class RequestController extends Controller
         $material_requests = MaterialRequest::with('user')->orderBy(MaterialRequest::CREATED_AT, 'desc')->paginate();
         return $material_requests;
     }
+
+    public function show(String $id)
+    {
+        $material_request = MaterialRequest::where('id', $id)->with(['user' => function ($query) {
+            $query->with('userthumbnail');
+        }])->first();
+        return $material_request ?? abort(404);
+    }
 }
