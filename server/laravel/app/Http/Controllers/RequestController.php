@@ -12,7 +12,7 @@ class RequestController extends Controller
     public function __construct()
     {
         // 認証が必要
-        $this->middleware('auth')->except(['all', 'show']);
+        $this->middleware('auth')->except(['all', 'show', 'latest']);
     }
 
     public function create(StoreRequest $request)
@@ -44,6 +44,13 @@ class RequestController extends Controller
     public function all()
     {
         $material_requests = MaterialRequest::with('user')->orderBy(MaterialRequest::CREATED_AT, 'desc')->paginate();
+        return $material_requests;
+    }
+
+    public function latest()
+    {
+        $display_count = 5;
+        $material_requests = MaterialRequest::orderBy(MaterialRequest::CREATED_AT, 'desc')->take($display_count)->get();
         return $material_requests;
     }
 
