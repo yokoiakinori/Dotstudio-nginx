@@ -60,7 +60,7 @@
                 </div>
                 <textarea v-model="commentContent"></textarea>
                 <div>
-                    <button type="submit" class="formButton">
+                    <button type="submit" class="capsuleButton">
                         コメントをつける
                     </button>
                 </div>
@@ -169,10 +169,6 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../sass/common.scss";
-button {
-    height: 40px;
-    padding: 0 40px;
-}
 .productDetail {
     display: flex;
     flex-flow: row wrap;

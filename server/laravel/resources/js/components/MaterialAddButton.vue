@@ -2,7 +2,7 @@
     <button
         v-if="state == 'detail'"
         @click="onMaterialClick"
-        class="formButton"
+        class="capsuleButton"
     >
         素材としてダウンロード
     </button>
