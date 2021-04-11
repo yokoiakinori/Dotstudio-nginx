@@ -52,7 +52,8 @@ export default {
     },
     computed: {
         productStyle() {
-            const product = `${this.maxwidth / 3}px`;
+            const columnCount = 3;
+            const product = `${this.maxwidth / columnCount}px`;
             return {
                 width: product,
                 height: product

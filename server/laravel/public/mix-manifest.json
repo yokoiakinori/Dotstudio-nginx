@@ -20,5 +20,6 @@
     "/dev/chunks/tagsearch.js": "/dev/chunks/tagsearch.js",
     "/dev/chunks/top.js": "/dev/chunks/top.js",
     "/dev/chunks/userdetail.js": "/dev/chunks/userdetail.js",
-    "/dev/chunks/usersettings.js": "/dev/chunks/usersettings.js"
+    "/dev/chunks/usersettings.js": "/dev/chunks/usersettings.js",
+    "/dev/chunks/create-request.js": "/dev/chunks/create-request.js"
 }

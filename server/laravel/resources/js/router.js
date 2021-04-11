@@ -289,6 +289,18 @@ const routes = [
         }
     },
     {
+        path: "/request/new",
+        component: resolve => {
+            require.ensure(
+                ["./pages/CreateRequest.vue"],
+                () => {
+                    resolve(require("./pages/CreateRequest.vue"));
+                },
+                "create-request"
+            );
+        }
+    },
+    {
         path: "/request/:id",
         component: resolve => {
             require.ensure(
@@ -313,18 +325,6 @@ const routes = [
             );
         },
         props: true
-    },
-    {
-        path: "/request/new",
-        component: resolve => {
-            require.ensure(
-                ["./pages/CreateRequest.vue"],
-                () => {
-                    resolve(require("./pages/CreateRequest.vue"));
-                },
-                "create-request"
-            );
-        }
     },
     {
         path: "/500",
