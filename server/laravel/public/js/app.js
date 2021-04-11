@@ -24590,14 +24590,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]); // パスとコンポーネントのマッピング
-
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 var routes = [{
   path: "/",
   component: function component(resolve) {
     Promise.all(/*! require.ensure | top */[__webpack_require__.e("follow-list~product-detail~rank-product-like~rank-product-watch~rank-users~search~tagsearch~top~userdetail"), __webpack_require__.e("follow-list~mydrawing~rank-product-like~rank-product-watch~rank-users~search~tagsearch~top~userdetail"), __webpack_require__.e("rank-product-like~rank-product-watch~search~tagsearch~top"), __webpack_require__.e("top")]).then((function () {
       resolve(__webpack_require__(/*! ./pages/TopPage.vue */ "./resources/js/pages/TopPage.vue"));
     }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+  },
+  props: function props(route) {
+    var page = route.query.page;
+    return {
+      page: /^[1-9][0-9]*$/.test(page) ? page * 1 : 1
+    };
   }
 }, {
   path: "/search",
@@ -24773,6 +24778,42 @@ var routes = [{
     }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
   },
   props: true
+}, {
+  path: "/requests",
+  component: function component(resolve) {
+    Promise.resolve(/*! require.ensure */).then((function () {
+      resolve(__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module './pages/AllRequests.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())));
+    }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+  },
+  props: function props(route) {
+    var page = route.query.page;
+    return {
+      page: /^[1-9][0-9]*$/.test(page) ? page * 1 : 1
+    };
+  }
+}, {
+  path: "/request/:id",
+  component: function component(resolve) {
+    Promise.resolve(/*! require.ensure */).then((function () {
+      resolve(__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module './pages/CurrentRequest.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())));
+    }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+  },
+  props: true
+}, {
+  path: "/request/:id/update",
+  component: function component(resolve) {
+    Promise.resolve(/*! require.ensure */).then((function () {
+      resolve(__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module './pages/UpdateRequest.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())));
+    }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+  },
+  props: true
+}, {
+  path: "/request/new",
+  component: function component(resolve) {
+    Promise.resolve(/*! require.ensure */).then((function () {
+      resolve(__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module './pages/CreateRequest.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())));
+    }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+  }
 }, {
   path: "/500",
   component: function component(resolve) {
