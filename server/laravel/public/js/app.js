@@ -2318,6 +2318,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -4596,6 +4602,18 @@ var render = function() {
             _vm._v(" "),
             _vm._m(0)
           ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "navbar__item" },
+          [
+            _c("RouterLink", { attrs: { to: "/requests?page=1" } }, [
+              _c("i", { staticClass: "fas fa-comment-alt" }),
+              _vm._v("\n                リクエスト\n            ")
+            ])
+          ],
+          1
         ),
         _vm._v(" "),
         _c(

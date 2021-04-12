@@ -15,6 +15,12 @@
                 </button>
             </form>
             <div class="navbar__item">
+                <RouterLink to="/requests?page=1">
+                    <i class="fas fa-comment-alt"></i>
+                    リクエスト
+                </RouterLink>
+            </div>
+            <div class="navbar__item">
                 <RouterLink :to="{ name: 'rank-users', query: { page: 1 } }">
                     <i class="fas fa-crown"></i>
                     ランキング
