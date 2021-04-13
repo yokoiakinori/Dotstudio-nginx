@@ -1,18 +1,15 @@
 <template>
     <div>
-        <div class="productsList" :style="style">
+        <div class="requestsList">
             <RequestItem
-                v-for="product in productList"
-                :key="product.id"
-                :product="product"
-                :appearIcon="true"
-                @like="onLikeClick"
-                :productstyle="productStyle"
+                v-for="request in requestList"
+                :key="request.id"
+                :request="request"
             />
         </div>
         <Pagination
-            :current-page="currentPage"
-            :last-page="lastPage"
+            :currentPage="currentPage"
+            :lastPage="lastPage"
             :routerPath="routerPath"
         />
     </div>
@@ -25,6 +22,27 @@ export default {
     components: {
         RequestItem,
         Pagination
+    },
+    props: {
+        page: {
+            type: Number,
+            required: false,
+            default: 1
+        },
+        requests: null,
+        routerPath: String,
+        currentPage: 0,
+        lastPage: 0
+    },
+    data() {
+        return {
+            requestList: Array
+        };
+    },
+    watch: {
+        requests(val) {
+            this.productList = val;
+        }
     }
 };
 </script>

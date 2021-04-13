@@ -21,5 +21,7 @@
     "/dev/chunks/top.js": "/dev/chunks/top.js",
     "/dev/chunks/userdetail.js": "/dev/chunks/userdetail.js",
     "/dev/chunks/usersettings.js": "/dev/chunks/usersettings.js",
-    "/dev/chunks/create-request.js": "/dev/chunks/create-request.js"
+    "/dev/chunks/create-request.js": "/dev/chunks/create-request.js",
+    "/dev/chunks/all-requests.js": "/dev/chunks/all-requests.js",
+    "/dev/chunks/all-requests~follow-list~mydrawing~rank-product-like~rank-product-watch~rank-users~search~tagsearch~~25eb57d4.js": "/dev/chunks/all-requests~follow-list~mydrawing~rank-product-like~rank-product-watch~rank-users~search~tagsearch~~25eb57d4.js"
 }

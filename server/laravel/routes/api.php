@@ -53,12 +53,12 @@ Route::delete('/products/{id}/like', 'ProductController@unlike');
 Route::get('/products/ranklist/like', 'ProductController@likedrank')->name('product.likedrank');
 Route::get('/products/ranklist/watch', 'ProductController@watchedrank')->name('product.watchedrank');
 
-Route::post('/requests', 'RequestController@create')->name('materialrequest.create');
-Route::post('/requests/update', 'RequestController@update')->name('materialrequest.update');
-Route::put('/requests/complete/{id}', 'RequestController@complete')->name('materialrequest.complete');
-Route::get('/requests', 'RequestController@all')->name('materialrequest.all');
-Route::get('/requests/latest', 'RequestController@latest')->name('materialrequest.latest');
-Route::get('/requests/{id}', 'RequestController@current')->name('materialrequest.current');
+Route::post('/requests', 'MaterialRequestController@create')->name('materialrequest.create');
+Route::post('/requests/update', 'MaterialRequestController@update')->name('materialrequest.update');
+Route::put('/requests/complete/{id}', 'MaterialRequestController@complete')->name('materialrequest.complete');
+Route::get('/requests', 'MaterialRequestController@all')->name('materialrequest.all');
+Route::get('/requests/latest', 'MaterialRequestController@latest')->name('materialrequest.latest');
+Route::get('/requests/{id}', 'MaterialRequestController@current')->name('materialrequest.current');
 
 Route::put('/material/{id}', 'ProductController@materialadd')->name('material.add');
 Route::get('/materials', 'ProductController@materiallist')->name('materials.list');

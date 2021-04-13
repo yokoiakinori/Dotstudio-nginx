@@ -11,8 +11,8 @@
             />
         </div>
         <Pagination
-            :current-page="currentPage"
-            :last-page="lastPage"
+            :currentPage="currentPage"
+            :lastPage="lastPage"
             :routerPath="routerPath"
         />
     </div>

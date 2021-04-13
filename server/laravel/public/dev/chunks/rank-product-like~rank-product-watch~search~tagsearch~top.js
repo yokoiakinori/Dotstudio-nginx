@@ -298,8 +298,8 @@ var render = function() {
       _vm._v(" "),
       _c("Pagination", {
         attrs: {
-          "current-page": _vm.currentPage,
-          "last-page": _vm.lastPage,
+          currentPage: _vm.currentPage,
+          lastPage: _vm.lastPage,
           routerPath: _vm.routerPath
         }
       })
