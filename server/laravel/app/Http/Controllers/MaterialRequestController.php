@@ -7,7 +7,7 @@ use App\MaterialRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class RequestController extends Controller
+class MaterialRequestController extends Controller
 {
     public function __construct()
     {
