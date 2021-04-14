@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreRequest;
 use App\MaterialRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 
 class MaterialRequestController extends Controller
@@ -44,6 +45,7 @@ class MaterialRequestController extends Controller
     public function all()
     {
         $material_requests = MaterialRequest::with('user')->orderBy(MaterialRequest::CREATED_AT, 'desc')->paginate();
+        Log::debug($material_requests);
         return $material_requests;
     }
 

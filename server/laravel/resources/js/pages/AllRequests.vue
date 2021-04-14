@@ -9,7 +9,6 @@
 
 <script>
 import RequestsList from "../components/RequestsList.vue";
-import Axios from "axios";
 import { OK } from "../util";
 export default {
     components: {
@@ -49,7 +48,6 @@ export default {
                 this.$store.commit("error/setCode", response.status);
                 return false;
             }
-            console.log(response.data);
             this.requests = response.data.data;
             this.currentPage = response.data.current_page;
             this.lastPage = response.data.last_page;
