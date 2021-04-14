@@ -24815,6 +24815,13 @@ var routes = [{
     __webpack_require__.e(/*! require.ensure | create-request */ "create-request").then((function () {
       resolve(__webpack_require__(/*! ./pages/CreateRequest.vue */ "./resources/js/pages/CreateRequest.vue"));
     }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+  },
+  beforeEnter: function beforeEnter(to, from, next) {
+    if (!_store__WEBPACK_IMPORTED_MODULE_2__["default"].getters["auth/check"]) {
+      next("/login");
+    } else {
+      next();
+    }
   }
 }, {
   path: "/request/:id",

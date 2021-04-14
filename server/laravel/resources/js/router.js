@@ -298,6 +298,13 @@ const routes = [
                 },
                 "create-request"
             );
+        },
+        beforeEnter(to, from, next) {
+            if (!store.getters["auth/check"]) {
+                next("/login");
+            } else {
+                next();
+            }
         }
     },
     {
