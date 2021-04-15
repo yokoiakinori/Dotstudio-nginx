@@ -5,6 +5,7 @@
                 v-for="request in requestList"
                 :key="request.id"
                 :request="request"
+                :requeststyle="requestStyle"
             />
         </ul>
         <RouterLink class="capsuleButton" to="/request/new"
@@ -24,12 +25,25 @@ export default {
     },
     data() {
         return {
+            maxwidth: 900,
+            style: {
+                width: "900px"
+            },
             requestList: Array
         };
     },
+    computed: {
+        requestStyle() {
+            const columnCount = 5;
+            const request = `${this.maxwidth / columnCount}px`;
+            return {
+                width: request
+            };
+        }
+    },
     watch: {
         requests(val) {
-            this.productList = val;
+            this.requestList = val;
         }
     }
 };
@@ -37,15 +51,18 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../sass/common.scss";
-div {
+.latestRequestList {
     width: 100%;
     display: flex;
     flex-flow: column;
     align-items: center;
+    margin-bottom: 40px;
 }
 ul {
-    height: 40px;
-    display: flex;
+    padding: 0;
+    width: 900px;
+    flex-flow: row;
+    justify-content: start;
     a {
         display: block;
     }

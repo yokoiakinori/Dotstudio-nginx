@@ -41,7 +41,7 @@ export default {
     },
     watch: {
         requests(val) {
-            this.productList = val;
+            this.requestList = val;
         }
     }
 };

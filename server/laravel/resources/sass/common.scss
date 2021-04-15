@@ -8,8 +8,9 @@ $heartcolor:rgb(211, 52, 78);
 *::after {
   box-sizing: border-box;
 }
-h1,h2,h3,p,label,li,a,i,button{
+h1,h2,h3,h4,p,label,li,a,i,button{
     color: $maincolor;
+    margin: 0;
 }
 
 p {
@@ -67,10 +68,6 @@ i {
 
 .heartIcon {
 	color: $heartcolor;
-}
-
-h2 {
-	margin: 0;
 }
 
 h1 {
@@ -248,3 +245,8 @@ h1 {
             text-align: right;
 }
 
+.roundSquareShadow{
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 2px 2px 3px rgba($maincolor, 0.15);
+}

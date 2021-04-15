@@ -1,7 +1,7 @@
 <template>
     <div :style="productstyle">
         <div
-            class="card"
+            class="card roundSquareShadow"
             @mouseleave="currentToggle"
             @mouseenter="currentToggle"
         >
@@ -97,16 +97,13 @@ div {
     justify-content: center;
     align-items: center;
     .card {
-        background-color: white;
         padding: 0;
         margin: 0;
         width: 90%;
         height: 90%;
-        border-radius: 15px;
         position: relative;
         justify-content: center;
         align-items: center;
-        box-shadow: 2px 2px 3px rgba($maincolor, 0.15);
         a {
             position: absolute;
             border-radius: 15px;

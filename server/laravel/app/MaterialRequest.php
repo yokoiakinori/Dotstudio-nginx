@@ -13,7 +13,7 @@ class MaterialRequest extends Model
     );
 
     protected $visible = [
-        'title', 'content', 'iscompleted', 'user_id'
+        'id', 'title', 'contents', 'iscompleted', 'user_id'
     ];
 
     public function user()
