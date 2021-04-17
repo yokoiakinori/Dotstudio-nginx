@@ -13,7 +13,7 @@ class MaterialRequestController extends Controller
     public function __construct()
     {
         // 認証が必要
-        $this->middleware('auth')->except(['all', 'show', 'latest']);
+        $this->middleware('auth')->except(['all', 'show', 'latest', 'current']);
     }
 
     public function create(StoreRequest $request)

@@ -1,15 +1,18 @@
 <template>
-    <div>
-        <CurrentRequestContent :request="request"></CurrentRequestContent>
+    <div class="wrapper">
+        <CurrentRequestContent :request="request" />
+        <RequestUser :request="request" />
     </div>
 </template>
 
 <script>
 import CurrentRequestContent from "../components/CurrentRequestContent.vue";
+import RequestUser from "../components/Requests/RequestUser.vue";
 import { OK } from "../util";
 export default {
     components: {
-        CurrentRequestContent
+        CurrentRequestContent,
+        RequestUser
     },
     props: {
         id: {
@@ -45,4 +48,12 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+@import "../../sass/common.scss";
+.wrapper {
+    background-color: white;
+    padding: 30px;
+    width: 500px;
+    margin: auto;
+}
+</style>
