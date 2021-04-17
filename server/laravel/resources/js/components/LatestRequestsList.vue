@@ -8,9 +8,14 @@
                 :requeststyle="requestStyle"
             />
         </ul>
-        <RouterLink class="capsuleButton" to="/request/new"
-            >リクエストしてみる</RouterLink
-        >
+        <div>
+            <RouterLink class="capsuleButton leftItem" to="/requests"
+                >リクエスト一覧</RouterLink
+            >
+            <RouterLink class="capsuleButton" to="/request/new"
+                >リクエストしてみる</RouterLink
+            >
+        </div>
     </div>
 </template>
 
@@ -56,18 +61,22 @@ export default {
     display: flex;
     flex-flow: column;
     align-items: center;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
 }
 ul {
     display: flex;
     flex-flow: row wrap;
     align-content: flex-start;
     padding: 0;
+    margin-bottom: 30px;
     width: 900px;
     flex-flow: row;
     justify-content: start;
     a {
         display: block;
     }
+}
+.leftItem {
+    margin-right: 20px;
 }
 </style>

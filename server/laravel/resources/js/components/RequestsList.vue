@@ -1,5 +1,8 @@
 <template>
-    <div>
+    <div class="wrapper">
+        <RouterLink class="capsuleButton" to="/request/new"
+            >リクエストしてみる</RouterLink
+        >
         <div class="requestsList">
             <RequestItem
                 v-for="request in requestList"
@@ -58,11 +61,19 @@ export default {
 };
 </script>
 
-<style scoped>
-div {
+<style lang="scss" scoped>
+@import "../../sass/common.scss";
+.wrapper {
     width: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    a {
+        margin-bottom: 15px;
+    }
 }
 .requestsList {
+    width: 100%;
     margin-bottom: 30px;
     display: flex;
     flex-flow: row wrap;
