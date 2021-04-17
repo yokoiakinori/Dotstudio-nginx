@@ -143,7 +143,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     _this.inputNotification(message, _id); //mixin[notification]参照
 
 
-                    if (product.likes_count % 10 == 0 && product.likes_count >= 10) {
+                    var sepalationNumber = 10;
+
+                    if (product.likes_count % sepalationNumber == 0 && product.likes_count >= sepalationNumber) {
                       var _message = "\u3042\u306A\u305F\u306E".concat(product.productname, "\u304C").concat(product.likes_count, "\u56DE\u3044\u3044\u306D\u3055\u308C\u307E\u3057\u305F\u3002");
 
                       var _id2 = product.user.id;

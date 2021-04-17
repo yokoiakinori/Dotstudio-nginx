@@ -331,7 +331,14 @@ const routes = [
                 "update-request"
             );
         },
-        props: true
+        props: true,
+        beforeEnter(to, from, next) {
+            if (!store.getters["auth/check"]) {
+                next("/login");
+            } else {
+                next();
+            }
+        }
     },
     {
         path: "/500",

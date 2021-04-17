@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "dev/chunks/" + ({"all-requests~follow-list~mydrawing~rank-product-like~rank-product-watch~rank-users~search~tagsearch~~25eb57d4":"all-requests~follow-list~mydrawing~rank-product-like~rank-product-watch~rank-users~search~tagsearch~~25eb57d4","all-requests~top":"all-requests~top","all-requests":"all-requests","follow-list~product-detail~rank-product-like~rank-product-watch~rank-users~search~tagsearch~top~userdetail":"follow-list~product-detail~rank-product-like~rank-product-watch~rank-users~search~tagsearch~top~userdetail","follow-list~rank-users":"follow-list~rank-users","follow-list":"follow-list","rank-users":"rank-users","rank-product-like~rank-product-watch~search~tagsearch~top":"rank-product-like~rank-product-watch~search~tagsearch~top","top":"top","rank-product-like":"rank-product-like","rank-product-watch":"rank-product-watch","search":"search","tagsearch":"tagsearch","userdetail":"userdetail","mydrawing~usersettings":"mydrawing~usersettings","mydrawing":"mydrawing","create-request":"create-request","current-request":"current-request","error/notfound":"error/notfound","error/system":"error/system","product-detail":"product-detail","login":"login","usersettings":"usersettings","notification":"notification","ranking":"ranking"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "dev/chunks/" + ({"all-requests~follow-list~mydrawing~rank-product-like~rank-product-watch~rank-users~search~tagsearch~~25eb57d4":"all-requests~follow-list~mydrawing~rank-product-like~rank-product-watch~rank-users~search~tagsearch~~25eb57d4","all-requests~top":"all-requests~top","all-requests":"all-requests","follow-list~product-detail~rank-product-like~rank-product-watch~rank-users~search~tagsearch~top~userdetail":"follow-list~product-detail~rank-product-like~rank-product-watch~rank-users~search~tagsearch~top~userdetail","follow-list~rank-users":"follow-list~rank-users","follow-list":"follow-list","rank-users":"rank-users","rank-product-like~rank-product-watch~search~tagsearch~top":"rank-product-like~rank-product-watch~search~tagsearch~top","top":"top","rank-product-like":"rank-product-like","rank-product-watch":"rank-product-watch","search":"search","tagsearch":"tagsearch","userdetail":"userdetail","mydrawing~usersettings":"mydrawing~usersettings","mydrawing":"mydrawing","create-request~update-request":"create-request~update-request","create-request":"create-request","update-request":"update-request","current-request":"current-request","error/notfound":"error/notfound","error/system":"error/system","product-detail":"product-detail","login":"login","usersettings":"usersettings","notification":"notification","ranking":"ranking"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -24812,7 +24812,7 @@ var routes = [{
 }, {
   path: "/request/new",
   component: function component(resolve) {
-    __webpack_require__.e(/*! require.ensure | create-request */ "create-request").then((function () {
+    Promise.all(/*! require.ensure | create-request */[__webpack_require__.e("create-request~update-request"), __webpack_require__.e("create-request")]).then((function () {
       resolve(__webpack_require__(/*! ./pages/CreateRequest.vue */ "./resources/js/pages/CreateRequest.vue"));
     }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
   },
@@ -24834,11 +24834,18 @@ var routes = [{
 }, {
   path: "/request/:id/update",
   component: function component(resolve) {
-    Promise.resolve(/*! require.ensure */).then((function () {
-      resolve(__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module './pages/UpdateRequest.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())));
+    Promise.all(/*! require.ensure | update-request */[__webpack_require__.e("create-request~update-request"), __webpack_require__.e("update-request")]).then((function () {
+      resolve(__webpack_require__(/*! ./pages/UpdateRequest.vue */ "./resources/js/pages/UpdateRequest.vue"));
     }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
   },
-  props: true
+  props: true,
+  beforeEnter: function beforeEnter(to, from, next) {
+    if (!_store__WEBPACK_IMPORTED_MODULE_2__["default"].getters["auth/check"]) {
+      next("/login");
+    } else {
+      next();
+    }
+  }
 }, {
   path: "/500",
   component: function component(resolve) {

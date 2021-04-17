@@ -28,6 +28,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -48,8 +49,18 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      maxwidth: 900,
       requestList: Array
     };
+  },
+  computed: {
+    requestStyle: function requestStyle() {
+      var columnCount = 5;
+      var request = "".concat(this.maxwidth / columnCount, "px");
+      return {
+        width: request
+      };
+    }
   },
   watch: {
     requests: function requests(val) {
@@ -193,7 +204,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\ndiv[data-v-dbff3526] {\n    width: 100%;\n}\n", ""]);
+exports.push([module.i, "\ndiv[data-v-dbff3526] {\n    width: 100%;\n}\n.requestsList[data-v-dbff3526] {\n    margin-bottom: 30px;\n    display: flex;\n    flex-flow: row wrap;\n    align-content: flex-start;\n}\n", ""]);
 
 // exports
 
@@ -254,7 +265,7 @@ var render = function() {
         _vm._l(_vm.requestList, function(request) {
           return _c("RequestItem", {
             key: request.id,
-            attrs: { request: request }
+            attrs: { request: request, requeststyle: _vm.requestStyle }
           })
         }),
         1

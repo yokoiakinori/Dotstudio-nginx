@@ -5,6 +5,7 @@
                 v-for="request in requestList"
                 :key="request.id"
                 :request="request"
+                :requeststyle="requestStyle"
             />
         </div>
         <Pagination
@@ -36,8 +37,18 @@ export default {
     },
     data() {
         return {
+            maxwidth: 900,
             requestList: Array
         };
+    },
+    computed: {
+        requestStyle() {
+            const columnCount = 5;
+            const request = `${this.maxwidth / columnCount}px`;
+            return {
+                width: request
+            };
+        }
     },
     watch: {
         requests(val) {
@@ -50,5 +61,11 @@ export default {
 <style scoped>
 div {
     width: 100%;
+}
+.requestsList {
+    margin-bottom: 30px;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-start;
 }
 </style>

@@ -25,5 +25,7 @@
     "/dev/chunks/all-requests.js": "/dev/chunks/all-requests.js",
     "/dev/chunks/all-requests~follow-list~mydrawing~rank-product-like~rank-product-watch~rank-users~search~tagsearch~~25eb57d4.js": "/dev/chunks/all-requests~follow-list~mydrawing~rank-product-like~rank-product-watch~rank-users~search~tagsearch~~25eb57d4.js",
     "/dev/chunks/all-requests~top.js": "/dev/chunks/all-requests~top.js",
-    "/dev/chunks/current-request.js": "/dev/chunks/current-request.js"
+    "/dev/chunks/current-request.js": "/dev/chunks/current-request.js",
+    "/dev/chunks/create-request~update-request.js": "/dev/chunks/create-request~update-request.js",
+    "/dev/chunks/update-request.js": "/dev/chunks/update-request.js"
 }

@@ -12,6 +12,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util */ "./resources/js/util.js");
+/* harmony import */ var _components_Requests_RequestEditForm_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Requests/RequestEditForm.vue */ "./resources/js/components/Requests/RequestEditForm.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -28,28 +29,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    RequestEditForm: _components_Requests_RequestEditForm_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
   data: function data() {
     return {
-      updateForm: {
-        title: "",
-        contents: ""
-      }
+      submitMessage: "作成する"
     };
   },
   methods: {
-    createRequest: function createRequest() {
+    createRequest: function createRequest(form) {
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
@@ -59,7 +51,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return axios.post("/api/requests", _this.updateForm);
+                return axios.post("/api/requests", form);
 
               case 2:
                 response = _context.sent;
@@ -98,7 +90,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "*[data-v-9518e48c],\n*[data-v-9518e48c]::before,\n*[data-v-9518e48c]::after {\n  box-sizing: border-box;\n}\nh1[data-v-9518e48c], h2[data-v-9518e48c], h3[data-v-9518e48c], h4[data-v-9518e48c], p[data-v-9518e48c], label[data-v-9518e48c], li[data-v-9518e48c], a[data-v-9518e48c], i[data-v-9518e48c], button[data-v-9518e48c] {\n  color: #282D6F;\n  margin: 0;\n}\np[data-v-9518e48c] {\n  margin: 0;\n}\nli[data-v-9518e48c] {\n  list-style: none;\n}\na[data-v-9518e48c] {\n  text-decoration: none;\n}\noutput[data-v-9518e48c], input[data-v-9518e48c] {\n  border: none;\n  background: none;\n}\noutput[data-v-9518e48c]:focus, input[data-v-9518e48c]:focus {\n  outline: none;\n}\nimg[data-v-9518e48c] {\n  object-fit: cover;\n}\n[data-v-9518e48c]::-webkit-input-placeholder {\n  color: rgba(40, 45, 111, 0.6);\n  font-size: 12px;\n}\ntextarea[data-v-9518e48c] {\n  border: none;\n  background: none;\n}\ntextarea[data-v-9518e48c]:focus {\n  outline: none;\n}\nbutton[data-v-9518e48c] {\n  border: none;\n  background: none;\n  font-size: 14px;\n}\nbutton[data-v-9518e48c]:focus {\n  outline: none;\n}\ni[data-v-9518e48c] {\n  transition-duration: 0.3s;\n}\n.heartIcon[data-v-9518e48c] {\n  color: #d3344e;\n}\nh1[data-v-9518e48c] {\n  margin: 0;\n  font-size: 25px;\n  font-weight: bold;\n}\n.navbar[data-v-9518e48c] {\n  height: 4rem;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0 15px;\n}\n.navbar__left[data-v-9518e48c] {\n  justify-content: start;\n}\n.navbar__shadow[data-v-9518e48c] {\n  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.1);\n}\n.navbar__brand[data-v-9518e48c] {\n  font-family: Merriweather, serif;\n  font-weight: bold;\n  font-size: 1.2rem;\n  margin-left: 15px;\n  transition-duration: 0.3s;\n}\n.navbar__brand[data-v-9518e48c]:hover {\n  opacity: 0.6;\n  transition-duration: 0.3s;\n}\n.navbar__menu[data-v-9518e48c] {\n  display: flex;\n  align-items: center;\n  flex-flow: nowrap;\n}\n.navbar__menu a[data-v-9518e48c] {\n  font-size: 14px;\n}\n.navbar__item a[data-v-9518e48c], .navbar__item button[data-v-9518e48c] {\n  opacity: 0.8;\n  margin-right: 15px;\n}\n.thumbnail[data-v-9518e48c] {\n  border-radius: 50%;\n  object-fit: cover;\n  width: 100%;\n  height: 100%;\n}\n.capsuleButton[data-v-9518e48c] {\n  border: solid 1.5px #282D6F;\n  border-radius: 40px;\n  padding: 10px 40px;\n  font-weight: bold;\n  color: #282D6F;\n  transition-duration: 0.3s;\n  cursor: pointer;\n}\n.capsuleButton[data-v-9518e48c]:hover {\n  transition-duration: 0.3s;\n  background-color: #282D6F;\n  color: white;\n}\n.capsuleButton:hover i[data-v-9518e48c] {\n  color: white;\n  transition-duration: 0.3s;\n}\n.button[data-v-9518e48c] {\n  border: 1px solid rgba(40, 45, 111, 0.5);\n  border-radius: 0.25rem;\n  color: rgba(40, 45, 111, 0.6);\n  padding: 8px 15px;\n  background-color: rgba(40, 45, 111, 0.1);\n  transition-duration: 0.3s;\n}\n.button i[data-v-9518e48c] {\n  color: rgba(40, 45, 111, 0.6);\n  margin-right: 5px;\n}\n.button[data-v-9518e48c]:hover {\n  color: #282d6f;\n  border: 1px solid #282d6f;\n}\n.button:hover i[data-v-9518e48c] {\n  color: #282d6f;\n}\n.tab[data-v-9518e48c] {\n  display: flex;\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n.tab__item[data-v-9518e48c] {\n  border-bottom: 2px solid rgba(40, 45, 111, 0.6);\n  color: rgba(40, 45, 111, 0.6);\n  cursor: pointer;\n  margin: 0 1rem 0 0;\n  padding: 1rem;\n}\n.tab__item--active[data-v-9518e48c] {\n  border-bottom: 2px solid #282D6F;\n  color: #282D6F;\n  font-weight: bold;\n}\n.container[data-v-9518e48c] {\n  margin: 0 auto;\n  max-width: 1200px;\n  padding: 0 2%;\n}\n.container--small[data-v-9518e48c] {\n  margin: 0 auto;\n  max-width: 600px;\n}\n.panel[data-v-9518e48c] {\n  border: 1px solid rgba(40, 45, 111, 0.4);\n  margin-top: 1rem;\n  padding: 1.5rem;\n}\n.form__item[data-v-9518e48c] {\n  border: 1px solid rgba(40, 45, 111, 0.4);\n  border-radius: 0.25rem;\n  font-size: 1rem;\n  margin-bottom: 1rem;\n  padding: 0.5em 0.75em;\n  width: 100%;\n}\n.form label[data-v-9518e48c] {\n  display: block;\n  margin-bottom: 0.5rem;\n}\n.form__output[data-v-9518e48c] {\n  display: block;\n  margin-bottom: 1rem;\n}\n.form__button[data-v-9518e48c] {\n  text-align: right;\n}\n.errors[data-v-9518e48c] {\n  border: 1px solid red;\n  border-radius: 0.25rem;\n  color: red;\n  margin-bottom: 1rem;\n}\n.pageTitle[data-v-9518e48c] {\n  margin: 0 auto;\n  text-align: center;\n  padding: 20px 0;\n}\n.date[data-v-9518e48c] {\n  color: rgba(40, 45, 111, 0.6);\n  font-size: 12px;\n  text-align: right;\n}\n.roundSquareShadow[data-v-9518e48c] {\n  background-color: white;\n  border-radius: 15px;\n  box-shadow: 2px 2px 3px rgba(40, 45, 111, 0.15);\n}\n.wrapper[data-v-9518e48c] {\n  width: 90%;\n  display: flex;\n  flex-flow: wrap column;\n  align-items: center;\n  margin: 0 auto;\n  padding-top: 30px;\n}\n.wrapper form[data-v-9518e48c] {\n  width: 500px;\n  flex-flow: column;\n  display: flex;\n}\n.wrapper h3[data-v-9518e48c] {\n  margin-bottom: 40px;\n}", ""]);
+exports.push([module.i, "*[data-v-9518e48c],\n*[data-v-9518e48c]::before,\n*[data-v-9518e48c]::after {\n  box-sizing: border-box;\n}\nh1[data-v-9518e48c], h2[data-v-9518e48c], h3[data-v-9518e48c], h4[data-v-9518e48c], p[data-v-9518e48c], label[data-v-9518e48c], li[data-v-9518e48c], a[data-v-9518e48c], i[data-v-9518e48c], button[data-v-9518e48c] {\n  color: #282D6F;\n  margin: 0;\n}\np[data-v-9518e48c] {\n  margin: 0;\n}\nli[data-v-9518e48c] {\n  list-style: none;\n}\na[data-v-9518e48c] {\n  text-decoration: none;\n}\noutput[data-v-9518e48c], input[data-v-9518e48c] {\n  border: none;\n  background: none;\n}\noutput[data-v-9518e48c]:focus, input[data-v-9518e48c]:focus {\n  outline: none;\n}\nimg[data-v-9518e48c] {\n  object-fit: cover;\n}\n[data-v-9518e48c]::-webkit-input-placeholder {\n  color: rgba(40, 45, 111, 0.6);\n  font-size: 12px;\n}\ntextarea[data-v-9518e48c] {\n  border: none;\n  background: none;\n}\ntextarea[data-v-9518e48c]:focus {\n  outline: none;\n}\nbutton[data-v-9518e48c] {\n  border: none;\n  background: none;\n  font-size: 14px;\n}\nbutton[data-v-9518e48c]:focus {\n  outline: none;\n}\ni[data-v-9518e48c] {\n  transition-duration: 0.3s;\n}\n.heartIcon[data-v-9518e48c] {\n  color: #d3344e;\n}\nh1[data-v-9518e48c] {\n  margin: 0;\n  font-size: 25px;\n  font-weight: bold;\n}\n.navbar[data-v-9518e48c] {\n  height: 4rem;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0 15px;\n}\n.navbar__left[data-v-9518e48c] {\n  justify-content: start;\n}\n.navbar__shadow[data-v-9518e48c] {\n  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.1);\n}\n.navbar__brand[data-v-9518e48c] {\n  font-family: Merriweather, serif;\n  font-weight: bold;\n  font-size: 1.2rem;\n  margin-left: 15px;\n  transition-duration: 0.3s;\n}\n.navbar__brand[data-v-9518e48c]:hover {\n  opacity: 0.6;\n  transition-duration: 0.3s;\n}\n.navbar__menu[data-v-9518e48c] {\n  display: flex;\n  align-items: center;\n  flex-flow: nowrap;\n}\n.navbar__menu a[data-v-9518e48c] {\n  font-size: 14px;\n}\n.navbar__item a[data-v-9518e48c], .navbar__item button[data-v-9518e48c] {\n  opacity: 0.8;\n  margin-right: 15px;\n}\n.thumbnail[data-v-9518e48c] {\n  border-radius: 50%;\n  object-fit: cover;\n  width: 100%;\n  height: 100%;\n}\n.capsuleButton[data-v-9518e48c] {\n  border: solid 1.5px #282D6F;\n  border-radius: 40px;\n  padding: 10px 40px;\n  font-weight: bold;\n  color: #282D6F;\n  transition-duration: 0.3s;\n  cursor: pointer;\n}\n.capsuleButton[data-v-9518e48c]:hover {\n  transition-duration: 0.3s;\n  background-color: #282D6F;\n  color: white;\n}\n.capsuleButton:hover i[data-v-9518e48c] {\n  color: white;\n  transition-duration: 0.3s;\n}\n.button[data-v-9518e48c] {\n  border: 1px solid rgba(40, 45, 111, 0.5);\n  border-radius: 0.25rem;\n  color: rgba(40, 45, 111, 0.6);\n  padding: 8px 15px;\n  background-color: rgba(40, 45, 111, 0.1);\n  transition-duration: 0.3s;\n}\n.button i[data-v-9518e48c] {\n  color: rgba(40, 45, 111, 0.6);\n  margin-right: 5px;\n}\n.button[data-v-9518e48c]:hover {\n  color: #282d6f;\n  border: 1px solid #282d6f;\n}\n.button:hover i[data-v-9518e48c] {\n  color: #282d6f;\n}\n.tab[data-v-9518e48c] {\n  display: flex;\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n.tab__item[data-v-9518e48c] {\n  border-bottom: 2px solid rgba(40, 45, 111, 0.6);\n  color: rgba(40, 45, 111, 0.6);\n  cursor: pointer;\n  margin: 0 1rem 0 0;\n  padding: 1rem;\n}\n.tab__item--active[data-v-9518e48c] {\n  border-bottom: 2px solid #282D6F;\n  color: #282D6F;\n  font-weight: bold;\n}\n.container[data-v-9518e48c] {\n  margin: 0 auto;\n  max-width: 1200px;\n  padding: 0 2%;\n}\n.container--small[data-v-9518e48c] {\n  margin: 0 auto;\n  max-width: 600px;\n}\n.panel[data-v-9518e48c] {\n  border: 1px solid rgba(40, 45, 111, 0.4);\n  margin-top: 1rem;\n  padding: 1.5rem;\n}\n.form__item[data-v-9518e48c] {\n  border: 1px solid rgba(40, 45, 111, 0.4);\n  border-radius: 0.25rem;\n  font-size: 1rem;\n  margin-bottom: 1rem;\n  padding: 0.5em 0.75em;\n  width: 100%;\n}\n.form label[data-v-9518e48c] {\n  display: block;\n  margin-bottom: 0.5rem;\n}\n.form__output[data-v-9518e48c] {\n  display: block;\n  margin-bottom: 1rem;\n}\n.form__button[data-v-9518e48c] {\n  text-align: right;\n}\n.errors[data-v-9518e48c] {\n  border: 1px solid red;\n  border-radius: 0.25rem;\n  color: red;\n  margin-bottom: 1rem;\n}\n.pageTitle[data-v-9518e48c] {\n  margin: 0 auto;\n  text-align: center;\n  padding: 20px 0;\n}\n.date[data-v-9518e48c] {\n  color: rgba(40, 45, 111, 0.6);\n  font-size: 12px;\n  text-align: right;\n}\n.roundSquareShadow[data-v-9518e48c] {\n  background-color: white;\n  border-radius: 15px;\n  box-shadow: 2px 2px 3px rgba(40, 45, 111, 0.15);\n}\n.wrapper[data-v-9518e48c] {\n  width: 90%;\n  display: flex;\n  flex-flow: wrap column;\n  align-items: center;\n  margin: 0 auto;\n  padding-top: 30px;\n}", ""]);
 
 // exports
 
@@ -150,91 +142,21 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "wrapper" }, [
-    _c("h3", [_vm._v("リクエストの作成")]),
-    _vm._v(" "),
-    _c(
-      "form",
-      {
-        staticClass: "form",
-        attrs: { action: "" },
-        on: {
-          submit: function($event) {
-            $event.preventDefault()
-            return _vm.createRequest($event)
-          }
-        }
-      },
-      [
-        _c("label", { attrs: { for: "request-name" } }, [
-          _vm._v("リクエスト名")
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.updateForm.title,
-              expression: "updateForm.title"
-            }
-          ],
-          staticClass: "form__item",
-          attrs: { type: "text" },
-          domProps: { value: _vm.updateForm.title },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.updateForm, "title", $event.target.value)
-            }
-          }
-        }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "request-contents" } }, [
-          _vm._v("リクエストしたい内容の詳細")
-        ]),
-        _vm._v(" "),
-        _c("textarea", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.updateForm.contents,
-              expression: "updateForm.contents"
-            }
-          ],
-          staticClass: "form__item",
-          attrs: { cols: "30", rows: "8" },
-          domProps: { value: _vm.updateForm.contents },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.updateForm, "contents", $event.target.value)
-            }
-          }
-        }),
-        _vm._v(" "),
-        _vm._m(0)
-      ]
-    )
-  ])
+  return _c(
+    "div",
+    { staticClass: "wrapper" },
+    [
+      _c("h3", [_vm._v("リクエストの作成")]),
+      _vm._v(" "),
+      _c("RequestEditForm", {
+        attrs: { submitMessage: _vm.submitMessage },
+        on: { formEnter: _vm.createRequest }
+      })
+    ],
+    1
+  )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form__button" }, [
-      _c("button", { staticClass: "button", attrs: { type: "submit" } }, [
-        _vm._v("更新する")
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

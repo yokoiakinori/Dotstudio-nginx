@@ -59,6 +59,9 @@ export default {
     margin-bottom: 40px;
 }
 ul {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-start;
     padding: 0;
     width: 900px;
     flex-flow: row;

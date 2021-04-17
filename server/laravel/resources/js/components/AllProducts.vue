@@ -96,9 +96,10 @@ export default {
                     const message = `あなたの${product.productname}が${this.authName}さんにいいねされました。`;
                     const id = product.user.id;
                     this.inputNotification(message, id); //mixin[notification]参照
+                    const sepalationNumber = 10;
                     if (
-                        product.likes_count % 10 == 0 &&
-                        product.likes_count >= 10
+                        product.likes_count % sepalationNumber == 0 &&
+                        product.likes_count >= sepalationNumber
                     ) {
                         const message = `あなたの${product.productname}が${product.likes_count}回いいねされました。`;
                         const id = product.user.id;
