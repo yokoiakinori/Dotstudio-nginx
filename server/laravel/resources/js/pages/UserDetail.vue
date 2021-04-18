@@ -40,7 +40,7 @@
                 :key="content.name"
             />
         </ul>
-        <div class="productsList" :style="style">
+        <div class="productsList" :style="style" v-if="products.length >= 1">
             <Product
                 v-for="product in products"
                 :key="product.id"
@@ -50,6 +50,15 @@
                 :productstyle="productStyle"
             />
         </div>
+        <div class="requestsList" v-else-if="requests.length >= 1">
+            <RequestItem
+                v-for="request in requests"
+                :key="request.id"
+                :request="request"
+                :requeststyle="requestStyle"
+            />
+        </div>
+
         <Pagination :current-page="currentPage" :last-page="lastPage" />
     </div>
 </template>
@@ -59,6 +68,7 @@ import Pagination from "../components/Pagination.vue";
 import Product from "../components/Products/Product.vue";
 import ThumbnailImage from "../components/ThumbnailImage.vue";
 import UsersContent from "../components/User/UsersContent.vue";
+import RequestItem from "../components/Requests/RequestItem.vue";
 import Axios from "axios";
 import { OK, CREATED, UNPROCESSABLE_ENTITY } from "../util";
 export default {
@@ -66,7 +76,8 @@ export default {
         Pagination,
         Product,
         ThumbnailImage,
-        UsersContent
+        UsersContent,
+        RequestItem
     },
     props: {
         id: {
@@ -83,8 +94,7 @@ export default {
             requests: [],
             appear: false,
             style: {
-                width: "900px",
-                height: "1500px"
+                width: "900px"
             },
             contentList: [
                 {
@@ -103,10 +113,18 @@ export default {
     },
     computed: {
         productStyle() {
-            const product = `${this.maxwidth / 3}px`;
+            const columnCount = 3;
+            const product = `${this.maxwidth / columnCount}px`;
             return {
                 width: product,
                 height: product
+            };
+        },
+        requestStyle() {
+            const columnCount = 5;
+            const request = `${this.maxwidth / columnCount}px`;
+            return {
+                width: request
             };
         },
         userid() {
@@ -275,6 +293,11 @@ h2 {
     font-size: 20px;
 }
 .productsList {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-start;
+}
+.requestsList {
     display: flex;
     flex-flow: row wrap;
     align-content: flex-start;

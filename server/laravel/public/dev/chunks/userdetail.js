@@ -78,9 +78,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Products_Product_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Products/Product.vue */ "./resources/js/components/Products/Product.vue");
 /* harmony import */ var _components_ThumbnailImage_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/ThumbnailImage.vue */ "./resources/js/components/ThumbnailImage.vue");
 /* harmony import */ var _components_User_UsersContent_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/User/UsersContent.vue */ "./resources/js/components/User/UsersContent.vue");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../util */ "./resources/js/util.js");
+/* harmony import */ var _components_Requests_RequestItem_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/Requests/RequestItem.vue */ "./resources/js/components/Requests/RequestItem.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../util */ "./resources/js/util.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -143,6 +144,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -154,7 +165,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     Pagination: _components_Pagination_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     Product: _components_Products_Product_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     ThumbnailImage: _components_ThumbnailImage_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
-    UsersContent: _components_User_UsersContent_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
+    UsersContent: _components_User_UsersContent_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+    RequestItem: _components_Requests_RequestItem_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   props: {
     id: {
@@ -171,8 +183,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       requests: [],
       appear: false,
       style: {
-        width: "900px",
-        height: "1500px"
+        width: "900px"
       },
       contentList: [{
         name: "投稿作品"
@@ -187,10 +198,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   computed: {
     productStyle: function productStyle() {
-      var product = "".concat(this.maxwidth / 3, "px");
+      var columnCount = 3;
+      var product = "".concat(this.maxwidth / columnCount, "px");
       return {
         width: product,
         height: product
+      };
+    },
+    requestStyle: function requestStyle() {
+      var columnCount = 5;
+      var request = "".concat(this.maxwidth / columnCount, "px");
+      return {
+        width: request
       };
     },
     userid: function userid() {
@@ -260,7 +279,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.requests.length = 0;
     },
     errorResponse: function errorResponse(val) {
-      if (val.status !== _util__WEBPACK_IMPORTED_MODULE_6__["OK"]) {
+      if (val.status !== _util__WEBPACK_IMPORTED_MODULE_7__["OK"]) {
         this.$store.commit("error/setCode", val.status);
         return false;
       }
@@ -515,7 +534,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "*[data-v-17522045],\n*[data-v-17522045]::before,\n*[data-v-17522045]::after {\n  box-sizing: border-box;\n}\nh1[data-v-17522045], h2[data-v-17522045], h3[data-v-17522045], h4[data-v-17522045], p[data-v-17522045], label[data-v-17522045], li[data-v-17522045], a[data-v-17522045], i[data-v-17522045], button[data-v-17522045] {\n  color: #282D6F;\n  margin: 0;\n}\np[data-v-17522045] {\n  margin: 0;\n}\nli[data-v-17522045] {\n  list-style: none;\n}\na[data-v-17522045] {\n  text-decoration: none;\n}\noutput[data-v-17522045], input[data-v-17522045] {\n  border: none;\n  background: none;\n}\noutput[data-v-17522045]:focus, input[data-v-17522045]:focus {\n  outline: none;\n}\nimg[data-v-17522045] {\n  object-fit: cover;\n}\n[data-v-17522045]::-webkit-input-placeholder {\n  color: rgba(40, 45, 111, 0.6);\n  font-size: 12px;\n}\ntextarea[data-v-17522045] {\n  border: none;\n  background: none;\n}\ntextarea[data-v-17522045]:focus {\n  outline: none;\n}\nbutton[data-v-17522045] {\n  border: none;\n  background: none;\n  font-size: 14px;\n}\nbutton[data-v-17522045]:focus {\n  outline: none;\n}\ni[data-v-17522045] {\n  transition-duration: 0.3s;\n}\n.heartIcon[data-v-17522045] {\n  color: #d3344e;\n}\nh1[data-v-17522045] {\n  margin: 0;\n  font-size: 25px;\n  font-weight: bold;\n}\n.navbar[data-v-17522045] {\n  height: 4rem;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0 15px;\n}\n.navbar__left[data-v-17522045] {\n  justify-content: start;\n}\n.navbar__shadow[data-v-17522045] {\n  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.1);\n}\n.navbar__brand[data-v-17522045] {\n  font-family: Merriweather, serif;\n  font-weight: bold;\n  font-size: 1.2rem;\n  margin-left: 15px;\n  transition-duration: 0.3s;\n}\n.navbar__brand[data-v-17522045]:hover {\n  opacity: 0.6;\n  transition-duration: 0.3s;\n}\n.navbar__menu[data-v-17522045] {\n  display: flex;\n  align-items: center;\n  flex-flow: nowrap;\n}\n.navbar__menu a[data-v-17522045] {\n  font-size: 14px;\n}\n.navbar__item a[data-v-17522045], .navbar__item button[data-v-17522045] {\n  opacity: 0.8;\n  margin-right: 15px;\n}\n.thumbnail[data-v-17522045] {\n  border-radius: 50%;\n  object-fit: cover;\n  width: 100%;\n  height: 100%;\n}\n.capsuleButton[data-v-17522045] {\n  border: solid 1.5px #282D6F;\n  border-radius: 40px;\n  padding: 10px 40px;\n  font-weight: bold;\n  color: #282D6F;\n  transition-duration: 0.3s;\n  cursor: pointer;\n}\n.capsuleButton[data-v-17522045]:hover {\n  transition-duration: 0.3s;\n  background-color: #282D6F;\n  color: white;\n}\n.capsuleButton:hover i[data-v-17522045] {\n  color: white;\n  transition-duration: 0.3s;\n}\n.button[data-v-17522045] {\n  border: 1px solid rgba(40, 45, 111, 0.5);\n  border-radius: 0.25rem;\n  color: rgba(40, 45, 111, 0.6);\n  padding: 8px 15px;\n  background-color: rgba(40, 45, 111, 0.1);\n  transition-duration: 0.3s;\n}\n.button i[data-v-17522045] {\n  color: rgba(40, 45, 111, 0.6);\n  margin-right: 5px;\n}\n.button[data-v-17522045]:hover {\n  color: #282d6f;\n  border: 1px solid #282d6f;\n}\n.button:hover i[data-v-17522045] {\n  color: #282d6f;\n}\n.tab[data-v-17522045] {\n  display: flex;\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n.tab__item[data-v-17522045] {\n  border-bottom: 2px solid rgba(40, 45, 111, 0.6);\n  color: rgba(40, 45, 111, 0.6);\n  cursor: pointer;\n  margin: 0 1rem 0 0;\n  padding: 1rem;\n}\n.tab__item--active[data-v-17522045] {\n  border-bottom: 2px solid #282D6F;\n  color: #282D6F;\n  font-weight: bold;\n}\n.container[data-v-17522045] {\n  margin: 0 auto;\n  max-width: 1200px;\n  padding: 0 2%;\n}\n.container--small[data-v-17522045] {\n  margin: 0 auto;\n  max-width: 600px;\n}\n.panel[data-v-17522045] {\n  border: 1px solid rgba(40, 45, 111, 0.4);\n  margin-top: 1rem;\n  padding: 1.5rem;\n}\n.form__item[data-v-17522045] {\n  border: 1px solid rgba(40, 45, 111, 0.4);\n  border-radius: 0.25rem;\n  font-size: 1rem;\n  margin-bottom: 1rem;\n  padding: 0.5em 0.75em;\n  width: 100%;\n}\n.form label[data-v-17522045] {\n  display: block;\n  margin-bottom: 0.5rem;\n}\n.form__output[data-v-17522045] {\n  display: block;\n  margin-bottom: 1rem;\n}\n.form__button[data-v-17522045] {\n  text-align: right;\n}\n.errors[data-v-17522045] {\n  border: 1px solid red;\n  border-radius: 0.25rem;\n  color: red;\n  margin-bottom: 1rem;\n}\n.pageTitle[data-v-17522045] {\n  margin: 0 auto;\n  text-align: center;\n  padding: 20px 0;\n}\n.date[data-v-17522045] {\n  color: rgba(40, 45, 111, 0.6);\n  font-size: 12px;\n  text-align: right;\n}\n.roundSquareShadow[data-v-17522045] {\n  background-color: white;\n  border-radius: 15px;\n  box-shadow: 2px 2px 3px rgba(40, 45, 111, 0.15);\n}\n.userDetail[data-v-17522045] {\n  padding-top: 30px;\n  margin: 0 auto;\n  margin-top: 0;\n  display: flex;\n  flex-flow: column;\n  width: 100%;\n  align-items: center;\n}\n.userInformation[data-v-17522045] {\n  width: 850px;\n  display: flex;\n  align-items: center;\n}\n.informationItem[data-v-17522045] {\n  border-right: solid 1px #282D6F;\n  display: flex;\n  padding: 0 15px;\n}\n.informationItem p[data-v-17522045] {\n  text-align: center;\n  margin: 0 10px;\n}\n.informationItem span[data-v-17522045] {\n  font-weight: bold;\n  font-size: 27px;\n  color: #282D6F;\n}\n.informationItem a[data-v-17522045] {\n  font-size: 13px;\n  color: rgba(40, 45, 111, 0.6);\n}\n.columen[data-v-17522045] {\n  flex-flow: column;\n}\nh2[data-v-17522045] {\n  margin-bottom: 10px;\n}\n.settings[data-v-17522045] {\n  margin-left: 20px;\n  font-size: 20px;\n}\n.productsList[data-v-17522045] {\n  display: flex;\n  flex-flow: row wrap;\n  align-content: flex-start;\n}\n.thumbnail[data-v-17522045] {\n  width: 130px;\n  height: 130px;\n}\n.tab[data-v-17522045] {\n  width: 40%;\n  height: 85px;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  text-align: center;\n}\n.tab li[data-v-17522045] {\n  font-size: 18px;\n  width: 50%;\n  height: 65%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.tab li p[data-v-17522045] {\n  display: inline-block;\n  margin: 0;\n}", ""]);
+exports.push([module.i, "*[data-v-17522045],\n*[data-v-17522045]::before,\n*[data-v-17522045]::after {\n  box-sizing: border-box;\n}\nh1[data-v-17522045], h2[data-v-17522045], h3[data-v-17522045], h4[data-v-17522045], p[data-v-17522045], label[data-v-17522045], li[data-v-17522045], a[data-v-17522045], i[data-v-17522045], button[data-v-17522045] {\n  color: #282D6F;\n  margin: 0;\n}\np[data-v-17522045] {\n  margin: 0;\n}\nli[data-v-17522045] {\n  list-style: none;\n}\na[data-v-17522045] {\n  text-decoration: none;\n}\noutput[data-v-17522045], input[data-v-17522045] {\n  border: none;\n  background: none;\n}\noutput[data-v-17522045]:focus, input[data-v-17522045]:focus {\n  outline: none;\n}\nimg[data-v-17522045] {\n  object-fit: cover;\n}\n[data-v-17522045]::-webkit-input-placeholder {\n  color: rgba(40, 45, 111, 0.6);\n  font-size: 12px;\n}\ntextarea[data-v-17522045] {\n  border: none;\n  background: none;\n}\ntextarea[data-v-17522045]:focus {\n  outline: none;\n}\nbutton[data-v-17522045] {\n  border: none;\n  background: none;\n  font-size: 14px;\n}\nbutton[data-v-17522045]:focus {\n  outline: none;\n}\ni[data-v-17522045] {\n  transition-duration: 0.3s;\n}\n.heartIcon[data-v-17522045] {\n  color: #d3344e;\n}\nh1[data-v-17522045] {\n  margin: 0;\n  font-size: 25px;\n  font-weight: bold;\n}\n.navbar[data-v-17522045] {\n  height: 4rem;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0 15px;\n}\n.navbar__left[data-v-17522045] {\n  justify-content: start;\n}\n.navbar__shadow[data-v-17522045] {\n  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.1);\n}\n.navbar__brand[data-v-17522045] {\n  font-family: Merriweather, serif;\n  font-weight: bold;\n  font-size: 1.2rem;\n  margin-left: 15px;\n  transition-duration: 0.3s;\n}\n.navbar__brand[data-v-17522045]:hover {\n  opacity: 0.6;\n  transition-duration: 0.3s;\n}\n.navbar__menu[data-v-17522045] {\n  display: flex;\n  align-items: center;\n  flex-flow: nowrap;\n}\n.navbar__menu a[data-v-17522045] {\n  font-size: 14px;\n}\n.navbar__item a[data-v-17522045], .navbar__item button[data-v-17522045] {\n  opacity: 0.8;\n  margin-right: 15px;\n}\n.thumbnail[data-v-17522045] {\n  border-radius: 50%;\n  object-fit: cover;\n  width: 100%;\n  height: 100%;\n}\n.capsuleButton[data-v-17522045] {\n  border: solid 1.5px #282D6F;\n  border-radius: 40px;\n  padding: 10px 40px;\n  font-weight: bold;\n  color: #282D6F;\n  transition-duration: 0.3s;\n  cursor: pointer;\n}\n.capsuleButton[data-v-17522045]:hover {\n  transition-duration: 0.3s;\n  background-color: #282D6F;\n  color: white;\n}\n.capsuleButton:hover i[data-v-17522045] {\n  color: white;\n  transition-duration: 0.3s;\n}\n.button[data-v-17522045] {\n  border: 1px solid rgba(40, 45, 111, 0.5);\n  border-radius: 0.25rem;\n  color: rgba(40, 45, 111, 0.6);\n  padding: 8px 15px;\n  background-color: rgba(40, 45, 111, 0.1);\n  transition-duration: 0.3s;\n}\n.button i[data-v-17522045] {\n  color: rgba(40, 45, 111, 0.6);\n  margin-right: 5px;\n}\n.button[data-v-17522045]:hover {\n  color: #282d6f;\n  border: 1px solid #282d6f;\n}\n.button:hover i[data-v-17522045] {\n  color: #282d6f;\n}\n.tab[data-v-17522045] {\n  display: flex;\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n.tab__item[data-v-17522045] {\n  border-bottom: 2px solid rgba(40, 45, 111, 0.6);\n  color: rgba(40, 45, 111, 0.6);\n  cursor: pointer;\n  margin: 0 1rem 0 0;\n  padding: 1rem;\n}\n.tab__item--active[data-v-17522045] {\n  border-bottom: 2px solid #282D6F;\n  color: #282D6F;\n  font-weight: bold;\n}\n.container[data-v-17522045] {\n  margin: 0 auto;\n  max-width: 1200px;\n  padding: 0 2%;\n}\n.container--small[data-v-17522045] {\n  margin: 0 auto;\n  max-width: 600px;\n}\n.panel[data-v-17522045] {\n  border: 1px solid rgba(40, 45, 111, 0.4);\n  margin-top: 1rem;\n  padding: 1.5rem;\n}\n.form__item[data-v-17522045] {\n  border: 1px solid rgba(40, 45, 111, 0.4);\n  border-radius: 0.25rem;\n  font-size: 1rem;\n  margin-bottom: 1rem;\n  padding: 0.5em 0.75em;\n  width: 100%;\n}\n.form label[data-v-17522045] {\n  display: block;\n  margin-bottom: 0.5rem;\n}\n.form__output[data-v-17522045] {\n  display: block;\n  margin-bottom: 1rem;\n}\n.form__button[data-v-17522045] {\n  text-align: right;\n}\n.errors[data-v-17522045] {\n  border: 1px solid red;\n  border-radius: 0.25rem;\n  color: red;\n  margin-bottom: 1rem;\n}\n.pageTitle[data-v-17522045] {\n  margin: 0 auto;\n  text-align: center;\n  padding: 20px 0;\n}\n.date[data-v-17522045] {\n  color: rgba(40, 45, 111, 0.6);\n  font-size: 12px;\n  text-align: right;\n}\n.roundSquareShadow[data-v-17522045] {\n  background-color: white;\n  border-radius: 15px;\n  box-shadow: 2px 2px 3px rgba(40, 45, 111, 0.15);\n}\n.userDetail[data-v-17522045] {\n  padding-top: 30px;\n  margin: 0 auto;\n  margin-top: 0;\n  display: flex;\n  flex-flow: column;\n  width: 100%;\n  align-items: center;\n}\n.userInformation[data-v-17522045] {\n  width: 850px;\n  display: flex;\n  align-items: center;\n}\n.informationItem[data-v-17522045] {\n  border-right: solid 1px #282D6F;\n  display: flex;\n  padding: 0 15px;\n}\n.informationItem p[data-v-17522045] {\n  text-align: center;\n  margin: 0 10px;\n}\n.informationItem span[data-v-17522045] {\n  font-weight: bold;\n  font-size: 27px;\n  color: #282D6F;\n}\n.informationItem a[data-v-17522045] {\n  font-size: 13px;\n  color: rgba(40, 45, 111, 0.6);\n}\n.columen[data-v-17522045] {\n  flex-flow: column;\n}\nh2[data-v-17522045] {\n  margin-bottom: 10px;\n}\n.settings[data-v-17522045] {\n  margin-left: 20px;\n  font-size: 20px;\n}\n.productsList[data-v-17522045] {\n  display: flex;\n  flex-flow: row wrap;\n  align-content: flex-start;\n}\n.requestsList[data-v-17522045] {\n  display: flex;\n  flex-flow: row wrap;\n  align-content: flex-start;\n}\n.thumbnail[data-v-17522045] {\n  width: 130px;\n  height: 130px;\n}\n.tab[data-v-17522045] {\n  width: 40%;\n  height: 85px;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  text-align: center;\n}\n.tab li[data-v-17522045] {\n  font-size: 18px;\n  width: 50%;\n  height: 65%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.tab li p[data-v-17522045] {\n  display: inline-block;\n  margin: 0;\n}", ""]);
 
 // exports
 
@@ -790,22 +809,36 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "productsList", style: _vm.style },
-        _vm._l(_vm.products, function(product) {
-          return _c("Product", {
-            key: product.id,
-            attrs: {
-              product: product,
-              appearLike: true,
-              productstyle: _vm.productStyle
-            },
-            on: { like: _vm.onLikeClick }
-          })
-        }),
-        1
-      ),
+      _vm.products.length >= 1
+        ? _c(
+            "div",
+            { staticClass: "productsList", style: _vm.style },
+            _vm._l(_vm.products, function(product) {
+              return _c("Product", {
+                key: product.id,
+                attrs: {
+                  product: product,
+                  appearLike: true,
+                  productstyle: _vm.productStyle
+                },
+                on: { like: _vm.onLikeClick }
+              })
+            }),
+            1
+          )
+        : _vm.requests.length >= 1
+        ? _c(
+            "div",
+            { staticClass: "requestsList" },
+            _vm._l(_vm.requests, function(request) {
+              return _c("RequestItem", {
+                key: request.id,
+                attrs: { request: request, requeststyle: _vm.requestStyle }
+              })
+            }),
+            1
+          )
+        : _vm._e(),
       _vm._v(" "),
       _c("Pagination", {
         attrs: { "current-page": _vm.currentPage, "last-page": _vm.lastPage }
