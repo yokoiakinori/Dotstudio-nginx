@@ -32,26 +32,13 @@
         </div>
 
         <ul class="tab">
-            <li @click="tab = 1">
-                <p
-                    :class="{
-                        'tab_item-active': tab === 1,
-                        'tab_item-nonactive': tab !== 1
-                    }"
-                >
-                    投稿作品
-                </p>
-            </li>
-            <li @click="tab = 2">
-                <p
-                    :class="{
-                        'tab_item-active': tab === 2,
-                        'tab_item-nonactive': tab !== 2
-                    }"
-                >
-                    お気に入り
-                </p>
-            </li>
+            <UsersContent
+                :contentname="content.name"
+                :isactive="content.name == currentContentName"
+                @currentContent="currentContent(content.name)"
+                v-for="content in contentList"
+                :key="content.name"
+            />
         </ul>
         <div class="productsList" :style="style">
             <Product
@@ -71,13 +58,15 @@
 import Pagination from "../components/Pagination.vue";
 import Product from "../components/Products/Product.vue";
 import ThumbnailImage from "../components/ThumbnailImage.vue";
+import UsersContent from "../components/User/UsersContent.vue";
 import Axios from "axios";
 import { OK, CREATED, UNPROCESSABLE_ENTITY } from "../util";
 export default {
     components: {
         Pagination,
         Product,
-        ThumbnailImage
+        ThumbnailImage,
+        UsersContent
     },
     props: {
         id: {
@@ -96,7 +85,15 @@ export default {
                 width: "900px",
                 height: "1500px"
             },
-            tab: 1,
+            contentList: [
+                {
+                    name: "投稿作品"
+                },
+                {
+                    name: "お気に入り"
+                }
+            ],
+            currentContentName: "投稿作品",
             user: {}
         };
     },
@@ -123,8 +120,8 @@ export default {
             },
             immediate: true
         },
-        tab: function(val) {
-            if (val == 1) {
+        currentContentName: function(val) {
+            if (val == "投稿作品") {
                 this.showProducts();
             } else {
                 this.showLikeProducts();
@@ -209,6 +206,9 @@ export default {
                 }
                 return product;
             });
+        },
+        currentContent(val) {
+            this.currentContentName = val;
         }
     }
 };
@@ -288,13 +288,5 @@ h2 {
             margin: 0;
         }
     }
-}
-.tab_item-nonactive {
-    transition-duration: 0.4s;
-    border-bottom: solid 1.2px rgba($maincolor, 0);
-}
-.tab_item-active {
-    transition-duration: 0.4s;
-    border-bottom: solid 1.2px $maincolor;
 }
 </style>
