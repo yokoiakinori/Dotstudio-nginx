@@ -1,7 +1,8 @@
 <template>
     <div>
+        <p class="date">{{ request.created_at }}</p>
         <h3>{{ request.title }}</h3>
-        <p>{{ request.contents }}</p>
+        <p class="content">{{ request.contents }}</p>
     </div>
 </template>
 
@@ -21,7 +22,10 @@ div {
     border-bottom: solid 1px rgba($color: $maincolor, $alpha: 0.7);
 }
 h3 {
-    font-size: 24px;
+    font-size: 26px;
     margin-bottom: 10px;
+}
+.content {
+    font-size: 19px;
 }
 </style>

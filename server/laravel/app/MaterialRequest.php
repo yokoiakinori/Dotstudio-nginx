@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class MaterialRequest extends Model
 {
@@ -13,11 +14,16 @@ class MaterialRequest extends Model
     );
 
     protected $visible = [
-        'id', 'title', 'contents', 'iscompleted', 'user_id', 'user'
+        'id', 'created_at', 'title', 'contents', 'iscompleted', 'user_id', 'user'
     ];
 
     public function user()
     {
         return $this->belongsTo('App\User');
+    }
+
+    public function getCreatedAtAttribute($value)
+    {
+        return Carbon::parse($value)->format("Y/m/d");
     }
 }

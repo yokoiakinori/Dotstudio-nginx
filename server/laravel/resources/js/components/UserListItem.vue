@@ -1,5 +1,5 @@
 <template>
-    <li>
+    <li class="userListItem">
         <ThumbnailImage :user="user" class="thumbnail" />
         <div class="userInformation">
             <router-link :to="`/users/${user.id}`"
@@ -111,7 +111,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../sass/common.scss";
-li {
+.userListItem {
     width: 810px;
     display: flex;
     justify-content: space-between;

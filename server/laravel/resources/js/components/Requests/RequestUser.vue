@@ -23,9 +23,13 @@ export default {
 @import "../../../sass/common.scss";
 div {
     display: flex;
+    align-items: center;
 }
 .thumbnail {
     width: 80px;
     height: 80px;
+}
+.content {
+    margin-left: 20px;
 }
 </style>
