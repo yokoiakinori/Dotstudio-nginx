@@ -80,6 +80,7 @@ export default {
             lastPage: 0,
             maxwidth: 900,
             products: [],
+            requests: [],
             appear: false,
             style: {
                 width: "900px",
@@ -91,6 +92,9 @@ export default {
                 },
                 {
                     name: "お気に入り"
+                },
+                {
+                    name: "リクエスト"
                 }
             ],
             currentContentName: "投稿作品",
@@ -123,8 +127,10 @@ export default {
         currentContentName: function(val) {
             if (val == "投稿作品") {
                 this.showProducts();
-            } else {
+            } else if (val == "お気に入り") {
                 this.showLikeProducts();
+            } else if (val == "リクエスト") {
+                this.showRequests();
             }
         }
     },
@@ -141,48 +147,61 @@ export default {
                 this.like(id);
             }
         },
-        async showProducts() {
+
+        reset() {
             this.products.length = 0;
+            this.requests.length = 0;
+        },
+        errorResponse(val) {
+            if (val.status !== OK) {
+                this.$store.commit("error/setCode", val.status);
+                return false;
+            }
+        },
+        setPageInformation(val) {
+            this.currentPage = val.data.current_page;
+            this.lastPage = val.data.last_page;
+        },
+
+        async showProducts() {
+            this.reset();
             const response = await axios.get(
                 `/api/users/products/${this.id}/?page=${this.page}`
             );
-            if (response.status !== OK) {
-                this.$store.commit("error/setCode", response.status);
-                return false;
-            }
+            this.errorResponse(response);
             this.products = response.data.data;
-            this.currentPage = response.data.current_page;
-            this.lastPage = response.data.last_page;
+            this.setPageInformation(response);
         },
+
         async showLikeProducts() {
-            this.products.length = 0;
+            this.reset();
             const response = await axios.get(
                 `/api/users/likeproducts/${this.id}/?page=${this.page}`
             );
-            if (response.status !== OK) {
-                this.$store.commit("error/setCode", response.status);
-                return false;
-            }
+            this.errorResponse(response);
             this.products = response.data.data;
-            this.currentPage = response.data.current_page;
-            this.lastPage = response.data.last_page;
+            this.setPageInformation(response);
         },
+
+        async showRequests() {
+            this.reset();
+            const response = await axios.get(
+                `/api/user/${this.id}/requests/?page=${this.page}`
+            );
+            this.errorResponse(response);
+            this.requests = response.data.data;
+            this.setPageInformation(response);
+        },
+
         async showUser() {
             const response = await axios.get(`/api/users/${this.id}`);
-            if (response.status !== OK) {
-                this.$store.commit("error/setCode", response.status);
-                return false;
-            }
+            this.errorResponse(response);
             this.user = response.data[0];
         },
+
         async like(id) {
             const response = await axios.put(`/api/products/${id}/like`);
-
-            if (response.status !== OK) {
-                this.$store.commit("error/setCode", response.status);
-                return false;
-            }
-
+            this.errorResponse(response);
             this.products = this.products.map(product => {
                 if (product.id == response.data.product_id) {
                     product.likes_count += 1;
@@ -191,14 +210,10 @@ export default {
                 return product;
             });
         },
+
         async unlike(id) {
             const response = await axios.delete(`/api/products/${id}/like`);
-
-            if (response.status !== OK) {
-                this.$store.commit("error/setCode", response.status);
-                return false;
-            }
-
+            this.errorResponse(response);
             this.products = this.products.map(product => {
                 if (product.id == response.data.product_id) {
                     product.likes_count -= 1;
@@ -207,6 +222,7 @@ export default {
                 return product;
             });
         },
+
         currentContent(val) {
             this.currentContentName = val;
         }
@@ -268,7 +284,7 @@ h2 {
     height: 130px;
 }
 .tab {
-    width: 25%;
+    width: 40%;
     height: 85px;
     margin: 0;
     padding: 0;
