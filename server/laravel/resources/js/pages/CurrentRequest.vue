@@ -1,7 +1,14 @@
 <template>
     <div class="wrapper">
         <CurrentRequestContent :request="request" />
-        <RequestUser :request="request" />
+        <div class="userInformation">
+            <RequestUser :request="request" /><RouterLink
+                class="capsuleButton"
+                :to="`/request/${request.id}/update`"
+                v-if="request.user_id == userid"
+                >編集する</RouterLink
+            >
+        </div>
     </div>
 </template>
 
@@ -24,6 +31,11 @@ export default {
         return {
             request: {}
         };
+    },
+    computed: {
+        userid() {
+            return this.$store.getters["auth/userid"];
+        }
     },
     watch: {
         $route: {
@@ -55,5 +67,10 @@ export default {
     padding: 30px;
     width: 500px;
     margin: auto;
+}
+.userInformation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 </style>

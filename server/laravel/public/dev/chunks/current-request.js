@@ -110,6 +110,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -128,6 +135,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return {
       request: {}
     };
+  },
+  computed: {
+    userid: function userid() {
+      return this.$store.getters["auth/userid"];
+    }
   },
   watch: {
     $route: {
@@ -268,7 +280,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "*[data-v-4d2e999f],\n*[data-v-4d2e999f]::before,\n*[data-v-4d2e999f]::after {\n  box-sizing: border-box;\n}\nh1[data-v-4d2e999f], h2[data-v-4d2e999f], h3[data-v-4d2e999f], h4[data-v-4d2e999f], p[data-v-4d2e999f], label[data-v-4d2e999f], li[data-v-4d2e999f], a[data-v-4d2e999f], i[data-v-4d2e999f], button[data-v-4d2e999f] {\n  color: #282D6F;\n  margin: 0;\n}\np[data-v-4d2e999f] {\n  margin: 0;\n}\nli[data-v-4d2e999f] {\n  list-style: none;\n}\na[data-v-4d2e999f] {\n  text-decoration: none;\n}\noutput[data-v-4d2e999f], input[data-v-4d2e999f] {\n  border: none;\n  background: none;\n}\noutput[data-v-4d2e999f]:focus, input[data-v-4d2e999f]:focus {\n  outline: none;\n}\nimg[data-v-4d2e999f] {\n  object-fit: cover;\n}\n[data-v-4d2e999f]::-webkit-input-placeholder {\n  color: rgba(40, 45, 111, 0.6);\n  font-size: 12px;\n}\ntextarea[data-v-4d2e999f] {\n  border: none;\n  background: none;\n}\ntextarea[data-v-4d2e999f]:focus {\n  outline: none;\n}\nbutton[data-v-4d2e999f] {\n  border: none;\n  background: none;\n  font-size: 14px;\n}\nbutton[data-v-4d2e999f]:focus {\n  outline: none;\n}\ni[data-v-4d2e999f] {\n  transition-duration: 0.3s;\n}\n.heartIcon[data-v-4d2e999f] {\n  color: #d3344e;\n}\nh1[data-v-4d2e999f] {\n  margin: 0;\n  font-size: 25px;\n  font-weight: bold;\n}\n.navbar[data-v-4d2e999f] {\n  height: 4rem;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0 15px;\n}\n.navbar__left[data-v-4d2e999f] {\n  justify-content: start;\n}\n.navbar__shadow[data-v-4d2e999f] {\n  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.1);\n}\n.navbar__brand[data-v-4d2e999f] {\n  font-family: Merriweather, serif;\n  font-weight: bold;\n  font-size: 1.2rem;\n  margin-left: 15px;\n  transition-duration: 0.3s;\n}\n.navbar__brand[data-v-4d2e999f]:hover {\n  opacity: 0.6;\n  transition-duration: 0.3s;\n}\n.navbar__menu[data-v-4d2e999f] {\n  display: flex;\n  align-items: center;\n  flex-flow: nowrap;\n}\n.navbar__menu a[data-v-4d2e999f] {\n  font-size: 14px;\n}\n.navbar__item a[data-v-4d2e999f], .navbar__item button[data-v-4d2e999f] {\n  opacity: 0.8;\n  margin-right: 15px;\n}\n.thumbnail[data-v-4d2e999f] {\n  border-radius: 50%;\n  object-fit: cover;\n  width: 100%;\n  height: 100%;\n}\n.capsuleButton[data-v-4d2e999f] {\n  border: solid 1.5px #282D6F;\n  border-radius: 40px;\n  padding: 10px 40px;\n  font-weight: bold;\n  color: #282D6F;\n  transition-duration: 0.3s;\n  cursor: pointer;\n}\n.capsuleButton[data-v-4d2e999f]:hover {\n  transition-duration: 0.3s;\n  background-color: #282D6F;\n  color: white;\n}\n.capsuleButton:hover i[data-v-4d2e999f] {\n  color: white;\n  transition-duration: 0.3s;\n}\n.button[data-v-4d2e999f] {\n  border: 1px solid rgba(40, 45, 111, 0.5);\n  border-radius: 0.25rem;\n  color: rgba(40, 45, 111, 0.6);\n  padding: 8px 15px;\n  background-color: rgba(40, 45, 111, 0.1);\n  transition-duration: 0.3s;\n}\n.button i[data-v-4d2e999f] {\n  color: rgba(40, 45, 111, 0.6);\n  margin-right: 5px;\n}\n.button[data-v-4d2e999f]:hover {\n  color: #282d6f;\n  border: 1px solid #282d6f;\n}\n.button:hover i[data-v-4d2e999f] {\n  color: #282d6f;\n}\n.tab[data-v-4d2e999f] {\n  display: flex;\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n.tab__item[data-v-4d2e999f] {\n  border-bottom: 2px solid rgba(40, 45, 111, 0.6);\n  color: rgba(40, 45, 111, 0.6);\n  cursor: pointer;\n  margin: 0 1rem 0 0;\n  padding: 1rem;\n}\n.tab__item--active[data-v-4d2e999f] {\n  border-bottom: 2px solid #282D6F;\n  color: #282D6F;\n  font-weight: bold;\n}\n.container[data-v-4d2e999f] {\n  margin: 0 auto;\n  max-width: 1200px;\n  padding: 0 2%;\n}\n.container--small[data-v-4d2e999f] {\n  margin: 0 auto;\n  max-width: 600px;\n}\n.panel[data-v-4d2e999f] {\n  border: 1px solid rgba(40, 45, 111, 0.4);\n  margin-top: 1rem;\n  padding: 1.5rem;\n}\n.form__item[data-v-4d2e999f] {\n  border: 1px solid rgba(40, 45, 111, 0.4);\n  border-radius: 0.25rem;\n  font-size: 1rem;\n  margin-bottom: 1rem;\n  padding: 0.5em 0.75em;\n  width: 100%;\n}\n.form label[data-v-4d2e999f] {\n  display: block;\n  margin-bottom: 0.5rem;\n}\n.form__output[data-v-4d2e999f] {\n  display: block;\n  margin-bottom: 1rem;\n}\n.form__button[data-v-4d2e999f] {\n  text-align: right;\n}\n.errors[data-v-4d2e999f] {\n  border: 1px solid red;\n  border-radius: 0.25rem;\n  color: red;\n  margin-bottom: 1rem;\n}\n.pageTitle[data-v-4d2e999f] {\n  margin: 0 auto;\n  text-align: center;\n  padding: 20px 0;\n}\n.date[data-v-4d2e999f] {\n  color: rgba(40, 45, 111, 0.6);\n  font-size: 12px;\n  text-align: right;\n}\n.roundSquareShadow[data-v-4d2e999f] {\n  background-color: white;\n  border-radius: 15px;\n  box-shadow: 2px 2px 3px rgba(40, 45, 111, 0.15);\n}\n.wrapper[data-v-4d2e999f] {\n  background-color: white;\n  padding: 30px;\n  width: 500px;\n  margin: auto;\n}", ""]);
+exports.push([module.i, "*[data-v-4d2e999f],\n*[data-v-4d2e999f]::before,\n*[data-v-4d2e999f]::after {\n  box-sizing: border-box;\n}\nh1[data-v-4d2e999f], h2[data-v-4d2e999f], h3[data-v-4d2e999f], h4[data-v-4d2e999f], p[data-v-4d2e999f], label[data-v-4d2e999f], li[data-v-4d2e999f], a[data-v-4d2e999f], i[data-v-4d2e999f], button[data-v-4d2e999f] {\n  color: #282D6F;\n  margin: 0;\n}\np[data-v-4d2e999f] {\n  margin: 0;\n}\nli[data-v-4d2e999f] {\n  list-style: none;\n}\na[data-v-4d2e999f] {\n  text-decoration: none;\n}\noutput[data-v-4d2e999f], input[data-v-4d2e999f] {\n  border: none;\n  background: none;\n}\noutput[data-v-4d2e999f]:focus, input[data-v-4d2e999f]:focus {\n  outline: none;\n}\nimg[data-v-4d2e999f] {\n  object-fit: cover;\n}\n[data-v-4d2e999f]::-webkit-input-placeholder {\n  color: rgba(40, 45, 111, 0.6);\n  font-size: 12px;\n}\ntextarea[data-v-4d2e999f] {\n  border: none;\n  background: none;\n}\ntextarea[data-v-4d2e999f]:focus {\n  outline: none;\n}\nbutton[data-v-4d2e999f] {\n  border: none;\n  background: none;\n  font-size: 14px;\n}\nbutton[data-v-4d2e999f]:focus {\n  outline: none;\n}\ni[data-v-4d2e999f] {\n  transition-duration: 0.3s;\n}\n.heartIcon[data-v-4d2e999f] {\n  color: #d3344e;\n}\nh1[data-v-4d2e999f] {\n  margin: 0;\n  font-size: 25px;\n  font-weight: bold;\n}\n.navbar[data-v-4d2e999f] {\n  height: 4rem;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0 15px;\n}\n.navbar__left[data-v-4d2e999f] {\n  justify-content: start;\n}\n.navbar__shadow[data-v-4d2e999f] {\n  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.1);\n}\n.navbar__brand[data-v-4d2e999f] {\n  font-family: Merriweather, serif;\n  font-weight: bold;\n  font-size: 1.2rem;\n  margin-left: 15px;\n  transition-duration: 0.3s;\n}\n.navbar__brand[data-v-4d2e999f]:hover {\n  opacity: 0.6;\n  transition-duration: 0.3s;\n}\n.navbar__menu[data-v-4d2e999f] {\n  display: flex;\n  align-items: center;\n  flex-flow: nowrap;\n}\n.navbar__menu a[data-v-4d2e999f] {\n  font-size: 14px;\n}\n.navbar__item a[data-v-4d2e999f], .navbar__item button[data-v-4d2e999f] {\n  opacity: 0.8;\n  margin-right: 15px;\n}\n.thumbnail[data-v-4d2e999f] {\n  border-radius: 50%;\n  object-fit: cover;\n  width: 100%;\n  height: 100%;\n}\n.capsuleButton[data-v-4d2e999f] {\n  border: solid 1.5px #282D6F;\n  border-radius: 40px;\n  padding: 10px 40px;\n  font-weight: bold;\n  color: #282D6F;\n  transition-duration: 0.3s;\n  cursor: pointer;\n}\n.capsuleButton[data-v-4d2e999f]:hover {\n  transition-duration: 0.3s;\n  background-color: #282D6F;\n  color: white;\n}\n.capsuleButton:hover i[data-v-4d2e999f] {\n  color: white;\n  transition-duration: 0.3s;\n}\n.button[data-v-4d2e999f] {\n  border: 1px solid rgba(40, 45, 111, 0.5);\n  border-radius: 0.25rem;\n  color: rgba(40, 45, 111, 0.6);\n  padding: 8px 15px;\n  background-color: rgba(40, 45, 111, 0.1);\n  transition-duration: 0.3s;\n}\n.button i[data-v-4d2e999f] {\n  color: rgba(40, 45, 111, 0.6);\n  margin-right: 5px;\n}\n.button[data-v-4d2e999f]:hover {\n  color: #282d6f;\n  border: 1px solid #282d6f;\n}\n.button:hover i[data-v-4d2e999f] {\n  color: #282d6f;\n}\n.tab[data-v-4d2e999f] {\n  display: flex;\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n.tab__item[data-v-4d2e999f] {\n  border-bottom: 2px solid rgba(40, 45, 111, 0.6);\n  color: rgba(40, 45, 111, 0.6);\n  cursor: pointer;\n  margin: 0 1rem 0 0;\n  padding: 1rem;\n}\n.tab__item--active[data-v-4d2e999f] {\n  border-bottom: 2px solid #282D6F;\n  color: #282D6F;\n  font-weight: bold;\n}\n.container[data-v-4d2e999f] {\n  margin: 0 auto;\n  max-width: 1200px;\n  padding: 0 2%;\n}\n.container--small[data-v-4d2e999f] {\n  margin: 0 auto;\n  max-width: 600px;\n}\n.panel[data-v-4d2e999f] {\n  border: 1px solid rgba(40, 45, 111, 0.4);\n  margin-top: 1rem;\n  padding: 1.5rem;\n}\n.form__item[data-v-4d2e999f] {\n  border: 1px solid rgba(40, 45, 111, 0.4);\n  border-radius: 0.25rem;\n  font-size: 1rem;\n  margin-bottom: 1rem;\n  padding: 0.5em 0.75em;\n  width: 100%;\n}\n.form label[data-v-4d2e999f] {\n  display: block;\n  margin-bottom: 0.5rem;\n}\n.form__output[data-v-4d2e999f] {\n  display: block;\n  margin-bottom: 1rem;\n}\n.form__button[data-v-4d2e999f] {\n  text-align: right;\n}\n.errors[data-v-4d2e999f] {\n  border: 1px solid red;\n  border-radius: 0.25rem;\n  color: red;\n  margin-bottom: 1rem;\n}\n.pageTitle[data-v-4d2e999f] {\n  margin: 0 auto;\n  text-align: center;\n  padding: 20px 0;\n}\n.date[data-v-4d2e999f] {\n  color: rgba(40, 45, 111, 0.6);\n  font-size: 12px;\n  text-align: right;\n}\n.roundSquareShadow[data-v-4d2e999f] {\n  background-color: white;\n  border-radius: 15px;\n  box-shadow: 2px 2px 3px rgba(40, 45, 111, 0.15);\n}\n.wrapper[data-v-4d2e999f] {\n  background-color: white;\n  padding: 30px;\n  width: 500px;\n  margin: auto;\n}\n.userInformation[data-v-4d2e999f] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}", ""]);
 
 // exports
 
@@ -521,7 +533,24 @@ var render = function() {
     [
       _c("CurrentRequestContent", { attrs: { request: _vm.request } }),
       _vm._v(" "),
-      _c("RequestUser", { attrs: { request: _vm.request } })
+      _c(
+        "div",
+        { staticClass: "userInformation" },
+        [
+          _c("RequestUser", { attrs: { request: _vm.request } }),
+          _vm.request.user_id == _vm.userid
+            ? _c(
+                "RouterLink",
+                {
+                  staticClass: "capsuleButton",
+                  attrs: { to: "/request/" + _vm.request.id + "/update" }
+                },
+                [_vm._v("編集する")]
+              )
+            : _vm._e()
+        ],
+        1
+      )
     ],
     1
   )
