@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreRequest;
 use App\MaterialRequest;
+use App\RequestReply;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
@@ -33,6 +34,18 @@ class MaterialRequestController extends Controller
         $material_request->title = $request->title;
         $material_request->contents = $request->contents;
         $material_request->save();
+    }
+
+    public function reply(Request $request)
+    {
+        $request_reply = new RequestReply();
+        $request_reply->author_id = Auth::id();
+        $request_reply->opponent_id = $request->opponent_id;
+        $request_reply->request_id = $request->request_id;
+        $request_reply->product_id = $request->product_id;
+        $request_reply->comment = $request->comment;
+        $request_reply->save();
+        return $request_reply;
     }
 
     public function complete(string $id)

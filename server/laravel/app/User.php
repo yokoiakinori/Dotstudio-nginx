@@ -76,6 +76,11 @@ class User extends Authenticatable
 
     public function requests()
     {
-        return $this->hasMany('App\Request')->orderBy('created_at', 'asc');
+        return $this->hasMany('App\MaterialRequest')->orderBy('created_at', 'asc');
+    }
+
+    public function requestreplies()
+    {
+        return $this->hasMany('App\RequestReply')->orderBy('created_at', 'asc');
     }
 }
