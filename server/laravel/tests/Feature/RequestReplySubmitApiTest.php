@@ -40,8 +40,8 @@ class RequestReplySubmitApiTest extends TestCase
     public function submitRequestReply()
     {
         $opponent = 1;
-        $request_id = $this->request->id;
-        $product_id = $this->product->id;
+        $request_id = $this->request->data->id;
+        $product_id = $this->product->data->id;
         $response = $this->actingAs($this->user2)
             ->json('POST', route('request.reply', [
                 'opponent_id' => $opponent,
