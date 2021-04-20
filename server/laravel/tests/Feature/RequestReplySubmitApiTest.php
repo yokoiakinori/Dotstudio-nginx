@@ -2,6 +2,8 @@
 
 namespace Tests\Feature;
 
+use App\MaterialRequest;
+use App\Product;
 use App\User;
 use App\RequestReply;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -23,7 +25,8 @@ class RequestReplySubmitApiTest extends TestCase
             'title' => 'Request Test',
             'contents' => '猫のイラストが欲しいです。',
         ];
-        $this->request = $this->actingAs($this->user1)->json('POST', route('materialrequest.create'), $request_data);
+        $this->actingAs($this->user1)->json('POST', route('materialrequest.create'), $request_data);
+        $this->request = MaterialRequest::find(1);
         $product_data = [
             'productname' => 'test product',
             'alldot' => 100,
@@ -31,7 +34,8 @@ class RequestReplySubmitApiTest extends TestCase
             'uniquekey' => '202101011341568q452RN9',
             'ispublished' => false
         ];
-        $this->product = $this->actingAs($this->user2)->json('POST', route('product.create'), $product_data);
+        $this->actingAs($this->user2)->json('POST', route('product.create'), $product_data);
+        $this->product = Product::find(1);
     }
 
     /**
