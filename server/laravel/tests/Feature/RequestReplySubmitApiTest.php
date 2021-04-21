@@ -54,7 +54,7 @@ class RequestReplySubmitApiTest extends TestCase
         ];
         $response = $this->actingAs($this->user2)
             ->json('POST', route('request.reply',), $data);
-        $response->assertStatus(200)
+        $response->assertStatus(201)
             ->assertJsonFragment(["opponent_id" => $opponent]);
     }
 }
