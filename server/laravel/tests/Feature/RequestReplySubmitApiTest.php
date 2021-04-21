@@ -46,13 +46,14 @@ class RequestReplySubmitApiTest extends TestCase
         $opponent = 1;
         $request_id = $this->request->id;
         $product_id = $this->product->id;
+        $data = [
+            'opponent_id' => $opponent,
+            'request_id' => $request_id,
+            'product_id' => $product_id,
+            'comment' => '猫の絵です。どうぞ'
+        ];
         $response = $this->actingAs($this->user2)
-            ->json('POST', route('request.reply', [
-                'opponent_id' => $opponent,
-                'request_id' => $request_id,
-                'product_id' => $product_id,
-                'comment' => '猫の絵です。どうぞ'
-            ]),);
+            ->json('POST', route('request.reply',), $data);
         $response->assertStatus(200)
             ->assertJsonFragment(["opponent_id" => $opponent]);
     }

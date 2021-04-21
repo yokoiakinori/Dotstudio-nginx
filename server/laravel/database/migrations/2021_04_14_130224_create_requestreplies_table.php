@@ -13,7 +13,7 @@ class CreateRequestrepliesTable extends Migration
      */
     public function up()
     {
-        Schema::create('requestreplies', function (Blueprint $table) {
+        Schema::create('request_replies', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedInteger('author_id');
             $table->unsignedInteger('opponent_id');
@@ -36,6 +36,6 @@ class CreateRequestrepliesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('requestreplies');
+        Schema::dropIfExists('request_replies');
     }
 }
