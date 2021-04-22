@@ -3,7 +3,7 @@
         <h3>リクエストの編集</h3>
         <RequestEditForm
             :submitMessage="submitMessage"
-            @formEnter="createRequest"
+            @formEnter="updateRequest"
             :request="request"
         ></RequestEditForm>
     </div>
@@ -29,12 +29,13 @@ export default {
         };
     },
     methods: {
-        async createRequest(form) {
+        async updateRequest(form) {
             const response = await axios.post("/api/requests/update", form);
             if (response.status !== OK) {
                 this.$store.commit("error/setCode", response.status);
                 return false;
             }
+            this.$router.push("/");
         },
         async showRequest() {
             const response = await axios.get(`/api/requests/${this.id}`);

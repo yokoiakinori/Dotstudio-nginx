@@ -27,6 +27,7 @@ export default {
                 this.$store.commit("error/setCode", response.status);
                 return false;
             }
+            this.$router.push("/");
         }
     }
 };

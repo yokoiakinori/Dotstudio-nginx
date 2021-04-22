@@ -49,7 +49,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   methods: {
-    createRequest: function createRequest(form) {
+    updateRequest: function updateRequest(form) {
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
@@ -74,6 +74,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _context.abrupt("return", false);
 
               case 6:
+                _this.$router.push("/");
+
+              case 7:
               case "end":
                 return _context.stop();
             }
@@ -222,7 +225,7 @@ var render = function() {
       _vm._v(" "),
       _c("RequestEditForm", {
         attrs: { submitMessage: _vm.submitMessage, request: _vm.request },
-        on: { formEnter: _vm.createRequest }
+        on: { formEnter: _vm.updateRequest }
       })
     ],
     1
