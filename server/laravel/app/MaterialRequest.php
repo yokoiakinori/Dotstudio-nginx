@@ -14,12 +14,17 @@ class MaterialRequest extends Model
     );
 
     protected $visible = [
-        'id', 'created_at', 'title', 'contents', 'iscompleted', 'user_id', 'user'
+        'id', 'created_at', 'title', 'contents', 'iscompleted', 'user_id', 'user', 'requestreplies'
     ];
 
     public function user()
     {
         return $this->belongsTo('App\User');
+    }
+
+    public function requestreplies()
+    {
+        return $this->hasMany('App\RequestReply');
     }
 
     public function getCreatedAtAttribute($value)

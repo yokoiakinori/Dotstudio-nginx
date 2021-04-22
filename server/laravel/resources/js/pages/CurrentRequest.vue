@@ -1,6 +1,7 @@
 <template>
     <div class="wrapper">
         <CurrentRequestContent :request="request" />
+        <ReplyForm v-if="appearForm" />
         <div class="userInformation">
             <RequestUser :request="request" /><RouterLink
                 class="capsuleButton"
@@ -8,6 +9,13 @@
                 v-if="request.user_id == userid"
                 >編集する</RouterLink
             >
+            <button
+                class="capsuleButton"
+                v-else-if="isLogin && !appearForm"
+                @click="toggleForm"
+            >
+                返信する
+            </button>
         </div>
     </div>
 </template>
@@ -15,11 +23,13 @@
 <script>
 import CurrentRequestContent from "../components/CurrentRequestContent.vue";
 import RequestUser from "../components/Requests/RequestUser.vue";
+import ReplyForm from "../components/Requests/ReplyForm.vue";
 import { OK } from "../util";
 export default {
     components: {
         CurrentRequestContent,
-        RequestUser
+        RequestUser,
+        ReplyForm
     },
     props: {
         id: {
@@ -29,12 +39,16 @@ export default {
     },
     data() {
         return {
-            request: {}
+            request: {},
+            appearForm: false
         };
     },
     computed: {
         userid() {
             return this.$store.getters["auth/userid"];
+        },
+        isLogin() {
+            return this.$store.getters["auth/check"];
         }
     },
     watch: {
@@ -55,6 +69,9 @@ export default {
                 return false;
             }
             this.request = response.data;
+        },
+        toggleForm() {
+            this.appearForm = true;
         }
     }
 };
@@ -72,5 +89,8 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+button {
+    cursor: pointer;
 }
 </style>
