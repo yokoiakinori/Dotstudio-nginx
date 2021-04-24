@@ -30,5 +30,7 @@
     "/dev/chunks/update-request.js": "/dev/chunks/update-request.js",
     "/dev/chunks/all-requests~follow-list~mydrawing~rank-product-like~rank-product-watch~rank-users~search~tagsearch~top.js": "/dev/chunks/all-requests~follow-list~mydrawing~rank-product-like~rank-product-watch~rank-users~search~tagsearch~top.js",
     "/dev/chunks/follow-list~product-detail~rank-product-like~rank-product-watch~rank-users~search~tagsearch~top.js": "/dev/chunks/follow-list~product-detail~rank-product-like~rank-product-watch~rank-users~search~tagsearch~top.js",
-    "/dev/chunks/all-requests~top~userdetail.js": "/dev/chunks/all-requests~top~userdetail.js"
+    "/dev/chunks/all-requests~top~userdetail.js": "/dev/chunks/all-requests~top~userdetail.js",
+    "/dev/chunks/current-request~mydrawing~usersettings.js": "/dev/chunks/current-request~mydrawing~usersettings.js",
+    "/dev/chunks/current-request~follow-list~product-detail~rank-product-like~rank-product-watch~rank-users~search~ta~345f91b7.js": "/dev/chunks/current-request~follow-list~product-detail~rank-product-like~rank-product-watch~rank-users~search~ta~345f91b7.js"
 }
