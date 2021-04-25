@@ -12,7 +12,7 @@ class RequestReply extends Model
     );
 
     protected $visible = [
-        'id',
+        'id', 'opponent_id', 'author_id', 'request_id', 'product_id', 'comment'
     ];
 
     public function user()
