@@ -3,7 +3,7 @@
         <CurrentRequestContent :request="request" />
         <ReplyForm v-if="appearForm" />
         <div class="userInformation">
-            <RequestUser :request="request" /><RouterLink
+            <RequestUser :requestUser="request.user" /><RouterLink
                 class="capsuleButton"
                 :to="`/request/${request.id}/update`"
                 v-if="request.user_id == userid"

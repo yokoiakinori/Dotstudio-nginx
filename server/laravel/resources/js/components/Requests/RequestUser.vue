@@ -1,8 +1,10 @@
 <template>
     <div>
-        <ThumbnailImage :user="request.user" class="thumbnail" />
+        <ThumbnailImage :user="requestUser" class="thumbnail" />
         <div class="content">
-            <h3 class="name">{{ request.user.name }}</h3>
+            <h3 class="name">
+                {{ requestUser.name }}
+            </h3>
         </div>
     </div>
 </template>
@@ -14,7 +16,7 @@ export default {
         ThumbnailImage
     },
     props: {
-        request: {}
+        requestUser: Object
     }
 };
 </script>

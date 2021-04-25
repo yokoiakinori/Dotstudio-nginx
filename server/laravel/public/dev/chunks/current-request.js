@@ -398,13 +398,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     ThumbnailImage: _ThumbnailImage_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   props: {
-    request: {}
+    requestUser: Object
   }
 });
 
@@ -1160,12 +1162,12 @@ var render = function() {
     [
       _c("ThumbnailImage", {
         staticClass: "thumbnail",
-        attrs: { user: _vm.request.user }
+        attrs: { user: _vm.requestUser }
       }),
       _vm._v(" "),
       _c("div", { staticClass: "content" }, [
         _c("h3", { staticClass: "name" }, [
-          _vm._v(_vm._s(_vm.request.user.name))
+          _vm._v("\n            " + _vm._s(_vm.requestUser.name) + "\n        ")
         ])
       ])
     ],
@@ -1206,7 +1208,7 @@ var render = function() {
         "div",
         { staticClass: "userInformation" },
         [
-          _c("RequestUser", { attrs: { request: _vm.request } }),
+          _c("RequestUser", { attrs: { requestUser: _vm.request.user } }),
           _vm.request.user_id == _vm.userid
             ? _c(
                 "RouterLink",
