@@ -5,6 +5,9 @@
             @mouseleave="currentToggle"
             @mouseenter="currentToggle"
         >
+            <transition>
+                <div v-show="selectCheck" class="select"></div>
+            </transition>
             <Picture
                 :colors="colors"
                 :product="product"
@@ -18,11 +21,9 @@
 
 <script>
 import Picture from "../Products/Pictue.vue";
-import MaterialAddButton from "../MaterialAddButton.vue";
 export default {
     components: {
-        Picture,
-        MaterialAddButton
+        Picture
     },
     props: {
         appearIcon: false,
@@ -30,7 +31,8 @@ export default {
         productstyle: {
             width: 0,
             height: 0
-        }
+        },
+        selectCheck: Boolean
     },
     data() {
         return {

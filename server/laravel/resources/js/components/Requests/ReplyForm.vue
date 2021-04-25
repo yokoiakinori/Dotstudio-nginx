@@ -14,7 +14,7 @@
             <ModalWindow
                 v-if="modalWindow"
                 @closeModal="modalToggle"
-                @formEnter="currentMaterial"
+                @formEnter="currentProduct"
             >
                 <h2>プロダクト一覧</h2>
                 <ul>
@@ -26,7 +26,7 @@
                         <RequestProduct
                             :product="product"
                             :productstyle="productStyle"
-                            :selectCheck="index == selectMaterialIndex - 1"
+                            :selectCheck="index == selectProductIndex - 1"
                         ></RequestProduct>
                     </li>
                 </ul>
@@ -60,14 +60,25 @@ export default {
                 product_id: Number,
                 comment: ""
             },
+            maxwidth: 400,
             products: Array,
             modalWindow: false,
+            currentProductIndex: 1,
+            selectProductIndex: 1,
             currentProductName: null
         };
     },
     computed: {
         userid() {
             return this.$store.getters["auth/userid"];
+        },
+        productStyle() {
+            const displayNumberRow = 3;
+            const product = `${this.maxwidth / displayNumberRow}px`;
+            return {
+                width: product,
+                height: product
+            };
         }
     },
     watch: {
@@ -97,6 +108,16 @@ export default {
             );
             this.errorResponse(response);
             this.products = response.data.data;
+        },
+        async currentProduct() {
+            this.currentProductIndex = this.selectProductIndex;
+            this.currentProductName = this.products[
+                this.currentProductIndex - 1
+            ].productname;
+            await this.modalToggle();
+            this.replyForm.product_id = this.products[
+                this.currentProductIndex - 1
+            ].id;
         }
     }
 };
