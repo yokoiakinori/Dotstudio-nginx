@@ -58,7 +58,6 @@ class MaterialRequestController extends Controller
     public function all()
     {
         $material_requests = MaterialRequest::with('user')->orderBy(MaterialRequest::CREATED_AT, 'desc')->paginate();
-        Log::debug($material_requests);
         return $material_requests;
     }
 
@@ -73,7 +72,7 @@ class MaterialRequestController extends Controller
     {
         $material_request = MaterialRequest::where('id', $id)->with(['user' => function ($query) {
             $query->with('userthumbnail');
-        }])->first();
+        }, 'requestreplies'])->first();
         return $material_request ?? abort(404);
     }
 }

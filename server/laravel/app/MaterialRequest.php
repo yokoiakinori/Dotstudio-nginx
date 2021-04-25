@@ -24,7 +24,7 @@ class MaterialRequest extends Model
 
     public function requestreplies()
     {
-        return $this->hasMany('App\RequestReply');
+        return $this->hasMany('App\RequestReply', 'request_id');
     }
 
     public function getCreatedAtAttribute($value)

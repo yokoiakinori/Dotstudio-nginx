@@ -6,6 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class RequestReply extends Model
 {
+    protected $guarded = array(
+        'id',
+        'user_id'
+    );
+
+    protected $visible = [
+        'id',
+    ];
+
     public function user()
     {
         return $this->belongsTo('App\User');
@@ -18,6 +27,6 @@ class RequestReply extends Model
 
     public function materialrequest()
     {
-        return $this->belongsTo('App\MaterialRequest');
+        return $this->belongsTo('App\MaterialRequest', 'request_id');
     }
 }
