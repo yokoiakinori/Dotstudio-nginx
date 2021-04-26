@@ -183,11 +183,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     ModalWindow: _ModalWindow_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     RequestProduct: _RequestProduct_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
+  props: {
+    request: Object
+  },
   data: function data() {
     return {
       replyForm: {
         product_id: Number,
-        comment: ""
+        comment: "",
+        request_id: Number,
+        opponent_id: Number
       },
       maxwidth: 400,
       products: Array,
@@ -244,10 +249,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     modalToggle: function modalToggle() {
       this.modalWindow = !this.modalWindow;
     },
-    formEnter: function formEnter() {
-      this.$emit("formEnter", this.replyForm);
-    },
-    showProductList: function showProductList() {
+    submitReply: function submitReply() {
       var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
@@ -256,17 +258,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                _context2.next = 2;
-                return axios.get("/api/users/products/".concat(_this2.userid, "/?page=1"));
+                _this2.replyForm.opponent_id = _this2.request.user_id;
+                _this2.replyForm.request_id = _this2.request.id;
+                _context2.next = 4;
+                return axios.post("/api/requests/reply/");
 
-              case 2:
+              case 4:
                 response = _context2.sent;
 
                 _this2.errorResponse(response);
 
-                _this2.products = response.data.data;
-
-              case 5:
+              case 6:
               case "end":
                 return _context2.stop();
             }
@@ -274,21 +276,24 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee2);
       }))();
     },
-    currentProduct: function currentProduct() {
+    showProductList: function showProductList() {
       var _this3 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                _this3.currentProductIndex = _this3.selectProductIndex;
-                _this3.currentProductName = _this3.products[_this3.currentProductIndex - 1].productname;
-                _context3.next = 4;
-                return _this3.modalToggle();
+                _context3.next = 2;
+                return axios.get("/api/users/products/".concat(_this3.userid, "/?page=1"));
 
-              case 4:
-                _this3.replyForm.product_id = _this3.products[_this3.currentProductIndex - 1].id;
+              case 2:
+                response = _context3.sent;
+
+                _this3.errorResponse(response);
+
+                _this3.products = response.data.data;
 
               case 5:
               case "end":
@@ -296,6 +301,30 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             }
           }
         }, _callee3);
+      }))();
+    },
+    currentProduct: function currentProduct() {
+      var _this4 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _this4.currentProductIndex = _this4.selectProductIndex;
+                _this4.currentProductName = _this4.products[_this4.currentProductIndex - 1].productname;
+                _context4.next = 4;
+                return _this4.modalToggle();
+
+              case 4:
+                _this4.replyForm.product_id = _this4.products[_this4.currentProductIndex - 1].id;
+
+              case 5:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
       }))();
     }
   }
@@ -966,7 +995,7 @@ var render = function() {
       on: {
         submit: function($event) {
           $event.preventDefault()
-          return _vm.formEnter($event)
+          return _vm.submitReply($event)
         }
       }
     },
@@ -1202,7 +1231,9 @@ var render = function() {
     [
       _c("CurrentRequestContent", { attrs: { request: _vm.request } }),
       _vm._v(" "),
-      _vm.appearForm ? _c("ReplyForm") : _vm._e(),
+      _vm.appearForm
+        ? _c("ReplyForm", { attrs: { request: _vm.request } })
+        : _vm._e(),
       _vm._v(" "),
       _c(
         "div",

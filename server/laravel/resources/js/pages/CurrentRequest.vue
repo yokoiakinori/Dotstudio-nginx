@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper">
         <CurrentRequestContent :request="request" />
-        <ReplyForm v-if="appearForm" />
+        <ReplyForm v-if="appearForm" :request="request" />
         <div class="userInformation">
             <RequestUser :requestUser="request.user" /><RouterLink
                 class="capsuleButton"

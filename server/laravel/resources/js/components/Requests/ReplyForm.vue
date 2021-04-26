@@ -1,5 +1,5 @@
 <template>
-    <form class="form" action @submit.prevent="formEnter">
+    <form class="form" action @submit.prevent="submitReply">
         <button
             class="solidSquareButton"
             @click="modalToggle"
@@ -54,11 +54,16 @@ export default {
         ModalWindow,
         RequestProduct
     },
+    props: {
+        request: Object
+    },
     data() {
         return {
             replyForm: {
                 product_id: Number,
-                comment: ""
+                comment: "",
+                request_id: Number,
+                opponent_id: Number
             },
             maxwidth: 400,
             products: Array,
@@ -99,8 +104,11 @@ export default {
         modalToggle() {
             this.modalWindow = !this.modalWindow;
         },
-        formEnter() {
-            this.$emit("formEnter", this.replyForm);
+        async submitReply() {
+            this.replyForm.opponent_id = this.request.user_id;
+            this.replyForm.request_id = this.request.id;
+            const response = await axios.post("/api/requests/reply/");
+            this.errorResponse(response);
         },
         async showProductList() {
             const response = await axios.get(
