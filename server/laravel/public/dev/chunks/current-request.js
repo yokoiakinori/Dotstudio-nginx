@@ -175,6 +175,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -1005,6 +1011,7 @@ var render = function() {
             "button",
             {
               staticClass: "solidSquareButton",
+              attrs: { type: "button" },
               on: { click: _vm.modalToggle }
             },
             [_vm._v("\n        " + _vm._s(_vm.currentProductName) + "\n    ")]
@@ -1013,6 +1020,7 @@ var render = function() {
             "button",
             {
               staticClass: "solidSquareButton",
+              attrs: { type: "button" },
               on: { click: _vm.modalToggle }
             },
             [_vm._v("\n        提供する素材を選択してください。\n    ")]

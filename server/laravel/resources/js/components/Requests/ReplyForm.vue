@@ -4,10 +4,16 @@
             class="solidSquareButton"
             @click="modalToggle"
             v-if="currentProductName != null"
+            type="button"
         >
             {{ currentProductName }}
         </button>
-        <button class="solidSquareButton" v-else @click="modalToggle">
+        <button
+            class="solidSquareButton"
+            v-else
+            @click="modalToggle"
+            type="button"
+        >
             提供する素材を選択してください。
         </button>
         <transition>
