@@ -96,7 +96,7 @@ export default {
         $route: {
             async handler() {
                 await this.showProductList();
-                console.log(this.replyForm.product_id);
+                this.setRequestId();
             },
             immediate: true
         }
@@ -111,13 +111,18 @@ export default {
         modalToggle() {
             this.modalWindow = !this.modalWindow;
         },
-        async submitReply() {
+        setRequestId() {
             this.replyForm.opponent_id = this.request.user_id;
             this.replyForm.request_id = this.request.id;
+        },
+        async submitReply() {
             if (this.replyForm.product_id == null) {
                 alert("提供する素材が選択されていません");
             } else {
-                const response = await axios.post("/api/requests/reply/");
+                const response = await axios.post(
+                    "/api/requests/reply/",
+                    this.replyForm
+                );
                 this.errorResponse(response);
             }
         },

@@ -235,7 +235,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   return _this.showProductList();
 
                 case 2:
-                  console.log(_this.replyForm.product_id);
+                  _this.setRequestId();
 
                 case 3:
                 case "end":
@@ -258,6 +258,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     modalToggle: function modalToggle() {
       this.modalWindow = !this.modalWindow;
     },
+    setRequestId: function setRequestId() {
+      this.replyForm.opponent_id = this.request.user_id;
+      this.replyForm.request_id = this.request.id;
+    },
     submitReply: function submitReply() {
       var _this2 = this;
 
@@ -267,28 +271,25 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                _this2.replyForm.opponent_id = _this2.request.user_id;
-                _this2.replyForm.request_id = _this2.request.id;
-
                 if (!(_this2.replyForm.product_id == null)) {
-                  _context2.next = 6;
+                  _context2.next = 4;
                   break;
                 }
 
                 alert("提供する素材が選択されていません");
-                _context2.next = 10;
+                _context2.next = 8;
                 break;
 
-              case 6:
-                _context2.next = 8;
-                return axios.post("/api/requests/reply/");
+              case 4:
+                _context2.next = 6;
+                return axios.post("/api/requests/reply/", _this2.replyForm);
 
-              case 8:
+              case 6:
                 response = _context2.sent;
 
                 _this2.errorResponse(response);
 
-              case 10:
+              case 8:
               case "end":
                 return _context2.stop();
             }
