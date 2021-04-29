@@ -66,10 +66,10 @@ export default {
     data() {
         return {
             replyForm: {
-                product_id: Number,
+                product_id: null,
                 comment: "",
-                request_id: Number,
-                opponent_id: Number
+                request_id: null,
+                opponent_id: null
             },
             maxwidth: 400,
             products: Array,
@@ -96,6 +96,7 @@ export default {
         $route: {
             async handler() {
                 await this.showProductList();
+                console.log(this.replyForm.product_id);
             },
             immediate: true
         }
@@ -113,8 +114,12 @@ export default {
         async submitReply() {
             this.replyForm.opponent_id = this.request.user_id;
             this.replyForm.request_id = this.request.id;
-            const response = await axios.post("/api/requests/reply/");
-            this.errorResponse(response);
+            if (this.replyForm.product_id == null) {
+                alert("提供する素材が選択されていません");
+            } else {
+                const response = await axios.post("/api/requests/reply/");
+                this.errorResponse(response);
+            }
         },
         async showProductList() {
             const response = await axios.get(
