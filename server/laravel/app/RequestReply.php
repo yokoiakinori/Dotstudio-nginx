@@ -12,7 +12,7 @@ class RequestReply extends Model
     );
 
     protected $visible = [
-        'id', 'opponent_id', 'author_id', 'request_id', 'product_id', 'comment'
+        'id', 'opponent_id', 'author_id', 'request_id', 'product_id', 'comment', 'product'
     ];
 
     public function user()
@@ -22,7 +22,7 @@ class RequestReply extends Model
 
     public function product()
     {
-        return $this->belongsTo('App\Product');
+        return $this->hasOne('App\Product');
     }
 
     public function materialrequest()
