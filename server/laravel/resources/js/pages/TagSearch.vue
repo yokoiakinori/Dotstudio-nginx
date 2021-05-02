@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="info">
+        <div class="info flexRowAlignCenter">
             <i class="fas fa-tag"></i>
             <h3>
                 <span>{{ searchTag }}</span> の検索結果
@@ -77,8 +77,6 @@ export default {
 .info {
     height: 80px;
     position: relative;
-    display: flex;
-    align-items: center;
     margin: 0 15px;
 }
 span {
@@ -92,19 +90,5 @@ h3 {
     z-index: 2;
     position: absolute;
     left: 30px;
-}
-.Home {
-    margin: 0 auto;
-    margin-top: 0;
-    display: flex;
-    width: 100%;
-    align-items: center;
-    flex-flow: column;
-}
-.productsList {
-    margin-top: 30px;
-    display: flex;
-    flex-flow: row wrap;
-    align-content: flex-start;
 }
 </style>

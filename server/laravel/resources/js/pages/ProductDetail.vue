@@ -1,13 +1,17 @@
 <template>
-    <div v-if="product" class="productDetail">
+    <div v-if="product" class="productDetail flexRow">
         <Product :product="product" :productstyle="productStyle" />
         <div class="productInformation">
-            <div class="name">
+            <div class="flexRowSpaceBetween">
                 <h2>{{ product.productname }}</h2>
                 <p class="date">作成日：{{ product.created_at }}</p>
             </div>
-            <ul>
-                <li v-for="tag in product.producttags" :key="tag.id">
+            <ul class="flexRow">
+                <li
+                    v-for="tag in product.producttags"
+                    :key="tag.id"
+                    class="flexRowAlignCenter"
+                >
                     <RouterLink to="/tagsearch?page=1">
                         <ProductTag :message="tag.message"></ProductTag>
                     </RouterLink>
@@ -19,8 +23,12 @@
                 :state="'detail'"
                 :product="product"
             />
-            <ul>
-                <li v-for="material in product.usedmaterial" :key="material.id">
+            <ul class="flexRow">
+                <li
+                    v-for="material in product.usedmaterial"
+                    :key="material.id"
+                    class="flexRowAlignCenter"
+                >
                     {{ material.user.name }}さんの{{
                         material.productname
                     }}が使用されています。
@@ -49,7 +57,7 @@
             <form
                 v-if="isLogin"
                 @submit.prevent="addComment"
-                class="commentForm"
+                class="commentForm flexColumnAlignCenter"
             >
                 <div v-if="commentErrors">
                     <ul v-if="commentErrors.content">
@@ -170,8 +178,6 @@ export default {
 <style lang="scss" scoped>
 @import "../../sass/common.scss";
 .productDetail {
-    display: flex;
-    flex-flow: row wrap;
     width: 1000px;
     margin: 0 auto;
     padding-top: 15px;
@@ -187,17 +193,6 @@ export default {
     width: 420px;
     height: 400px;
     margin-top: 15px;
-    .name {
-        display: flex;
-        justify-content: space-between;
-    }
-    ul {
-        display: flex;
-        li {
-            display: flex;
-            align-items: center;
-        }
-    }
 }
 .comments {
     margin: 0 30px;
@@ -208,9 +203,6 @@ export default {
 }
 .commentForm {
     background-color: white;
-    display: flex;
-    flex-flow: column;
-    align-items: center;
     padding: 30px;
     border-radius: 10px;
     width: 100%;

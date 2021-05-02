@@ -1,12 +1,12 @@
 <template>
-    <div class="userDetail">
-        <div class="userInformation" v-if="appear">
+    <div class="userDetail flexColumnAlignCenter">
+        <div class="userInformation flexRowAlignCenter" v-if="appear">
             <ThumbnailImage :user="user" class="thumbnail infomationItem" />
-            <div class="informationItem columen">
+            <div class="informationItem flexColumn">
                 <h2 class="username">{{ user.name }}</h2>
                 <p class="userintroduction">{{ user.introduction }}</p>
             </div>
-            <div class="informationItem">
+            <div class="informationItem flexRow">
                 <p>
                     <router-link :to="`/follow/${id}`">
                         <span>{{ user.follows.length }}</span
@@ -31,16 +31,21 @@
             </router-link>
         </div>
 
-        <ul class="tab">
+        <ul class="tab flexRowSpaceBetween">
             <UsersContent
                 :contentname="content.name"
                 :isactive="content.name == currentContentName"
                 @currentContent="currentContent(content.name)"
                 v-for="content in contentList"
                 :key="content.name"
+                class="flexRowCenter"
             />
         </ul>
-        <div class="productsList" :style="style" v-if="products.length >= 1">
+        <div
+            class="flexRowAlignStart"
+            :style="style"
+            v-if="products.length >= 1"
+        >
             <Product
                 v-for="product in products"
                 :key="product.id"
@@ -50,7 +55,7 @@
                 :productstyle="productStyle"
             />
         </div>
-        <div class="requestsList" v-else-if="requests.length >= 1">
+        <div class="flexRowAlignStart" v-else-if="requests.length >= 1">
             <RequestItem
                 v-for="request in requests"
                 :key="request.id"
@@ -254,19 +259,13 @@ export default {
     padding-top: 30px;
     margin: 0 auto;
     margin-top: 0;
-    display: flex;
-    flex-flow: column;
     width: 100%;
-    align-items: center;
 }
 .userInformation {
     width: 850px;
-    display: flex;
-    align-items: center;
 }
 .informationItem {
     border-right: solid 1px $maincolor;
-    display: flex;
     padding: 0 15px;
     p {
         text-align: center;
@@ -282,25 +281,12 @@ export default {
         color: rgba($color: $maincolor, $alpha: 0.6);
     }
 }
-.columen {
-    flex-flow: column;
-}
 h2 {
     margin-bottom: 10px;
 }
 .settings {
     margin-left: 20px;
     font-size: 20px;
-}
-.productsList {
-    display: flex;
-    flex-flow: row wrap;
-    align-content: flex-start;
-}
-.requestsList {
-    display: flex;
-    flex-flow: row wrap;
-    align-content: flex-start;
 }
 .thumbnail {
     width: 130px;
@@ -311,17 +297,11 @@ h2 {
     height: 85px;
     margin: 0;
     padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     text-align: center;
     li {
         font-size: 18px;
         width: 50%;
         height: 65%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         p {
             display: inline-block;
             margin: 0;

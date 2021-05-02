@@ -1,5 +1,5 @@
 <template>
-    <div :style="productstyle">
+    <div :style="productstyle" class="flexRow">
         <div
             class="card roundSquareShadow"
             @mouseleave="currentToggle"
@@ -67,7 +67,6 @@ export default {
 <style lang="scss" scoped>
 @import "../../../sass/common.scss";
 div {
-    display: flex;
     justify-content: center;
     align-items: center;
     .card {

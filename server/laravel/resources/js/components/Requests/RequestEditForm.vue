@@ -1,5 +1,5 @@
 <template>
-    <form class="form" action @submit.prevent="formEnter">
+    <form class="form flexColumn" action @submit.prevent="formEnter">
         <label for="request-name">リクエスト名</label>
         <input class="form__item" type="text" v-model="updateForm.title" />
         <label for="request-contents">リクエストしたい内容の詳細</label>
@@ -46,8 +46,6 @@ export default {
 @import "../../../sass/common.scss";
 form {
     width: 500px;
-    flex-flow: column;
-    display: flex;
 }
 h3 {
     margin-bottom: 40px;

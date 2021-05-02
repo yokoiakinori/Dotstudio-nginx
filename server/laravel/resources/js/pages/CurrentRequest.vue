@@ -3,7 +3,7 @@
         <CurrentRequestContent :request="request" />
         <ReplyList :replies="request.requestreplies" />
         <ReplyForm v-if="appearForm" :request="request" @hideForm="hideForm" />
-        <div class="userInformation">
+        <div class="flexRowSpaceBetween">
             <RequestUser :requestUser="request.user" /><RouterLink
                 class="capsuleButton"
                 :to="`/request/${request.id}/update`"
@@ -90,11 +90,6 @@ export default {
     padding: 30px;
     width: 500px;
     margin: auto;
-}
-.userInformation {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 button {
     cursor: pointer;

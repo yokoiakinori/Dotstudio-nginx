@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper">
+    <div class="wrapper flexColumnAlignCenter">
         <h3>リクエストの作成</h3>
         <RequestEditForm
             :submitMessage="submitMessage"
@@ -37,9 +37,6 @@ export default {
 @import "../../sass/common.scss";
 .wrapper {
     width: 90%;
-    display: flex;
-    flex-flow: wrap column;
-    align-items: center;
     margin: 0 auto;
     padding-top: 30px;
 }

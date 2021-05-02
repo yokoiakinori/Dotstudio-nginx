@@ -74,10 +74,4 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../sass/common.scss";
-.productsList {
-    margin-top: 30px;
-    display: flex;
-    flex-flow: row wrap;
-    align-content: flex-start;
-}
 </style>

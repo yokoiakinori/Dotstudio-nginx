@@ -178,7 +178,6 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../sass/common.scss";
-@import "../../sass/modal.scss";
 .wrapper {
     width: 90%;
     display: flex;
