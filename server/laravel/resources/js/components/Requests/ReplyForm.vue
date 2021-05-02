@@ -126,6 +126,9 @@ export default {
                 this.errorResponse(response);
             }
         },
+        hideForm() {
+            this.$emit("hideForm");
+        },
         async showProductList() {
             const response = await axios.get(
                 `/api/users/products/${this.userid}/?page=1`

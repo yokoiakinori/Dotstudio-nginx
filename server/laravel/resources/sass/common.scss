@@ -25,6 +25,11 @@ a {
 	text-decoration: none;
 }
 
+ul{
+    padding: 0;
+    margin: 0;
+}
+
 output,input {
 	border: none;
 	background: none;
@@ -264,4 +269,14 @@ h1 {
 	height: 100%;
 	border-radius: 15px;
 	background-color: rgba($maincolor, 0.2);
+}
+
+.flexColumn{
+    display: flex;
+    flex-flow: column;
+}
+
+.flexRow{
+    display: flex;
+    flex-flow: row;
 }

@@ -1,7 +1,8 @@
 <template>
     <div class="wrapper">
         <CurrentRequestContent :request="request" />
-        <ReplyForm v-if="appearForm" :request="request" />
+        <ReplyList :replies="request.requestreplies" />
+        <ReplyForm v-if="appearForm" :request="request" @hideForm="hideForm" />
         <div class="userInformation">
             <RequestUser :requestUser="request.user" /><RouterLink
                 class="capsuleButton"
@@ -24,12 +25,14 @@
 import CurrentRequestContent from "../components/CurrentRequestContent.vue";
 import RequestUser from "../components/Requests/RequestUser.vue";
 import ReplyForm from "../components/Requests/ReplyForm.vue";
+import ReplyList from "../components/Requests/Reply/ReplyList.vue";
 import { OK } from "../util";
 export default {
     components: {
         CurrentRequestContent,
         RequestUser,
-        ReplyForm
+        ReplyForm,
+        ReplyList
     },
     props: {
         id: {
@@ -72,6 +75,9 @@ export default {
         },
         toggleForm() {
             this.appearForm = true;
+        },
+        hideForm() {
+            this.appearForm = false;
         }
     }
 };

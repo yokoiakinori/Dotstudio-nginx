@@ -27,5 +27,6 @@
     "/dev/chunks/update-request.js": "/dev/chunks/update-request.js",
     "/dev/chunks/userdetail.js": "/dev/chunks/userdetail.js",
     "/dev/chunks/usersettings.js": "/dev/chunks/usersettings.js",
-    "/dev/chunks/current-request~follow-list~product-detail~rank-users~userdetail.js": "/dev/chunks/current-request~follow-list~product-detail~rank-users~userdetail.js"
+    "/dev/chunks/current-request~follow-list~product-detail~rank-users~userdetail.js": "/dev/chunks/current-request~follow-list~product-detail~rank-users~userdetail.js",
+    "/dev/chunks/current-request~follow-list~product-detail~rank-product-like~rank-product-watch~rank-users~search~ta~345f91b7.js": "/dev/chunks/current-request~follow-list~product-detail~rank-product-like~rank-product-watch~rank-users~search~ta~345f91b7.js"
 }
