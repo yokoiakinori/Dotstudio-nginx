@@ -1,6 +1,6 @@
 <template>
-    <div class="latestRequestList">
-        <ul>
+    <div class="latestRequestList flexColumnAlignCenter">
+        <ul class="flexRowAlignStart">
             <RequestItem
                 v-for="request in requestList"
                 :key="request.id"
@@ -58,19 +58,12 @@ export default {
 @import "../../sass/common.scss";
 .latestRequestList {
     width: 100%;
-    display: flex;
-    flex-flow: column;
-    align-items: center;
     margin-bottom: 60px;
 }
 ul {
-    display: flex;
-    flex-flow: row wrap;
-    align-content: flex-start;
     padding: 0;
     margin-bottom: 30px;
     width: 900px;
-    flex-flow: row;
     justify-content: start;
     a {
         display: block;

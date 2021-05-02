@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="flexRowAlignCenter">
         <ThumbnailImage :user="requestUser" class="thumbnail" />
         <div class="content">
             <h3 class="name">
@@ -23,10 +23,6 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../../sass/common.scss";
-div {
-    display: flex;
-    align-items: center;
-}
 .thumbnail {
     width: 80px;
     height: 80px;

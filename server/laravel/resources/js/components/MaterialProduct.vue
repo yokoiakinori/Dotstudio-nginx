@@ -1,6 +1,6 @@
 <template>
-    <div :style="productstyle">
-        <div class="card">
+    <div class="flexRowCenter" :style="productstyle">
+        <div class="card flexRowCenter">
             <transition>
                 <div v-show="selectCheck" class="select"></div>
             </transition>
@@ -57,38 +57,20 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../sass/common.scss";
-div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .card {
-        background-color: white;
+.card {
+    background-color: white;
+    padding: 0;
+    margin: 0;
+    width: 90%;
+    height: 90%;
+    border-radius: 15px;
+    border: solid 1px rgba($maincolor, 0.5);
+    ul {
         padding: 0;
         margin: 0;
-        width: 90%;
-        height: 90%;
-        border-radius: 15px;
-        position: relative;
-        justify-content: center;
-        align-items: center;
-        border: solid 1px rgba($maincolor, 0.5);
-        ul {
-            padding: 0;
-            margin: 0;
-            width: 85%;
-            height: 85%;
-            display: flex;
-            list-style-type: none;
-            flex-direction: row;
-            flex-wrap: wrap;
-        }
+        width: 85%;
+        height: 85%;
+        list-style-type: none;
     }
-}
-.v-enter-active,
-.v-leave-active {
-    transition: opacity 0.3s;
-}
-.v-enter, .v-leave-to /* .fade-leave-active below version 2.1.8 */ {
-    opacity: 0;
 }
 </style>

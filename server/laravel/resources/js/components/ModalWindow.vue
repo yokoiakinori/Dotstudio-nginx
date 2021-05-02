@@ -1,8 +1,8 @@
 <template>
-    <div id="overlay" @click="closeModal">
+    <div id="overlay" class="flexRowCenter" @click="closeModal">
         <form id="window" @click="stopClose" @submit.prevent="formEnter">
             <slot></slot>
-            <div class="choice">
+            <div class="flexRowSpaceBetween">
                 <button @click="closeModal">キャンセル</button>
                 <button type="submit" class="decision">OK</button>
             </div>
@@ -36,9 +36,6 @@ export default {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 #window {
     z-index: 901;
@@ -51,10 +48,6 @@ export default {
         width: 100%;
         height: 20px;
     }
-}
-.choice {
-    display: flex;
-    justify-content: space-between;
 }
 button {
     width: 47%;

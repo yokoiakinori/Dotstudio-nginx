@@ -1,9 +1,9 @@
 <template>
-    <div class="wrapper">
+    <div class="wrapper flexColumnAlignCenter">
         <RouterLink class="capsuleButton" to="/request/new"
             >リクエストしてみる</RouterLink
         >
-        <div class="requestsList">
+        <div class="requestsList flexRowAlignStart">
             <RequestItem
                 v-for="request in requestList"
                 :key="request.id"
@@ -65,9 +65,6 @@ export default {
 @import "../../sass/common.scss";
 .wrapper {
     width: 100%;
-    display: flex;
-    flex-flow: column;
-    align-items: center;
     a {
         margin-bottom: 15px;
     }
@@ -75,8 +72,5 @@ export default {
 .requestsList {
     width: 100%;
     margin-bottom: 30px;
-    display: flex;
-    flex-flow: row wrap;
-    align-content: flex-start;
 }
 </style>

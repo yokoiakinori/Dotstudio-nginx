@@ -1,6 +1,6 @@
 <template>
-    <div class="Home">
-        <div class="productsList" :style="style">
+    <div class="wrapper flexColumnAlignCenter">
+        <div class="productsList flexRowAlignStart" :style="style">
             <Product
                 v-for="product in productList"
                 :key="product.id"
@@ -131,18 +131,12 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../sass/common.scss";
-.Home {
+.wrapper {
     margin: 0 auto;
     margin-top: 0;
-    display: flex;
     width: 100%;
-    align-items: center;
-    flex-flow: column;
 }
 .productsList {
     margin-bottom: 15px;
-    display: flex;
-    flex-flow: row wrap;
-    align-content: flex-start;
 }
 </style>

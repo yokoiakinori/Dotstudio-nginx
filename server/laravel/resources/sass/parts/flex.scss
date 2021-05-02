@@ -46,3 +46,14 @@
     align-content: flex-start;
 }
 
+.flexColumnAlignStart{
+    @extend .flexColumn;
+    align-items: flex-start;
+}
+
+.flexColumnStart{
+    @extend .flexColumn;
+    align-items: flex-start;
+    justify-content: start;
+}
+
