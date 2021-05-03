@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { OK } from "../util";
+import { CREATED } from "../util";
 import RequestEditForm from "../components/Requests/RequestEditForm.vue";
 export default {
     components: {
@@ -23,7 +23,7 @@ export default {
     methods: {
         async createRequest(form) {
             const response = await axios.post("/api/requests", form);
-            if (response.status !== OK) {
+            if (response.status !== CREATED) {
                 this.$store.commit("error/setCode", response.status);
                 return false;
             }

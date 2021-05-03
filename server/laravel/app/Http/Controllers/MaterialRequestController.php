@@ -30,7 +30,7 @@ class MaterialRequestController extends Controller
 
     public function update(Request $request)
     {
-        $currentid = $request->currentMaterialRequest;
+        $currentid = $request->id;
         $material_request = MaterialRequest::with('user')->where('id', $currentid)->first();
         $material_request->title = $request->title;
         $material_request->contents = $request->contents;
@@ -43,12 +43,9 @@ class MaterialRequestController extends Controller
         $request_reply->author_id = Auth::id();
         $request_reply->opponent_id = $request->opponent_id;
         $request_reply->request_id = $request->request_id;
+        $request_reply->product_id = $request->product_id;
         $request_reply->comment = $request->comment;
         $request_reply->save();
-
-        $product = Product::where('id', $request->product_id)->first();
-        $product->request_reply_id = $request_reply->id;
-        $product->save();
         return $request_reply;
     }
 

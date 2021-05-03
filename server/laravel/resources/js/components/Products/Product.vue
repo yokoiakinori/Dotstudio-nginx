@@ -7,7 +7,7 @@
         >
             <transition>
                 <RouterLink :to="`/products/${product.id}`" v-show="current">
-                    <div>
+                    <div class="flexColumn">
                         <button
                             :class="{
                                 product_action_liked: product.liked_by_user

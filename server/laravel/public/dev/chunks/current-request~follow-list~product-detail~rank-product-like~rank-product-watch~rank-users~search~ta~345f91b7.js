@@ -576,6 +576,7 @@ var render = function() {
               [
                 _c(
                   "div",
+                  { staticClass: "flexColumn" },
                   [
                     _vm.appearIcon
                       ? _c(
