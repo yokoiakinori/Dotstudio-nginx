@@ -13,6 +13,7 @@
                 :product="product"
                 :mountedStatus="mountedStatus"
                 :alldot="alldot"
+                class="flexRow"
             >
             </Picture>
         </div>

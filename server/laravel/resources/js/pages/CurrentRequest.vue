@@ -2,7 +2,7 @@
     <div class="wrapper">
         <CurrentRequestContent :request="request" />
         <ReplyList :replies="request.requestreplies" />
-        <ReplyForm v-if="appearForm" :request="request" @hideForm="hideForm" />
+        <ReplyForm v-if="appearForm" :request="request" />
         <div class="flexRowSpaceBetween margin3_top">
             <RequestUser :requestUser="request.user" /><RouterLink
                 class="capsuleButton"
@@ -75,9 +75,6 @@ export default {
         },
         toggleForm() {
             this.appearForm = true;
-        },
-        hideForm() {
-            this.appearForm = false;
         }
     }
 };

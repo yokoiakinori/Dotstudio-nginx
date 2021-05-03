@@ -57,7 +57,7 @@ class Product extends Model
 
     public function requestreply()
     {
-        return $this->belongs('App\RequestReply', 'requestreply')->withTimestamps();
+        return $this->belongsToMany('App\RequestReply', 'requestreply')->withTimestamps();
     }
 
     public function getLikesCountAttribute()

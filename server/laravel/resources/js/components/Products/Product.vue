@@ -32,6 +32,7 @@
                 :product="product"
                 :mountedStatus="mountedStatus"
                 :alldot="alldot"
+                class="flexRow"
             >
             </Picture>
         </div>
@@ -130,10 +131,7 @@ export default {
         margin: 0;
         width: 85%;
         height: 85%;
-        display: flex;
         list-style-type: none;
-        flex-direction: row;
-        flex-wrap: wrap;
     }
 }
 .product_action_liked {

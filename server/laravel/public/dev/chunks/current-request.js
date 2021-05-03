@@ -269,7 +269,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 }
 
                 alert("提供する素材が選択されていません");
-                _context2.next = 8;
+                _context2.next = 9;
                 break;
 
               case 4:
@@ -281,7 +281,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 _this2.errorResponse(response);
 
-              case 8:
+                _this2.$router.go({
+                  path: "/request/".concat(_this2.request.id),
+                  force: true
+                });
+
+              case 9:
               case "end":
                 return _context2.stop();
             }
@@ -358,6 +363,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Products_Pictue_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Products/Pictue.vue */ "./resources/js/components/Products/Pictue.vue");
+//
 //
 //
 //
@@ -601,9 +607,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     toggleForm: function toggleForm() {
       this.appearForm = true;
-    },
-    hideForm: function hideForm() {
-      this.appearForm = false;
     }
   }
 });
@@ -1072,7 +1075,7 @@ var render = function() {
   return _c(
     "form",
     {
-      staticClass: "form",
+      staticClass: "margin3_top",
       attrs: { action: "" },
       on: {
         submit: function($event) {
@@ -1236,6 +1239,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("Picture", {
+          staticClass: "flexRow",
           attrs: {
             colors: _vm.colors,
             product: _vm.product,
@@ -1319,10 +1323,7 @@ var render = function() {
       _c("ReplyList", { attrs: { replies: _vm.request.requestreplies } }),
       _vm._v(" "),
       _vm.appearForm
-        ? _c("ReplyForm", {
-            attrs: { request: _vm.request },
-            on: { hideForm: _vm.hideForm }
-          })
+        ? _c("ReplyForm", { attrs: { request: _vm.request } })
         : _vm._e(),
       _vm._v(" "),
       _c(

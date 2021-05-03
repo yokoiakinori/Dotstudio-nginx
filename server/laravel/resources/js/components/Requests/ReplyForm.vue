@@ -1,5 +1,5 @@
 <template>
-    <form class="form" action @submit.prevent="submitReply">
+    <form class="margin3_top" action @submit.prevent="submitReply">
         <button
             class="solidSquareButton"
             @click="modalToggle"
@@ -124,6 +124,10 @@ export default {
                     this.replyForm
                 );
                 this.errorResponse(response);
+                this.$router.go({
+                    path: `/request/${this.request.id}`,
+                    force: true
+                });
             }
         },
         hideForm() {

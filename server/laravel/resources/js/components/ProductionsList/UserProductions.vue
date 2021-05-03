@@ -222,7 +222,6 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../../sass/common.scss";
-@import "../../../sass/modal.scss";
 div {
     width: 100%;
 }
