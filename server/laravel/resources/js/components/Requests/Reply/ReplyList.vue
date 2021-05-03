@@ -4,6 +4,7 @@
             v-for="reply in replies"
             :key="reply.id"
             :reply="reply"
+            class="replyItem"
         />
     </ul>
 </template>
@@ -22,4 +23,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../../../sass/common.scss";
+.replyItem {
+    border-bottom: solid 1px $maincolor;
+}
 </style>

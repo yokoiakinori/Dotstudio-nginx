@@ -1,6 +1,10 @@
 <template>
-    <div class="flexRow">
-        <Product :product="reply.product" :productstyle="productStyle" />
+    <div class="flexRow padding2 wrapper">
+        <Product
+            :product="reply.product"
+            :productstyle="productStyle"
+            class="margin2_right"
+        />
         <p>{{ reply.comment }}</p>
     </div>
 </template>
@@ -16,7 +20,7 @@ export default {
     },
     computed: {
         productStyle() {
-            const productSize = "120px";
+            const productSize = "100px";
             return {
                 width: productSize,
                 height: productSize
@@ -28,4 +32,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../../../sass/common.scss";
+.wrapper {
+    background-color: rgba($maincolor, $alpha: 0.05);
+}
 </style>

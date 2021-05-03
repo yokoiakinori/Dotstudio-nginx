@@ -3,7 +3,7 @@
         <CurrentRequestContent :request="request" />
         <ReplyList :replies="request.requestreplies" />
         <ReplyForm v-if="appearForm" :request="request" @hideForm="hideForm" />
-        <div class="flexRowSpaceBetween">
+        <div class="flexRowSpaceBetween margin3_top">
             <RequestUser :requestUser="request.user" /><RouterLink
                 class="capsuleButton"
                 :to="`/request/${request.id}/update`"

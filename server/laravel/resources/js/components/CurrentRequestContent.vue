@@ -18,7 +18,6 @@ export default {
 @import "../../sass/common.scss";
 div {
     padding-bottom: 30px;
-    margin-bottom: 30px;
     border-bottom: solid 1px rgba($color: $maincolor, $alpha: 0.7);
 }
 h3 {
