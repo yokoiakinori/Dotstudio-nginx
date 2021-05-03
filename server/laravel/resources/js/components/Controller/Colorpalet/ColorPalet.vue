@@ -1,11 +1,12 @@
 <template>
     <div>
-        <ul class="palet">
+        <ul class="palet flexRowSpaceBetween">
             <li
                 v-for="paletcolor in paletcolors"
                 :key="paletcolor.id"
                 :class="{ active: currentpalet === paletcolor.id }"
                 :style="activeStyle(paletcolor.color)"
+                class="flexRowCenter"
             >
                 <i
                     class="fas fa-palette"
@@ -62,9 +63,6 @@ div {
     width: 100%;
 }
 .palet {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
     height: 100%;
     padding: 20px;
     margin: 0;
@@ -74,9 +72,6 @@ li {
     border-radius: 50%;
     width: 5vw;
     height: 5vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     i {
         transition-duration: 0.3s;
         font-size: 25px;

@@ -14,14 +14,14 @@
                 <input type="number" v-model="linedot" />
                 <label for="tags">タグ（カテゴリー、イメージ）</label>
                 <input type="text" v-model="producttagstring" />
-                <ul class="tagList">
+                <ul class="tagList flexRowStart">
                     <li v-for="(productTag, index) in productTags" :key="index">
                         <ProductTag :message="productTag"></ProductTag>
                     </li>
                 </ul>
             </modalWindow>
         </transition>
-        <ul class="UserProductions" v-if="productListLength > 0">
+        <ul class="UserProductions flexRowLeft" v-if="productListLength > 0">
             <li
                 v-for="product in productionList"
                 :key="product.uniquekey"
@@ -232,9 +232,6 @@ div {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: start;
-    flex-direction: column;
-    align-items: center;
     &__list {
         font-size: 18px;
         width: 100%;
@@ -290,12 +287,8 @@ input {
     margin-bottom: 30px;
 }
 .tagList {
-    display: flex;
     height: 100px;
     padding: 0;
-    flex-flow: row;
-    justify-content: flex-start;
-    align-items: flex-start;
     li {
         border: none;
         display: inline-block;

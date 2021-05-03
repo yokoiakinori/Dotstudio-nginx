@@ -1,11 +1,11 @@
 .flexColumn{
     display: flex;
-    flex-flow: column;
+    flex-flow: column wrap;
 }
 
 .flexRow{
     display: flex;
-    flex-flow: row;
+    flex-flow: row wrap;
 }
 
 .flexRowCenter{
@@ -38,7 +38,7 @@
 
 .flexRowLeft{
     @extend .flexRow;
-    justify-content: left;
+    justify-content: start;
 }
 
 .flexRowAlignStart{
@@ -49,6 +49,12 @@
 .flexColumnAlignStart{
     @extend .flexColumn;
     align-items: flex-start;
+}
+
+.flexRowStart{
+    @extend .flexRow;
+    align-items: flex-start;
+    justify-content: start;
 }
 
 .flexColumnStart{

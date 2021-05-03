@@ -1,6 +1,6 @@
 <template>
-    <div id="MainCanvas">
-        <ul>
+    <div id="MainCanvas" class="flexRowCenter">
+        <ul class="flexRow">
             <Dot
                 v-for="item in allCanvasDot"
                 :key="item"
@@ -327,19 +327,13 @@ export default {
     width: 60%;
     height: 60vw;
     max-height: 660px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: white;
     box-shadow: 2px 2px 3px rgba($maincolor, 0.15);
     ul {
         width: 90%;
         height: 90%;
         padding: 0;
-        display: flex;
         list-style-type: none;
-        flex-direction: row;
-        flex-wrap: wrap;
         justify-content: space-around;
         align-items: center;
         margin: 0;

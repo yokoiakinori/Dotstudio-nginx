@@ -1,6 +1,6 @@
 <template>
     <div>
-        <ul>
+        <ul class="flexRowSpaceBetween">
             <li
                 v-for="tool in tools"
                 :key="tool.id"
@@ -45,10 +45,6 @@ export default {
 div {
     width: 100%;
     ul {
-        padding: 0;
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-between;
         padding: 20px;
         li {
             width: 5vw;
