@@ -3,7 +3,7 @@
         <div class="userInformation flexRowAlignCenter" v-if="appear">
             <ThumbnailImage :user="user" class="thumbnail infomationItem" />
             <div class="informationItem flexColumn">
-                <h2 class="username">{{ user.name }}</h2>
+                <h2 class="username margin1_bottom">{{ user.name }}</h2>
                 <p class="userintroduction">{{ user.introduction }}</p>
             </div>
             <div class="informationItem flexRow">
@@ -24,7 +24,7 @@
             </div>
             <router-link
                 :to="`/settings/${id}`"
-                class="settings"
+                class="settings margin2_left"
                 v-if="id == userid"
             >
                 <i class="fas fa-cog"></i>
@@ -269,7 +269,7 @@ export default {
     padding: 0 15px;
     p {
         text-align: center;
-        margin: 0 10px;
+        @extend .margin1_side;
     }
     span {
         font-weight: bold;
@@ -281,11 +281,7 @@ export default {
         color: rgba($color: $maincolor, $alpha: 0.6);
     }
 }
-h2 {
-    margin-bottom: 10px;
-}
 .settings {
-    margin-left: 20px;
     font-size: 20px;
 }
 .thumbnail {
@@ -300,7 +296,7 @@ h2 {
     text-align: center;
     li {
         font-size: 18px;
-        width: 50%;
+        width: 30%;
         height: 65%;
         p {
             display: inline-block;

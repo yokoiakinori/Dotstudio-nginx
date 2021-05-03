@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="info flexRowAlignCenter">
+        <div class="info flexRowAlignCenter margin1-5_side">
             <i class="fas fa-tag"></i>
             <h3>
                 <span>{{ searchTag }}</span> の検索結果
@@ -77,7 +77,6 @@ export default {
 .info {
     height: 80px;
     position: relative;
-    margin: 0 15px;
 }
 span {
     font-size: 25px;

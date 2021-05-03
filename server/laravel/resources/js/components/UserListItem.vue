@@ -10,13 +10,14 @@
                 <button
                     @click="follow(user.id)"
                     v-show="!followees.includes(user.id)"
+                    class="margin1_top"
                 >
                     フォローする
                 </button>
                 <button
                     @click="unfollow(user.id)"
                     v-show="followees.includes(user.id)"
-                    class="unfollow"
+                    class="unfollow margin1_top"
                 >
                     フォロー解除
                 </button>
@@ -119,7 +120,6 @@ export default {
     }
 }
 button {
-    margin-top: 10px;
     transition-duration: 0.3s;
     border: solid 1px $maincolor;
     padding: 5px 15px;

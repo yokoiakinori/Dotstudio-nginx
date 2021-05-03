@@ -1,12 +1,12 @@
 <template>
-    <div v-if="product" class="productDetail flexRow">
+    <div v-if="product" class="productDetail flexRow margin1-5_top">
         <Product :product="product" :productstyle="productStyle" />
-        <div class="productInformation">
-            <div class="flexRowSpaceBetween">
+        <div class="productInformation margin1-5_top">
+            <div class="flexRowSpaceBetween margin1_top">
                 <h2>{{ product.productname }}</h2>
                 <p class="date">作成日：{{ product.created_at }}</p>
             </div>
-            <ul class="flexRow">
+            <ul class="flexRow margin2_top">
                 <li
                     v-for="tag in product.producttags"
                     :key="tag.id"
@@ -22,8 +22,9 @@
                 @click="addMaterialNotification"
                 :state="'detail'"
                 :product="product"
+                class="margin2_top"
             />
-            <ul class="flexRow">
+            <ul class="flexRow margin2_top">
                 <li
                     v-for="material in product.usedmaterial"
                     :key="material.id"
@@ -35,15 +36,18 @@
                 </li>
             </ul>
             <div class="evaluations">
-                <ThumbnailImage :user="product.user" class="thumbnail" />
-                <p>
+                <ThumbnailImage
+                    :user="product.user"
+                    class="thumbnail margin1-5_right"
+                />
+                <p class="margin3_right">
                     <i class="fas fa-heart heartIcon"></i
                     >{{ product.likes_count }}
                 </p>
                 <p><i class="fas fa-eye"></i>{{ product.countview }}</p>
             </div>
         </div>
-        <div class="comments">
+        <div class="comments margin3_side">
             <h2>Comments</h2>
             <ul v-if="product.comments.length > 0">
                 <CommentListItem
@@ -53,7 +57,7 @@
                     class="commentItem"
                 />
             </ul>
-            <p v-else>まだコメントはありません。</p>
+            <p v-else class="margin1-5_bottom">まだコメントはありません。</p>
             <form
                 v-if="isLogin"
                 @submit.prevent="addComment"
@@ -66,7 +70,10 @@
                         </li>
                     </ul>
                 </div>
-                <textarea v-model="commentContent"></textarea>
+                <textarea
+                    v-model="commentContent"
+                    class="margin2_bottom"
+                ></textarea>
                 <div>
                     <button type="submit" class="capsuleButton">
                         コメントをつける
@@ -192,14 +199,9 @@ export default {
 .productInformation {
     width: 420px;
     height: 400px;
-    margin-top: 15px;
 }
 .comments {
-    margin: 0 30px;
     width: 450px;
-    p {
-        margin-bottom: 15px;
-    }
 }
 .commentForm {
     background-color: white;
@@ -212,7 +214,6 @@ export default {
         height: 85px;
         border: solid 1.5px rgba($color: $maincolor, $alpha: 0.6);
         border-radius: 5px;
-        margin-bottom: 20px;
     }
 }
 .commentItem {
@@ -222,15 +223,11 @@ export default {
 .evaluations {
     display: flex;
     align-items: center;
-    a {
-        margin-right: 15px;
-    }
     i {
         margin-right: 5px;
     }
     p {
         font-size: 16px;
-        margin-right: 30px;
     }
 }
 </style>
