@@ -2,8 +2,8 @@
     <div class="wrapper flexRowCenter" :style="requeststyle">
         <div class="roundSquareShadow card flexColumnStart">
             <RouterLink :to="`/request/${request.id}`"></RouterLink>
-            <h4>{{ request.title }}</h4>
-            <p>{{ request.contents }}</p>
+            <h4>{{ abridgementRequestTitle }}</h4>
+            <p>{{ abridgementRequestContent }}</p>
         </div>
     </div>
 </template>
@@ -13,6 +13,30 @@ export default {
     props: {
         request: {},
         requeststyle: { width: 0 }
+    },
+    computed: {
+        abridgementRequestTitle() {
+            if (this.request.title.length >= 14) {
+                const abridgementRequestTitle = this.request.title.substr(
+                    0,
+                    13
+                );
+                return `${abridgementRequestTitle}…`;
+            } else {
+                return this.request.title;
+            }
+        },
+        abridgementRequestContent() {
+            if (this.request.contents.length >= 14) {
+                const abridgementRequestContent = this.request.contents.substr(
+                    0,
+                    13
+                );
+                return `${abridgementRequestContent}…`;
+            } else {
+                return this.request.contents;
+            }
+        }
     }
 };
 </script>

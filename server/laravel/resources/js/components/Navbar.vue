@@ -99,9 +99,7 @@ export default {
                 password: "dotstudioGUEST"
             };
             await this.$store.dispatch("auth/login", guestCredential);
-            if (this.apiStatus) {
-                this.$router.push("/");
-            }
+            this.$router.push("/");
         }
     }
 };

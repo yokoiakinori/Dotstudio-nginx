@@ -25,6 +25,24 @@ __webpack_require__.r(__webpack_exports__);
     requeststyle: {
       width: 0
     }
+  },
+  computed: {
+    abridgementRequestTitle: function abridgementRequestTitle() {
+      if (this.request.title.length >= 14) {
+        var abridgementRequestTitle = this.request.title.substr(0, 13);
+        return "".concat(abridgementRequestTitle, "\u2026");
+      } else {
+        return this.request.title;
+      }
+    },
+    abridgementRequestContent: function abridgementRequestContent() {
+      if (this.request.contents.length >= 14) {
+        var abridgementRequestContent = this.request.contents.substr(0, 13);
+        return "".concat(abridgementRequestContent, "\u2026");
+      } else {
+        return this.request.contents;
+      }
+    }
   }
 });
 
@@ -104,9 +122,9 @@ var render = function() {
         [
           _c("RouterLink", { attrs: { to: "/request/" + _vm.request.id } }),
           _vm._v(" "),
-          _c("h4", [_vm._v(_vm._s(_vm.request.title))]),
+          _c("h4", [_vm._v(_vm._s(_vm.abridgementRequestTitle))]),
           _vm._v(" "),
-          _c("p", [_vm._v(_vm._s(_vm.request.contents))])
+          _c("p", [_vm._v(_vm._s(_vm.abridgementRequestContent))])
         ],
         1
       )

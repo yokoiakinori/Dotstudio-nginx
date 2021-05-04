@@ -2368,9 +2368,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this.$store.dispatch("auth/login", guestCredential);
 
               case 3:
-                if (_this.apiStatus) {
-                  _this.$router.push("/");
-                }
+                _this.$router.push("/");
 
               case 4:
               case "end":
