@@ -50,4 +50,7 @@ form {
 h3 {
     margin-bottom: 40px;
 }
+button {
+    cursor: pointer;
+}
 </style>

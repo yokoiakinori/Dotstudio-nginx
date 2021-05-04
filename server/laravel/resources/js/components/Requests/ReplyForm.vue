@@ -1,5 +1,5 @@
 <template>
-    <form class="margin3_top" action @submit.prevent="submitReply">
+    <form class="margin3_top flexColumn" action @submit.prevent="submitReply">
         <button
             class="solidSquareButton"
             @click="modalToggle"
@@ -23,7 +23,7 @@
                 @formEnter="currentProduct"
             >
                 <h2>プロダクト一覧</h2>
-                <ul>
+                <ul class="margin2_vertical">
                     <li
                         v-for="(product, index) in products"
                         :key="index"
@@ -38,7 +38,7 @@
                 </ul>
             </ModalWindow>
         </transition>
-        <label for="reply-comment">コメント</label>
+        <label for="reply-comment" class="margin1_bottom">コメント</label>
         <textarea
             class="form__item"
             v-model="replyForm.comment"

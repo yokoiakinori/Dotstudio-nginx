@@ -1075,7 +1075,7 @@ var render = function() {
   return _c(
     "form",
     {
-      staticClass: "margin3_top",
+      staticClass: "margin3_top flexColumn",
       attrs: { action: "" },
       on: {
         submit: function($event) {
@@ -1122,6 +1122,7 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "ul",
+                    { staticClass: "margin2_vertical" },
                     _vm._l(_vm.products, function(product, index) {
                       return _c(
                         "li",
@@ -1154,7 +1155,11 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("label", { attrs: { for: "reply-comment" } }, [_vm._v("コメント")]),
+      _c(
+        "label",
+        { staticClass: "margin1_bottom", attrs: { for: "reply-comment" } },
+        [_vm._v("コメント")]
+      ),
       _vm._v(" "),
       _c("textarea", {
         directives: [
