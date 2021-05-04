@@ -65,13 +65,11 @@ export default {
 @import "../../sass/common.scss";
 .wrapper {
     width: 100%;
-    margin: 0 auto;
     a {
         margin-bottom: 15px;
     }
 }
 .requestsList {
-    margin: 0 auto;
     width: 900px;
     margin-bottom: 30px;
 }
