@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreRequest;
 use App\MaterialRequest;
 use App\RequestReply;
-use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
@@ -73,9 +72,7 @@ class MaterialRequestController extends Controller
     {
         $material_request = MaterialRequest::where('id', $id)->with(['user' => function ($query) {
             $query->with('userthumbnail');
-        }, 'requestreplies' => function ($query) {
-            $query->with('product');
-        }])->first();
+        }, 'requestreplies.product'])->first();
         return $material_request ?? abort(404);
     }
 }
