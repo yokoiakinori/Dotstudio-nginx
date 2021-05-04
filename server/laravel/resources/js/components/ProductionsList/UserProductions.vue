@@ -56,7 +56,7 @@
             >
                 <span class="margin1_right">＋</span>ここをクリックで新規作成
             </li>
-            <li class="pagination UserProductions__list">
+            <li class="pagination margin1-5_top flexRowAlignCenter">
                 <Pagination
                     :current-page="currentPage"
                     :last-page="lastPage"
@@ -235,8 +235,11 @@ div {
         list-style: none;
         display: flex;
         align-items: center;
-        border-top: solid 1.2px $maincolor;
+        border-bottom: solid 1.2px $maincolor;
         transition-duration: 0.3s;
+        &:first-child {
+            border-top: solid 1.2px $maincolor;
+        }
     }
     &__item {
         justify-content: space-between;
