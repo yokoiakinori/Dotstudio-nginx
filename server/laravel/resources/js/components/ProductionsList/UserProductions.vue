@@ -1,7 +1,7 @@
 <template>
     <div>
         <transition>
-            <modalWindow
+            <ModalWindow
                 v-if="modalWindowCheck"
                 @closeModal="modalToggle"
                 @formEnter="createProduction"
@@ -19,7 +19,7 @@
                         <ProductTag :message="productTag"></ProductTag>
                     </li>
                 </ul>
-            </modalWindow>
+            </ModalWindow>
         </transition>
         <ul class="UserProductions flexRowLeft" v-if="productListLength > 0">
             <li
@@ -30,7 +30,7 @@
                     'UserProductions--active':
                         currentProduct === product.uniquekey
                 }"
-                class="UserProductions__list UserProductions__item"
+                class="UserProductions__list UserProductions__item padding_side2_vertical1"
             >
                 <p class="UserProductions__item__name">
                     {{ product.productname }}
@@ -52,9 +52,9 @@
                 id="createProduction"
                 @click="modalToggle"
                 v-if="this.currentPage == this.lastPage"
-                class="UserProductions__list"
+                class="UserProductions__list padding1"
             >
-                <span>＋</span>ここをクリックで新規作成
+                <span class="margin1_right">＋</span>ここをクリックで新規作成
             </li>
             <li class="pagination UserProductions__list">
                 <Pagination
@@ -71,8 +71,7 @@
 import ModalWindow from "../ModalWindow.vue";
 import Pagination from "../Pagination.vue";
 import ProductTag from "../ProductTag.vue";
-import Axios from "axios";
-import { OK, CREATED } from "../../util";
+import { CREATED } from "../../util";
 export default {
     components: {
         ModalWindow,
@@ -227,26 +226,19 @@ div {
 }
 .UserProductions {
     width: 100%;
-    height: 220px;
     margin: 0;
     padding: 0;
     display: flex;
     &__list {
         font-size: 18px;
         width: 100%;
-        height: 20%;
         list-style: none;
         display: flex;
         align-items: center;
         border-top: solid 1.2px $maincolor;
         transition-duration: 0.3s;
-
-        span {
-            margin: 0 20px;
-        }
     }
     &__item {
-        padding: 0 20px;
         justify-content: space-between;
         &__name {
             font-size: 17px;

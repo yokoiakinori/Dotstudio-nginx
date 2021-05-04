@@ -98,3 +98,8 @@ $magnification4:4;
 .padding3_right{
     padding-right: sizeAdjustment($magnification3);
 };
+
+
+.padding_side2_vertical1{
+    padding: sizeAdjustment($magnification1) sizeAdjustment($magnification2);
+};

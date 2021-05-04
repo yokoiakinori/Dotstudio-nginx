@@ -1,6 +1,6 @@
 <template>
-    <div id="overlay" class="flexRowCenter" @click="closeModal">
-        <form id="window" @click="stopClose" @submit.prevent="formEnter">
+    <div id="overlay" class="flexRowCenter" @click.stop="closeModal">
+        <form id="window" @click.stop @submit.prevent="formEnter">
             <slot></slot>
             <div class="flexRowSpaceBetween">
                 <button @click="closeModal">キャンセル</button>
@@ -16,9 +16,6 @@ export default {
         closeModal() {
             this.$emit("closeModal");
         },
-        stopClose() {
-            event.stopPropagation();
-        },
         formEnter() {
             this.$emit("formEnter");
         }
@@ -29,7 +26,7 @@ export default {
 <style lang="scss" scoped>
 @import "../../sass/common.scss";
 #overlay {
-    z-index: 1;
+    z-index: 30;
     position: fixed;
     top: 0;
     left: 0;
@@ -38,7 +35,7 @@ export default {
     background: rgba(0, 0, 0, 0.7);
 }
 #window {
-    z-index: 901;
+    z-index: 40;
     width: 40%;
     height: 70%;
     padding: 40px;
@@ -56,6 +53,7 @@ button {
     color: $maincolor;
     font-size: 18px;
     border-radius: 5px;
+    cursor: pointer;
 }
 .decision {
     background-color: $maincolor;
